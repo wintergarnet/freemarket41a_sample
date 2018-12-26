@@ -11,10 +11,16 @@ a:-webkit-any-link {
 h2{
   font-size: 22px;
   line-height: 1.4;
+  font-weight: bold;
 }
 
 nav ul{
   list-style: none;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
 a{

@@ -1,3 +1,9 @@
+.footer-wrapper{
+  padding: 40px 20px;
+  background-color: #212121;
+  color: #fff;
+}
+
 .footer-wrapper li{
   color: #333;
 }
@@ -7,5 +13,19 @@
   &__head{
     color: #fff;
     font-size: 16px;
+  }
+  li:first-child{
+    margin: 24px 0 0;
+  }
+  li{
+    margin: 16px 0 0;
+    a{
+      color: #fff;
+      font-size: 14px;
+    }
+    img{
+      width: 22px;
+      margin: 0 8px 0 0;
+    }
   }
 }
