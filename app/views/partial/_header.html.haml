@@ -1,0 +1,40 @@
+.header
+  .header-inner
+    .header-inner__upper.clearfix
+      %h1.header-inner__upper-logo
+        %a{href:"/"}
+          %img{src: "assets/logo.svg", alt:"mer", width:"134", height:"36"}
+      .header-inner__upper-search-form
+        %input{type:"search", placeholder:"キーワードから探す"}
+        -# = form_for  do |f|
+          = f.text_field :content, class: 'form-control', placeholder: 'キーワードから探す'
+        %i.fas.fa-search
+
+
+    .header-inner__lower.clearfix
+      %nav.header-inner__lower-nav
+        %ul.header-inner__lower-left-content
+          %li
+            %h2
+              %a.header-inner__lower-left-content-category{href:"/"} カテゴリーから探す
+          %li
+            %h2
+              %a.header-inner__lower-left-content-bland{href:"/"} ブランドから探す
+
+
+      .header-inner__lower-right-content
+        %ul.header-inner__lower-right-content-nav
+          %li
+            %a.header-inner__lower-right-content-user{href:"/"}
+              %figure
+                %div
+                  %img{src: "assets/light-bulb.jpg", width:"32"}
+              %div マイページ
+          %li
+            %a.header-inner__lower-right-content-notification{href:"/"}
+              %i.far.fa-bell
+              %span お知らせ
+          %li
+            %a.header-inner__lower-right-content-todo{href:"/"}
+              %i.fas.fa-check
+              %span やることリスト
