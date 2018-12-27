@@ -31,3 +31,10 @@
     }
   }
 }
+
+.footer__logo{
+  @include margin();
+}
+.footer__copyright{
+  @include margin($margin:8px 0 0);
+}

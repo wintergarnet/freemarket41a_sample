@@ -46,6 +46,12 @@
   color: $color;
 }
 
+@mixin margin($display: block, $margin: 40px 0 0, $text-align: center){
+  display: $display;
+  margin: $margin;
+  text-align: $text-align;
+}
+
 @mixin items-box-name-after-semitransparent{
   display: block;
   content: '';
