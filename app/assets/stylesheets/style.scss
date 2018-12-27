@@ -1,9 +1,16 @@
 *{
   font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  text-align: left;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
+body{
+  font-size: 14px;
+}
 a:-webkit-any-link {
-    color: -webkit-link;
+    // color: -webkit-link;
     cursor: pointer;
     text-decoration: underline;
 }
@@ -11,6 +18,10 @@ a:-webkit-any-link {
 h2{
   font-size: 22px;
   line-height: 1.4;
+  font-weight: bold;
+}
+
+h3{
   font-weight: bold;
 }
 
@@ -24,12 +35,19 @@ li {
 }
 
 a{
+  color: $LINK_BLUE;
   text-decoration: none !important;
 }
 
 img{
   vertical-align: middle;
 }
+.lazyloaded{
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+
 
 input[type='search'] {
     -webkit-appearance: none;
