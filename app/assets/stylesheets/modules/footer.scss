@@ -1,29 +1,26 @@
 .footer-wrapper{
   padding: 40px 20px;
-  background-color: #212121;
-  color: #fff;
+  background-color: $FOOTER_BACKGROUND;
+  color:$WHITE;
 }
 
 .footer-wrapper li{
-  color: #333;
+  color: $BLACK;
 }
 
 .footer-content{
   margin: 40px auto 0;
   &__head{
-    color: #fff;
-    font-size: 16px;
+    @include font(16px, bold, $WHITE);
     text-align: center;
   }
   li:first-child{
     margin: 24px 0 0;
   }
   li{
-    margin: 16px 0 0;
-    text-align: center;
+    @include margin($margin: 16px 0 0);
     a{
-      color: #fff;
-      font-size: 14px;
+      @include font(14px, 400, $WHITE);
     }
     img{
       width: 22px;
