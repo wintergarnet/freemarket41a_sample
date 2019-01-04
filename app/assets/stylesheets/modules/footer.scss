@@ -1,0 +1,37 @@
+.footer-wrapper{
+  padding: 40px 20px;
+  background-color: $FOOTER_BACKGROUND;
+  color:$WHITE;
+}
+
+.footer-wrapper li{
+  color: $BLACK;
+}
+
+.footer-content{
+  margin: 40px auto 0;
+  &__head{
+    @include font(16px, bold, $WHITE);
+    text-align: center;
+  }
+  li:first-child{
+    margin: 24px 0 0;
+  }
+  li{
+    @include margin($margin: 16px 0 0);
+    a{
+      @include font(14px, 400, $WHITE);
+    }
+    img{
+      width: 22px;
+      margin: 0 8px 0 0;
+    }
+  }
+}
+
+.footer__logo{
+  @include margin();
+}
+.footer__copyright{
+  @include margin($margin:8px 0 0);
+}

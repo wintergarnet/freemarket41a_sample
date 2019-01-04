@@ -1,0 +1,40 @@
+.content{
+  background-image: url("/assets/top-banner-kusanagi.jpg");
+  height: 390px;
+}
+.pickup-items__wrapper{
+  padding: 20px 0 0 0;
+  background: $MAIN_BACKGROUND;
+  &-head{
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+//partial/pickup-itemsのscss
+.pickup-items__container{
+  @include clearfix;
+  &-head{
+    font-size: 18px;
+    margin: 26px 11px;
+  }
+  &-head{
+    text-align: center;
+    a{
+      color: $LINK_BLUE;
+    }
+  }
+}
+.pickup-items__content{
+  @include clearfix;
+  width: 92%;
+  margin: 0 auto;
+}
+
+
+.pickup-items__view-all{
+  @include font(14px,$color: $LINK_BLUE);
+  padding: 0 0 30px;
+  text-align: right;
+  width: 91%;
+}

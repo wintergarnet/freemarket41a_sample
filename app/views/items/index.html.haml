@@ -1,0 +1,19 @@
+= render 'partial/header'
+
+.main__wrapper
+  %section.owl
+  .content{width:"1440px"}
+    %a.kusanagi{href:"/"}
+
+  %section.pickup-items__wrapper
+    %h2.pickup-items__wrapper-head
+      ピックアップカテゴリー
+      =render 'partial/pickup-items'
+  %section.pickup-items__wrapper
+    %h2.pickup-items__wrapper-head
+      ピックアップブランド
+      =render 'partial/pickup-items'
+
+= render 'partial/footer-banner'
+= render 'partial/footer'
+= render 'partial/sell_btn'
