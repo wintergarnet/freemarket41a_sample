@@ -1,0 +1,35 @@
+@media screen and (min-width: 768px){
+  .pickup-items__wrapper{
+    padding: 40px 0;
+    &-head{
+      font-size: 28px;
+    }
+  }
+  .pickup-items__container{
+    width: 700px;
+    margin: 0 auto;
+    &-head{
+      font-size: 22px;
+    }
+  }
+  .pickup-items__content{
+    width: auto;
+  }
+
+  .pickup-items__view-all{
+    padding: 20px 0 30px;
+    width: 99.5%;
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .pickup-items__container{
+    width: 940px;
+  }
+  .pickup-items__box{
+    // width: 188px;
+    &-price{
+      font-size: 20px;
+    }
+  }
+}
