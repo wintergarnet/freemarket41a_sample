@@ -1,12 +1,13 @@
 @import "../mixin/mixin.scss";
 
+//PC_ver
 .header{
-  display: block;
+  display: none;
   position: relative;
   z-index: 1001;
   background: $WHITE;
   &-inner{
-    width: 1020px;
+    width: 700px;
     margin: 0 auto;
     padding: 8px 0 0;
     &__upper{
@@ -120,4 +121,107 @@
 }
 .fa-check{
   font-size: 17px;
+}
+
+
+//Smartphone_ver
+.sp-header{
+  height: 140px;
+  position: relative;
+  z-index: 1001;
+  background: $WHITE;
+  &-inner{
+    position: relative;
+    padding: 6px 10px 0;
+    @include clearfix;
+    &__logo{
+      float: left;
+      opacity: 1;
+      a{
+        display: block;
+        color: $BLACK;
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+    &__user{
+      float: right;
+      margin: 4px 0 0;
+      &-icon{
+        display: block;
+        color: $BLACK;
+        font-size: 0;
+        opacity: 1;
+        figure{
+          @include margin(inline-block, 0 auto);
+          position: relative;
+          width: 32px;
+          height: 32px;
+          vertical-align: middle;
+          div{
+            height: 32px;
+            overflow: hidden;
+            border-radius: 50%;
+            img{
+              height: 32px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  &__search{
+    height: 44px;
+    position: relative;
+    margin-top: 8px;
+    input{
+      background: $SP_GRAY;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      height: 38px;
+      width: calc(100% - 20px);
+      margin: 0 10px;
+      padding: 0 10px;
+      margin-top: 2px;
+    }
+    .fa-search{
+      position: absolute;
+      top: 2px;
+      right: 10px;
+      width: 36px;
+      line-height: 38px;
+      text-align: center;
+    }
+  }
+
+    &__lower{
+      &-nav{
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        height: 44px;
+        line-height: 42px;
+
+        a{
+          @include margin(inline-block,0,center);
+          position: relative;
+          width: 50%;
+          color: $BLACK;
+        }
+        a:first-child::after{
+          background-color: $SP_GRAY;
+          content: "";
+          display: block;
+          height: 34px;
+          position: absolute;
+          top: 4px;
+          right: 0;
+          width: 1px;
+          border-style: solid;
+          border-width: 0;
+        }
+      }
+    }
+  }
 }

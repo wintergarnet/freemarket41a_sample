@@ -1,0 +1,38 @@
+//sp
+@media screen and (min-width: 375px){
+  .sp-header-inner{
+    padding: 6px 16px 0;
+    &-logo{
+      padding-top: 1px;
+      width: 135px;
+      height: 39px;
+    }
+  }
+}
+
+//pc
+@media screen and (min-width: 768px){
+  .header{
+    display: block;
+  }
+}
+//sp
+@media screen and (min-width: 768px){
+  .sp-header{
+    display: none;
+  }
+}
+
+//pc
+@media screen and (min-width: 1068px){
+  .header-inner{
+    width: 1020px;
+  }
+}
+
+//sp
+@media screen and (min-width: 1068px){
+  .sp-header-inner{
+    width: 1020px;
+  }
+}

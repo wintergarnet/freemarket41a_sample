@@ -1,3 +1,5 @@
+//pc
+
 .header
   .header-inner
     .header-inner__upper.clearfix
@@ -38,3 +40,28 @@
             %a.header-inner__lower-right-content-todo{href:"/"}
               %i.fas.fa-check
               %span やることリスト
+
+
+// sp
+
+.sp-header
+  .sp-header-inner.clearfix
+    %h1.sp-header-inner__logo
+      %a{href:"/"}
+        %img{src: "assets/logo.svg", alt:"mer", width:"134", height:"36"}
+    .sp-header-inner__user.clearfix
+      %a.sp-header-inner__user-icon{href:"/"}
+        %figure
+          %div
+            %img{src: "assets/light-bulb.jpg", width:"32"}
+  .sp-header-inner__search
+    %form.sp-header-inner__search-form
+      %input{type:"search", placeholder:"何をお探しですか"}
+        -# = form_for  do |f|
+          = f.text_field :content, class: 'form-control', placeholder: 'キーワードから探す'
+      %i.fas.fa-search
+
+
+  %nav.sp-header-inner__lower-nav
+    %a.sp-header-inner__lower-left-content-category{href:"/"} カテゴリーから探す
+    %a.sp-header-inner__lower-left-content-bland{href:"/"} ブランドから探す
