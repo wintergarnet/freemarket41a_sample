@@ -46,13 +46,12 @@
 .sp-header
   .sp-header-inner.clearfix
     %h1.sp-header-inner__logo
-      %a{href:"/"}
-        %img{src: "assets/logo.svg", alt:"mer", width:"134", height:"36"}
+      = link_to image_tag("logo.svg", alt:"mer", width: "134", height: "36"),root_path
     .sp-header-inner__user.clearfix
       %a.sp-header-inner__user-icon{href:"/"}
         %figure
           %div
-            %img{src: "assets/light-bulb.jpg", width:"32"}
+            = image_tag "light-bulb.jpg", width: "32"
   .sp-header-inner__search
     %form.sp-header-inner__search-form
       %input{type:"search", placeholder:"何をお探しですか"}
