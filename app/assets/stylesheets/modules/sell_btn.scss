@@ -6,10 +6,11 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #ea352d;
-    color: #fff !important;
+    background: $MAIN_RED;
+    color: $WHITE !important;
     text-align: center;
-    & div{
+    &-content{
+      text-align: center;
       margin: 14px 0 0;
     }
     .fa-camera{

@@ -1,13 +1,18 @@
 @import "./reset";
+@import "./config/colors.scss";
+@import "./mixin/mixin.scss";
 @import "./style";
 @import "./devisepage";
 @import "./modules/header.scss";
+@import "./modules/main_content.scss";
+@import "./modules/item_box.scss";
+@import "./modules/footer_banner.scss";
 @import "./modules/footer.scss";
-@import "./responsive/footer.scss";
 @import "./modules/sell_btn.scss";
-@import "./responsive/sell_btn.scss";
 
-.content{
-  background-image: url("/assets/top-banner-kusanagi.jpg");
-  height: 390px;
-}
+@import "./responsive/header.scss";
+@import "./responsive/main_content.scss";
+@import "./responsive/item_box.scss";
+@import "./responsive/footer_banner.scss";
+@import "./responsive/footer.scss";
+@import "./responsive/sell_btn.scss";

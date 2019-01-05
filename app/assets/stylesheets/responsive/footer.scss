@@ -1,8 +1,25 @@
 @media screen and (min-width: 768px){
+  .footer-wrapper{
+    padding: 60px 0;
+    nav {
+      width: 1020px;
+      margin: 0 auto;
+    }
+  }
   .footer-content{
-    display: inline-block;
+    @include margin(inline-block, 0 2% 0 0, center);
     width: 23%;
-    margin: 0 2% 0 0;
     vertical-align: top;
+    &:last-child{
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .footer-wrapper{
+    nav{
+      width: 1020px;
+    }
   }
 }
