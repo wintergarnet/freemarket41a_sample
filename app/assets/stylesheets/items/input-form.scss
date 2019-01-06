@@ -13,6 +13,7 @@
 .input-area-default{
   display: block;
   width: 100%;
+  margin: 8px 0 0;
   max-width: 100%;
   min-height: 104px;
   padding: 10px;
@@ -27,5 +28,4 @@
 
 .input-area{
   @extend .input-area-default;
-
 }

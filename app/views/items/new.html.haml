@@ -15,18 +15,16 @@
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
               //後から複数アップロードできるように実装
-              .image-upload-dropbox__container
+              .image-upload-dropbox__container.clearfix
                 .image-upload-dropbox__uploaded-items-container
-                  .image-upload-dropbox__form
-                    = f.file_field :image, style: "display: none", class: "uploaded-files"
+                  %label.image-upload-dropbox__form
+                    = f.file_field :image, style: "display: none", class: "file-upload"
                     %pre.image-upload-dropbox__form-note
                       ドラッグ&ドロップ
                       またはクリックしてファイルをアップロード
             .sell-container-inner__content
-              %h3.sell-container-inner__content-head 商品の詳細
-              .sell-container-inner__content-box
-                = render partial: "partial/forms/input-field", locals:{ label_name:"商品名", column: :name, placeholder: "商品名（必須40文字まで）", maxlength: 40}
-                = render partial: "partial/forms/input-area", locals:{ label_name:"商品の説明", column: :name, placeholder: "商品名の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など） 例）2010年頃に100万円で購入した宇宙服です。ZOZOの社長も欲しがると思います。今なら船外活動に便利なテザーもおつけします。",rows: 5, maxlength: 40}
+              = render partial: "partial/forms/input-field", locals:{ label_name:"商品名", column: :name, placeholder: "商品名（必須40文字まで）", maxlength: 40}
+              = render partial: "partial/forms/input-area", locals:{ label_name:"商品の説明", column: :name, placeholder: "商品名の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など） 例）2010年頃に100万円で購入した宇宙服です。ZOZOの社長も欲しがると思います。今なら船外活動に便利なテザーもおつけします。",rows: 5, maxlength: 40}
             .sell-container-inner__content.clearfix
               %h3.sell-container-inner__content-head 商品の詳細
               .sell-container-inner__content-box

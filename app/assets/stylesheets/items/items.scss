@@ -1,16 +1,83 @@
-.sell-container-inner__content{
-  padding: 40px;
-  border-top: 1px solid $SP_GRAY;
-  @include clearfix;
-  .sell-container-inner__content-head{
-    float: left;
-    color: $GRAY;
-    font-size: 14px;
+.sell-container-inner{
+  &__head{
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    border-bottom: 1px solid $SP_GRAY;
   }
-  .sell-container-inner__content-box{
+  &__content{
+    padding: 40px;
+    border-top: 1px solid $SP_GRAY;
+    @include clearfix;
+    &-head{
+      float: left;
+      color: $GRAY;
+      font-size: 14px;
+    }
+    &-box{
+      float: right;
+      width: 400px;
+      margin: 0;
+    }
+  }
+
+}
+.image-upload{
+  //TODO: height修正
+  height: 300px;
+  width: 620px;
+  padding: 40px;
+  &-head{
+    font-size: 16px;
+    .form-require{
+      background-color: $MAIN_RED;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: $WHITE;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  }
+  p {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+  &-dropbox__container{
+    @include clearfix;
+    display: block;
+    width: 620px;
+    margin: 16px auto 0;
+  }
+  &-dropbox__form{
+    width: 100%;
+    margin-left: 0;
     float: right;
-    width: 400px;
-    margin: 0;
+    padding: 40px;
+    position: relative;
+    min-height: 162px;
+    background: $FILE_INPUT_BACKGROUND;
+    border: 1px dashed $BORDER_GRAY;
+    font-size: 0;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+  }
+  &-dropbox__form-note{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    transform: translate(0, -50%);
+    pointer-events: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: block;
+    overflow: auto;
   }
 }
 .sell-container-inner{
@@ -48,12 +115,18 @@
       width: 100%;
     }
   }
-  &__sell-price-fee__right{
-    float: right;
-  }
-  &__sell-price-profit__right{
-    font-size: 34px;
-    float: right;
+  &__sell-price{
+    &-fee__right{
+      float: right;
+    }
+    &-profit__left{
+      font-weight: 600;
+    }
+    &-profit__right{
+      font-size: 34px;
+      float: right;
+    }
+
   }
 }
 
