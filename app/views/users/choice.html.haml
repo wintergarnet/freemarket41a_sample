@@ -1,23 +1,20 @@
-%body
-  .single-container
-    %header.single-header
-      %h1
-        =link_to image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3942658967",alt: "mercari"),"https://www.mercari.com/jp/"
-    %main.single-main
-      %section.l-single-container
-        %h2.l-single-head 新規会員登録
-        .l-single-inner
-          .l-single-content
-            %button.btn-default.btn-mail
-              %i.far.fa-envelope
-              = link_to "メールアドレスで登録",new_user_registration_path
-            %button#facebook-login.btn-sns.btn-sns-facebook
-              %i.fab.fa-facebook
-              Facebookで登録
-            %button#google-login.btn-sns.btn-sns-google
-              %i.fab.fa-google-plus-g
-              Googleで登録
+= render "devise/shared/header"
 
-    =render "devise/shared/footer"
+%main.single-main
+  %section.reg-single-container
+    %h2.reg-single-head 新規会員登録
+    .reg-single-inner
+      .reg-single-content
+        %button.btn-default.btn-mail
+          %i.far.fa-envelope
+          = link_to "メールアドレスで登録",new_user_registration_path
+        %button#facebook-signup.btn-sns.btn-sns-facebook
+          %i.fab.fa-facebook
+          = link_to "Facebookで登録"
+        %button#google-signup.btn-sns.btn-sns-google
+          %i.fab.fa-google-plus-g
+          = link_to "Googleで登録"
+
+= render "devise/shared/footer"
 
 
