@@ -1,0 +1,28 @@
+.select-wrapper{
+  position: relative;
+  background-color: $WHITE;
+  select{
+    width: 100%;
+  }
+  .select-form{
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid $BORDER_GRAY;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .icon{
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: $GRAY;
+    font-size: 24px;
+    transform: translate(0, -50%);
+  }
+}
