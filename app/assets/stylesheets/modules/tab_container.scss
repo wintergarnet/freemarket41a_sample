@@ -1,0 +1,123 @@
+.mypage-main__tab-container{
+	  float: right;
+    width: 700px;
+    padding: 0;
+    display: block;
+    height: 100%;
+}
+.mypage-tab-container{
+  background: $WHITE;
+  min-height: 400px;
+  margin-bottom: 40px;
+
+	.tabs {
+		background-color: $WHITE;
+		width: 700px;
+		margin: 0 auto;
+	}
+
+	.tab_item {
+		width: calc(100%/2);
+		height: 74px;
+		background-color: $SP_GRAY;
+		line-height: 74px;
+		font-size: 14px;
+		text-align: center;
+		color: $BLACK;
+		display: block;
+		float: left;
+		text-align: center;
+		font-weight: bold;
+		transition: all 0.2s ease;
+	}
+	.tab_item:hover {
+		opacity: 0.75;
+	}
+/*ラジオボタンを全て消す*/
+	input[name="tab_item"] {
+		display: none;
+	}
+/*タブ切り替えの中身のスタイル*/
+	.tab_content {
+		display: none;
+		clear: both;
+		overflow: hidden;
+		min-height: 236px;
+	}
+	.tab_content_description{
+		position: relative;
+	}
+	.tab_content_link{
+		border-bottom: 1px solid $SP_GRAY;
+		display: block;
+    padding: 16px;
+    color: $BLACK;
+    width:700px;
+		min-height: 80px;
+		padding: 16px;
+  }
+	figure{
+		position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+	.tab_content_image{
+		position: absolute;
+		top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+	}
+	.tab_content_body{
+		margin: 0 40px 0 68px;
+		.tab_content_text{
+			overflow: hidden;
+    	display: block;
+    	max-height: 4.4em;
+    	text-overflow: ellipsis;
+    	line-height: 1.5;
+    }
+  }
+  .tab_content_time{
+    display: inline-block;
+    margin: 5px 40px 0 20px;
+   	color: $GRAY;
+    .far.fa-clock{
+    	margin: 0 10px 0 0;
+    	font-size: 16px;
+    	vertical-align: middle;
+    }
+    .tab_content_day{
+    	vertical-align: middle;
+    }
+  }
+  .fa-angle-right{
+  	position: absolute;
+    top: 45%;
+    right: 30px;
+   }
+
+/*選択されているタブのコンテンツのみを表示*/
+	#all:checked ~ #all_content,
+	#todo:checked ~ #todo_content{
+		display: block;
+	}
+/*選択されているタブのスタイルを変える*/
+	.tabs input:checked + .tab_item {
+		background-color: $WHITE;
+		color: $BLACK;
+		border-top: 3px solid $MAIN_RED;
+	}
+	.mypage-tab-head{
+		height: 70px;
+		background-color: $INPUT_BACKGROUND;
+		.mypage-tab-title{
+			padding: 0 16px;
+    	font-size: 14px;
+    	line-height: 70px;
+		}
+	}
+}

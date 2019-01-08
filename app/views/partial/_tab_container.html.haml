@@ -1,0 +1,22 @@
+.mypage-main__tab-container
+  %section.mypage-tab-container
+    .tabs
+      %input#all{checked:"checked", name:"tab_item", type:"radio"}
+      %label.tab_item{for: "all"} お知らせ
+      %input#todo{name:"tab_item", type:"radio"}
+      %label.tab_item{for: "todo"} やることリスト
+      #all_content.tab_content
+        .tab_content_description
+          %a.tab_content_link{href:"/"}
+            %figure
+              = image_tag "mercari_profile_square.png", class: "tab_content_image"
+            .tab_content_body
+              .tab_content_text
+                有効期限が近づいているポイントがあります。
+            .tab_content_time
+              %i.far.fa-clock
+              %span.tab_content_day
+                1日前
+            %i.fa.fa-angle-right
+      #todo_content.tab_content
+        .tab_content_description
