@@ -1,0 +1,20 @@
+= render "devise/shared/header"
+
+%main.single-main
+  %section.reg-single-container
+    %h2.reg-single-head 新規会員登録
+    .reg-single-inner
+      .reg-single-content
+        %button.btn-default.btn-mail
+          %i.far.fa-envelope
+          = link_to "メールアドレスで登録",new_user_registration_path
+        %button#facebook-signup.btn-sns.btn-sns-facebook
+          %i.fab.fa-facebook
+          = link_to "Facebookで登録"
+        %button#google-signup.btn-sns.btn-sns-google
+          %i.fab.fa-google-plus-g
+          = link_to "Googleで登録"
+
+= render "devise/shared/footer"
+
+
