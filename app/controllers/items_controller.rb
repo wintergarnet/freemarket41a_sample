@@ -5,4 +5,15 @@ class ItemsController < ApplicationController
   def mypage
   end
   
+  def new
+    @item = Item.new
+  end
+
+  def create
+  end
+
+  def show
+    @item = Item.new
+  end
+  
 end
