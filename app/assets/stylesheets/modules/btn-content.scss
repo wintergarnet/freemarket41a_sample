@@ -1,3 +1,14 @@
+.btn-content{
+  .btn-red{
+    @include btn-default;
+    @include btn-red;
+  }
+  .btn-gray{
+    @include btn-default;
+    @include btn-gray;
+  }
+}
+
 .footer__sell-btn {
     position: fixed;
     bottom: -14px;
