@@ -1,0 +1,9 @@
+.form-wrapper
+  %label
+    = label_name
+    %span.form-require
+      必須
+%div
+  .input-wrapper
+    = form_for (@item) do |f|
+      = f.text_area column, class: 'input-area', placeholder: placeholder, rows: rows,maxlength: maxlength
