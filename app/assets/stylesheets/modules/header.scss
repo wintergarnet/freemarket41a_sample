@@ -135,10 +135,10 @@
     padding: 6px 10px 0;
     @include clearfix;
 
-
-    &-logo{
+    &__logo{
       float: left;
       opacity: 1;
+      display: inline-block;
       a{
         display: block;
         color: $BLACK;
@@ -227,4 +227,3 @@
     }
   }
 }
-

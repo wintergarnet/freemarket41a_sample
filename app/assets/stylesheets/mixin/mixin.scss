@@ -52,6 +52,35 @@
   text-align: $text-align;
 }
 
+//btn
+@mixin btn-default{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+@mixin btn-red($margin: 40px 0 0,$background: $MAIN_RED,$border: 1px solid $MAIN_RED, $color: $WHITE){
+  margin: $margin;
+  background: $background;
+  border: $border;
+  color: $color;
+}
+
+@mixin btn-gray($width: 45%,$margin: 24px auto 0,$background: $BTN_GRAY,$border: 1px solid $BTN_GRAY, $color: $WHITE){
+  width: $width;
+  margin: $margin;
+  background: $background;
+  border: $border;
+  color: $color;
+}
+
+
+
 @mixin items-box-name-after-semitransparent{
   display: block;
   content: '';
