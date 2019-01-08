@@ -4,12 +4,12 @@
 
   %main.single-main
     %section
-      .sell-container
-        .sell-container-inner
-          %h2.sell-container-inner__head
+      .common-container
+        .common-container-inner
+          %h2.common-container-inner__head
             住所入力
           = form_for (@item) do |f|
-            .sell-container-inner__content
+            .common-container-inner__content.user-container-inner__content
               = render partial: "partial/forms/input-field", locals:{ label_name:"お名前", column: :name, placeholder: "例）新垣", maxlength: 10}
               = render partial: "partial/forms/input-form", locals:{column: :name, placeholder: "例）結衣", maxlength: 10}
               = render partial: "partial/forms/input-field", locals:{ label_name:"お名前", column: :name, placeholder: "例）アラガキ", maxlength: 12}
@@ -32,17 +32,3 @@
               = render partial: "partial/forms/input-form", locals:{column: :name, placeholder: "例）03-3214-1111", maxlength: 10}
               .btn-content
                 = f.submit '次へ進む', disable_with: '保存中', class: "btn-red"
-%main.single-main
-  %section
-    .sell-container
-      .sell-container-inner
-        %h2.sell-container-inner__head
-          支払い方法
-        = form_for (@item) do |f|
-          .sell-container-inner__content
-            = f.number_field :name, placeholder: "半角数字のみ", class: "input-default", maxlength: "12"
-            = f.number_field :name, placeholder: "半角数字のみ", class: "input-default", maxlength: "12"
-            = f.number_field :name, placeholder: "半角数字のみ", class: "input-default", maxlength: "12"
-            = f.number_field :name, placeholder: "半角数字のみ", class: "input-default", maxlength: "12"
-            .btn-content
-              = f.submit '次へ進む', disable_with: '保存中', class: "btn-red"
