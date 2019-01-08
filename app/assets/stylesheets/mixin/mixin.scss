@@ -113,3 +113,9 @@
   border-top: 3px solid $MAIN_RED;
 }
 
+@mixin border-style{
+  border-style: solid;
+  border-width: 0;
+  display: block;
+}
+
