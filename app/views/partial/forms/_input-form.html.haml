@@ -1,0 +1,4 @@
+%div
+  .input-wrapper
+    = form_for (@item) do |f|
+      = f.text_field column, class: 'input-field', placeholder: placeholder, maxlength: maxlength
