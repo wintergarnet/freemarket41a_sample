@@ -1,9 +1,8 @@
 .single-container
   %header.single-header
-    %h1
-    = link_to image_tag("logo.svg"),root_path
+    %h1= link_to image_tag("logo.svg"),root_path
   %main.single-main
-    %section
+    %section.login-panel
       .sell-container
         .sell-container-inner
           %h2.sell-container-inner__head
@@ -73,3 +72,5 @@
                 %p また、出品を持ちまして加盟店規約に同意したことになります。
               = f.submit '出品する', disable_with: '出品中', class: "btn-red"
               = link_to 'もどる',root_path, class: "btn-gray"
+
+= render 'devise/shared/footer'
