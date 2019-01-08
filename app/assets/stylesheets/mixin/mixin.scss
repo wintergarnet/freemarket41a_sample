@@ -91,3 +91,31 @@
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 72%);
 }
+
+@mixin tabs{
+  width: calc(100%/2);
+  height: 74px;
+  background-color: $SP_GRAY;
+  line-height: 74px;
+  font-size: 14px;
+  text-align: center;
+  color: $BLACK;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+@mixin tabs-checked{
+  background-color: $WHITE;
+  color: $BLACK;
+  border-top: 3px solid $MAIN_RED;
+}
+
+@mixin border-style{
+  border-style: solid;
+  border-width: 0;
+  display: block;
+}
+

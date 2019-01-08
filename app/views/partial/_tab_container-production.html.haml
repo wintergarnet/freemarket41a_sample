@@ -1,0 +1,20 @@
+.mypage-main__tab-container
+	%section.mypage-tab-container-production
+		.mypage-tab-head
+			%h3.mypage-tab-title 購入した商品
+		.tabs
+			%input#trading{checked:"checked", name:"tab_production", type:"radio"}
+			%label.tab_production{for: "trading"} 取引中
+			%input#finished{name:"tab_production", type:"radio"}
+			%label.tab_production{for: "finished"} 過去の取引
+			#trading_content.tab_content
+				.tab_content_description
+					%a.tab_content_link{href:"/"}
+						%figure
+						.tab_content_body
+							.tab_content_text
+						.tab_content_time
+							%span.tab_content_day
+			#finished_content.tab_content
+				.tab_content_description
+

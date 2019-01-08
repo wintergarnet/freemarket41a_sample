@@ -12,6 +12,4 @@ Rails.application.routes.draw do
     post :follow, on: :member
   end
 
-
-
 end
