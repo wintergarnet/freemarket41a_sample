@@ -1,0 +1,85 @@
+.mypage-body{
+  min-width: 1020px;
+  background-color: $MAIN_BACKGROUND;
+}
+.mypage-main{
+  margin: 40px auto 0;
+  width: 1020px;
+  padding: 0 0 40px;
+  display: block;
+  border-style: solid;
+  border-width: 0;
+  background-color: $MAIN_BACKGROUND;
+
+  @include clearfix;
+
+  &__main{
+    float: right;
+    width: 700px;
+    padding: 0;
+    margin-top: 15px;
+    display: block;
+  }
+  .mypage-main__main-user-icon{
+    display: block;
+    height: 200px;
+    position: relative;
+    text-align: center;
+    opacity: 0.8;
+    width:700px;
+    height: 200px;
+    background-size: 700px 200px;
+    background-image: image-url("user_backimage.jpg");
+  }
+  a{
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 0;
+    right: 0;
+    text-decoration: none;
+  }
+
+  figure{
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .mypage-main__main-user-photo{
+    vertical-align: middle;
+  }
+  .mypage-user-icon h2{
+    margin: auto;
+  }
+  .mypage-main__main-user-name{
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    color: $BLACK;
+  }
+  .mypage-main__main-user-activity{
+    margin: 8px 0 0;
+    text-align: center;
+  }
+
+  .mypage-main__main-user-number{
+    font-size: 0;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .main-user-rate{
+    font-size: 14px;
+    color: $BLACK;
+  }
+  .main-user-rate-number{
+    margin: 0 0 0 8px;
+    font-size: 16px;
+    color: $BLACK;
+
+  }
+}
+
+

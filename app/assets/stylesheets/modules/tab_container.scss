@@ -1,0 +1,35 @@
+.mypage-tab-container{
+  background: $WHITE;
+  min-height: 400px;
+  margin-bottom: 40px;
+	.tab_item {
+    @include tabs;
+	}
+	.tab_item:hover {
+		opacity: 0.75;
+	}
+/*ラジオボタンを全て消す*/
+	input[name="tab_item"] {
+		display: none;
+	}
+
+	figure{
+		position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+
+/*選択されているタブのコンテンツのみを表示*/
+	#all:checked ~ #all_content,
+	#todo:checked ~ #todo_content{
+		display: block;
+	}
+/*選択されているタブのスタイルを変える*/
+	.tabs input:checked + .tab_item {
+    @include tabs-checked;
+	}
+}
+
+

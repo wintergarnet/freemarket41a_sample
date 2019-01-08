@@ -1,0 +1,144 @@
+.single-main{
+  section{
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+.common-container-inner{
+  &__head{
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    border-bottom: 1px solid  $SP_GRAY;
+  }
+  &__content{
+    padding: 40px;
+    border-top: 1px solid $SP_GRAY;
+    @include clearfix;
+    &-head{
+      float: left;
+      color: $FONT-GRAY;
+      font-size: 14px;
+    }
+    &-box{
+      float: right;
+      width: 400px;
+      margin: 0;
+    }
+  }
+}
+
+.image-upload{
+  //TODO: height修正
+  height: 300px;
+  width: 100%;
+  padding: 40px;
+  &-head{
+    font-size: 16px;
+    .form-require{
+      background-color: $MAIN_RED;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: $WHITE;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  }
+  p {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+  &-dropbox__container{
+    @include clearfix;
+    display: block;
+    width: 100%;
+    margin: 16px auto 0;
+  }
+  &-dropbox__form{
+    width: 100%;
+    margin-left: 0;
+    float: right;
+    padding: 40px;
+    position: relative;
+    min-height: 162px;
+    background: $FILE_INPUT_BACKGROUND;
+    border: 1px dashed $BORDER_GRAY;
+    font-size: 0;
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+  }
+  &-dropbox__form-note{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    transform: translate(0, -50%);
+    pointer-events: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: block;
+    overflow: auto;
+  }
+}
+.sell-container-inner{
+  &__sell-price{
+    li{
+      padding: 24px 0;
+      border-top: 1px solid $BORDER_GRAY;
+    }
+    li:first-child{
+      padding: 0 0 24px;
+      border: 0;
+    }
+    .clearfix{
+      @include clearfix;
+      label{
+        width: 50%;
+        line-height: 48px;
+        span{
+          @extend label;
+        }
+      }
+    }
+  }
+  &__price-content{
+    width: 50%;
+    text-align: right;
+    float: right;
+    div{
+      @include margin(inline-block, 0 0 0 5%,inherit);
+      width: 80%;
+    }
+    .input-default{
+      margin: 0;
+      text-align: right;
+      width: 100%;
+    }
+  }
+  &__sell-price{
+    &-fee__right{
+      float: right;
+    }
+    &-profit__left{
+      font-weight: 600;
+    }
+    &-profit__right{
+      font-size: 34px;
+      float: right;
+    }
+
+  }
+}
+
+
+.sell-btn-content{
+  p{
+    line-height: 1.5;
+  }
+}
