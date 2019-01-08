@@ -135,12 +135,4 @@
   p{
     line-height: 1.5;
   }
-  .btn-red{
-    @include btn-default;
-    @include btn-red;
-  }
-  .btn-gray{
-    @include btn-default;
-    @include btn-gray;
-  }
 }

@@ -3,6 +3,9 @@
   background-color: $WHITE;
   select{
     width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
   .select-form{
     position: relative;
