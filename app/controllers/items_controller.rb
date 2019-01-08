@@ -15,5 +15,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.new
   end
-  
+
+
+  def edit
+  end
 end
