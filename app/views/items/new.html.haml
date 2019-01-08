@@ -3,6 +3,7 @@
     %h1= link_to image_tag("logo.svg"),root_path
   %main.single-main
     %section
+
       .common-container
         .common-container-inner
           %h2.common-container-inner__head
@@ -24,6 +25,7 @@
             .common-container-inner__content
               = render partial: "partial/forms/input-field", locals:{ label_name:"商品名", column: :name, placeholder: "商品名（必須40文字まで）", maxlength: 40}
               = render partial: "partial/forms/input-area", locals:{ label_name:"商品の説明", column: :name, placeholder: "商品名の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など） 例）2010年頃に100万円で購入した宇宙服です。ZOZOの社長も欲しがると思います。今なら船外活動に便利なテザーもおつけします。",rows: 5, maxlength: 40}
+
             .common-container-inner__content
               %h3.common-container-inner__content-head 商品の詳細
               .common-container-inner__content-box
