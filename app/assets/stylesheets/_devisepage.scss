@@ -1,0 +1,392 @@
+.clearfix{
+    clear: both;
+    padding: 0;
+  }
+
+  .single{
+    &-container{
+      padding: 0 0 220px;
+      height: 1000px;
+      width: 100%;
+      img{
+        width: 185px;
+        height: 49px;
+      }
+    }
+    &-header{
+      height: 128px;
+      text-align: center;
+      overflow: hidden;
+      h1{
+        margin:40px 0 0;
+        width: 193px;
+        height: 49px;
+        display: inline-block;
+      }
+        a{
+          text-align: center;
+          display: inline-block;
+          line-height: center;
+          width: 185px;
+          height: 49px;
+          line-height: 49px;
+          margin: 0 8px 0 0;
+        }
+         img{
+          width: 185px;
+          height: 49px;
+          vertical-align: middle;
+         }
+    }
+    &-single-main{
+      height: 851px;
+      width: 834px;
+    }
+    &-footer{
+      width: 456px;
+      height: 220px;
+      margin: 0 auto;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      text-align: center;
+      &-content{
+        font-size: 12px;
+        display: inline-block;
+        margin: 30px 0 30px 25px;
+        text-align: center;
+        a{
+          display: block;
+          color: $BLACK;
+          text-decoration: none;
+          p{
+          font-size: 12px;
+          }
+        }
+      }
+      &-logo{
+        width: 70px;
+        height: 65px;
+        margin: 5px auto 0;
+        img{
+          width: 80px;
+          height: 50px;
+        }
+      }
+    }
+  }
+
+  .login{
+    &-panel{
+      width: 456px;
+      margin: 0 auto;
+      background: $WHITE;
+    }
+    &-no-account{
+      padding: 40px 64px;
+      text-align: center;
+      border-bottom: solid $MAIN_BACKGROUND;
+      p{
+        font-size: 14px;
+        text-align: center;
+      }
+      a{
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid $LINK_BLUE;
+        background: $LINK_BLUE;
+        color: $WHITE;
+        line-height: 40px;
+        text-decoration: none;
+        text-align: center;
+      }
+    }
+
+    &-form{
+      &-inner{
+        padding: 24px 64px;
+        &-forget{
+          margin: 40px 0 0;
+          a{
+            font-size: 14px;
+            text-decoration: none;
+            color: $LINK_BLUE;
+          }
+        }
+      }
+    }
+    &-input{
+      &-text{
+        box-sizing: border-box;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #GRAY;
+        background: $WHITE;
+        line-height: 1.5;
+        font-size: 16px;
+        margin: 24px 0 0;
+        width: 100%;
+      }
+      &-default{
+      }
+    }
+    &-submit{
+      margin: 24px 0 0;
+      background: $MAIN_RED;
+      border: 1px solid $MAIN_RED;
+      color: $WHITE;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
+    &-captcha{
+      img{
+        width: 320px;
+        height: 100px;
+      }
+    }
+  }
+
+  .form{
+    &-group{
+      width: 100%;
+      margin: 40px 0 0;
+      a {
+        display: block;
+        margin: 40px 0 0;
+        text-decoration: none;
+      }
+      label {
+        font-weight: 600;
+        font-size: 12px;
+      }
+      &-top{
+        margin: 0;
+      }
+    }
+    &-require{
+      background: $MAIN_RED;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: $WHITE;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  }
+
+  .reg{
+    &-single{
+      &-container{
+        width: 700px;
+        margin: 0 auto;
+        background: $WHITE;
+      }
+      &-head{
+        padding: 32px 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+        font-weight: bold;
+        margin: 0px;
+      }
+      &-inner{
+        border-top: 1px solid $MAIN_BACKGROUND;
+        padding: 40px;
+        a{
+          text-decoration: none;
+        }
+      }
+      &-content{
+        max-width: 320px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .btn{
+    &-default{
+    }
+    &-red{
+      background: $MAIN_RED;
+      border: 1px solid $MAIN_RED;
+      margin: 40px 0 0;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+      color: $WHITE;
+    }
+    &-mail{
+      position: relative;
+      background: $SP_GRAY;
+      color: $BLACK;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+      a{
+        color: $BLACK;
+      }
+    }
+    &-sns{
+      &-facebook{
+        background: $FACEBOOK_BACKGROUND;
+        position: relative;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        margin: 16px 0 0 0;
+      }
+      &-google{
+        margin: 16px 0 0;
+        background: $GOOGLE_BACKGROUND;
+        position: relative;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+      }
+       a{
+        color: $WHITE;
+       }
+    }
+  }
+
+  .fa-facebook{
+      color: $WHITE;
+      background: $FACEBOOK_BACKGROUND;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+  }
+
+  .fa-google-plus-g{
+      color: $WHITE;
+      background: $GOOGLE_BACKGROUND;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+  }
+
+  .fa-envelope{
+      color: $GRAY;
+      font-size: 18px;
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+  }
+
+  .flex{
+    &-parent{
+    display: flex;
+    justify-content: center;
+    }
+    &-child{
+      &-img{
+      width: 300px;
+      }
+      &-prog{
+      width: 400px;
+      padding: 70px 0;
+      }
+    }
+  }
+
+  .prog-bar {
+    background: $PROGBAR_BACKGROUND;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    height: 3px;
+    padding: 0;
+    position: relative;
+
+    .prog-unit {
+      flex: auto;
+      position: relative;
+
+      &:first-child {
+        max-width: 0;
+
+        .prog-landmark {
+          right: -30px;
+          width: 60px;
+        }
+      }
+
+      &:before {
+        background: $PROGBAR_BACKGROUND;
+        border-radius: 50%;
+        content: "";
+        display: block;
+        height: 14px;
+        right: -12px;
+        position: absolute;
+        top: -6px;
+        width: 14px;
+      }
+    }
+    .prog-landmark {
+      font-size: 12px;
+      border-radius: 4px;
+      color: $LANDMARK-RED;
+      padding: 4px 0;
+      position: absolute;
+      right: -55%;
+      text-align: center;
+      text-decoration: none;
+      top: -30px;
+      transition: .3s;
+      width: 100%;
+
+      &:hover {
+        background: $PROGBAR_BACKGROUND;
+      }
+    }
+    .completed {
+      background: $PROGBAR_BACKGROUND;
+
+      &:before {
+        background: $PROGBAR_BACKGROUND;
+      }
+    }
+    .active {
+      color: $MAIN_RED;
+
+      &:before {
+        background: $MAIN_RED;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+      }
+    }
+  }
