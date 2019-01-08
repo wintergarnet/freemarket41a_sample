@@ -1,10 +1,10 @@
 .single-main{
   section{
     width: 700px;
+    margin: 0 auto;
   }
 }
-
-.sell-container-inner{
+.common-container-inner{
   &__head{
     padding: 32px 16px;
     font-size: 22px;
@@ -27,8 +27,8 @@
       margin: 0;
     }
   }
-
 }
+
 .image-upload{
   //TODO: height修正
   height: 300px;
