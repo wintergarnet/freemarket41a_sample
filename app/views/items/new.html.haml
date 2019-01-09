@@ -1,12 +1,12 @@
 .single-container
   %header.single-header
-    %h1
-    = link_to image_tag("logo.svg"),root_path
+    %h1= link_to image_tag("logo.svg"),root_path
   %main.single-main
     %section
-      .sell-container
-        .sell-container-inner
-          %h2.sell-container-inner__head
+
+      .common-container
+        .common-container-inner
+          %h2.common-container-inner__head
             商品の情報を入力
           = form_for (@item) do |f|
             .image-upload
@@ -15,31 +15,32 @@
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
               //後から複数アップロードできるように実装
-              .image-upload-dropbox__container.clearfix
+              .image-upload-dropbox__container
                 .image-upload-dropbox__uploaded-items-container
                   %label.image-upload-dropbox__form
                     = f.file_field :image, style: "display: none", class: "file-upload"
                     %pre.image-upload-dropbox__form-note
                       ドラッグ&ドロップ
                       またはクリックしてファイルをアップロード
-            .sell-container-inner__content
+            .common-container-inner__content
               = render partial: "partial/forms/input-field", locals:{ label_name:"商品名", column: :name, placeholder: "商品名（必須40文字まで）", maxlength: 40}
               = render partial: "partial/forms/input-area", locals:{ label_name:"商品の説明", column: :name, placeholder: "商品名の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など） 例）2010年頃に100万円で購入した宇宙服です。ZOZOの社長も欲しがると思います。今なら船外活動に便利なテザーもおつけします。",rows: 5, maxlength: 40}
-            .sell-container-inner__content.clearfix
-              %h3.sell-container-inner__content-head 商品の詳細
-              .sell-container-inner__content-box
+
+            .common-container-inner__content
+              %h3.common-container-inner__content-head 商品の詳細
+              .common-container-inner__content-box
                 = render partial: "partial/forms/select-form", locals:{ label_name:"カテゴリー", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
                 = render partial: "partial/forms/select-form", locals:{ label_name:"商品の状態", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
-            .sell-container-inner__content.clearfix
-              %h3.sell-container-inner__content-head 配送について
-              .sell-container-inner__content-box
+            .common-container-inner__content
+              %h3.common-container-inner__content-head 配送について
+              .common-container-inner__content-box
                 = render partial: "partial/forms/select-form", locals:{ label_name:"配送料の負担", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
                 = render partial: "partial/forms/select-form", locals:{ label_name:"発送元の地域", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
                 = render partial: "partial/forms/select-form", locals:{ label_name:"発送までの日数", column: :status, selects: ["新品","未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
 
-            .sell-container-inner__content.clearfix
-              %h3.sell-container-inner__content-head 販売価格(300~9,999,999)
-              .sell-container-inner__content-box
+            .common-container-inner__content
+              %h3.common-container-inner__content-head 販売価格(300~9,999,999)
+              .common-container-inner__content-box
                 %ul.sell-container-inner__sell-price
                   %li.form-wrapper
                     .clearfix
@@ -73,3 +74,5 @@
                 %p また、出品を持ちまして加盟店規約に同意したことになります。
               = f.submit '出品する', disable_with: '出品中', class: "btn-red"
               = link_to 'もどる',root_path, class: "btn-gray"
+
+-# = render 'devise/shared/footer'
