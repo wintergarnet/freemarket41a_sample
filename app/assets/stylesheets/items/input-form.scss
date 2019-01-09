@@ -29,3 +29,9 @@
 .input-area{
   @extend .input-area-default;
 }
+
+#item_name_2i,#item_name_1i{
+  @extend .input-default;
+  width: 50%;
+}
+
