@@ -7,9 +7,8 @@
     @include btn-default;
     @include btn-gray;
   }
-  .btn-red-half{
-    @include btn-default;
-    @include btn-red-half;
+  .btn-half{
+    @include btn-half;
   }
 }
 
