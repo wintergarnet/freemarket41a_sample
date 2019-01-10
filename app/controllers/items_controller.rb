@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :link_user
+
   def index
   end
 
@@ -8,7 +10,8 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_value
-  end
+    @item.user_id = current_user.id
+    end
 
   def create
     @item = Item.new(item_params)
@@ -31,7 +34,11 @@ class ItemsController < ApplicationController
 
   def item_params
     #TODO: .merge(user_id: current_user.id)として分ける
-    params.require(:item).permit(:user_id, :name, :image, :description, :status, :delivery_fee, :pre_date, value_attributes: [:item_id, :price, :profit])
+    params.require(:item).permit(:name, :image, :description, :status, :ship_from, :delivery_fee, :pre_date, value_attributes: [:item_id, :price, :profit]).merge(user_id: current_user.id)
+  end
+
+  def link_user
+    @user = current_user
   end
 
 
