@@ -11,8 +11,15 @@ Rails.application.routes.draw do
     get :logout
     get :choice, on: :collection
     post :follow, on: :member
+    get :telephone
+    get 'users' => 'users#new'
   end
 
+
   resources :addresses, only:[:new, :create]
+ 
+
+
+
 
 end
