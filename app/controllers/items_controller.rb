@@ -7,9 +7,17 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.build_value
   end
 
   def create
+    debugger
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -20,7 +28,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  private
 
-  def edit
+  def item_params
+    #TODO: .merge(user_id: current_user.id)として分ける
+    params.require(:item).permit(:user_id, :name, :image, :description, :status, :delivery_fee, :pre_date, value_attributes: [:item_id, :price, :profit])
   end
+
+
 end
