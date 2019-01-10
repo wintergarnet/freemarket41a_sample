@@ -1,0 +1,19 @@
+.form-wrapper{
+  margin: 40px 0 0;
+  &:first-child{
+    margin: 0;
+  }
+  label{
+    font-weight: 600;
+    display: inline-block;
+    .form-require{
+      background-color: $MAIN_RED;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: $WHITE;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  }
+}
