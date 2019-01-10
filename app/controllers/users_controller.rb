@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def choice
   end
 
+
   # def index
   #   @user = User.new
   # end
