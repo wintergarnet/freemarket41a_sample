@@ -3,12 +3,11 @@
     %h1= link_to image_tag("logo.svg"),root_path
   %main.single-main
     %section
-
       .common-container
         .common-container-inner
           %h2.common-container-inner__head
             商品の情報を入力
-          = form_for (@item) do |f|
+          = form_for @item do |f|
             .image-upload
               %h3.image-upload-head
                 出品画像
@@ -17,30 +16,30 @@
               //後から複数アップロードできるように実装
               .image-upload-dropbox__container
                 .image-upload-dropbox__uploaded-items-container
-                  %label.image-upload-dropbox__form
+                  = f.label :image, class: "image-upload-dropbox__form" do
                     = f.file_field :image, style: "display: none", class: "file-upload"
                     %pre.image-upload-dropbox__form-note
                       ドラッグ&ドロップ
                       またはクリックしてファイルをアップロード
             .common-container-inner__content
-              = render partial: "partial/forms/input-field", locals:{ label_name:"商品名", column: :name, placeholder: "商品名（必須40文字まで）", maxlength: 40}
-              = render partial: "partial/forms/input-area", locals:{ label_name:"商品の説明", column: :name, placeholder: "商品名の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など） 例）2010年頃に100万円で購入した宇宙服です。ZOZOの社長も欲しがると思います。今なら船外活動に便利なテザーもおつけします。",rows: 5, maxlength: 40}
-
+              = render partial: "partial/forms/input-field", locals:{ label_name:"商品名", column: :name, placeholder: "商品名（必須40文字まで）", maxlength: 40, f: f}
+              = render partial: "partial/forms/input-area", locals:{ label_name:"商品の説明", column: :description, placeholder: "商品名の説明（必須1,000文字以内） （色、素材、重さ、定価、注意点など） 例）2010年頃に100万円で購入した宇宙服です。ZOZOの社長も欲しがると思います。今なら船外活動に便利なテザーもおつけします。",rows: 5, maxlength: 1000, f: f}
             .common-container-inner__content
               %h3.common-container-inner__content-head 商品の詳細
               .common-container-inner__content-box
-                = render partial: "partial/forms/select-form", locals:{ label_name:"カテゴリー", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
-                = render partial: "partial/forms/select-form", locals:{ label_name:"商品の状態", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
+                = render partial: "partial/forms/select-form", locals:{ label_name:"カテゴリー", column: :status, selects: ["レディース","メンズ"], f: f}
+                = render partial: "partial/forms/select-form", locals:{ label_name:"商品の状態", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"],f: f}
             .common-container-inner__content
               %h3.common-container-inner__content-head 配送について
               .common-container-inner__content-box
-                = render partial: "partial/forms/select-form", locals:{ label_name:"配送料の負担", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
-                = render partial: "partial/forms/select-form", locals:{ label_name:"発送元の地域", column: :status, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
-                = render partial: "partial/forms/select-form", locals:{ label_name:"発送までの日数", column: :status, selects: ["新品","未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]}
+                = render partial: "partial/forms/select-form", locals:{ label_name:"配送料の負担", column: :delivery_fee, selects: ["送料込み(出品者負担)","着払い(購入者負担)"],f: f}
+                = render partial: "partial/forms/select-form", locals:{ label_name:"発送元の地域", column: :pre_date, selects: ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"],f: f}
+                = render partial: "partial/forms/select-form", locals:{ label_name:"発送までの日数", column:  :pre_date, selects: ["1~2日で発送","2~3日で発送","4~7日で発送"],f: f}
 
             .common-container-inner__content
               %h3.common-container-inner__content-head 販売価格(300~9,999,999)
               .common-container-inner__content-box
+              = f.fields_for :value do |vf|
                 %ul.sell-container-inner__sell-price
                   %li.form-wrapper
                     .clearfix
@@ -51,28 +50,28 @@
                         ¥
                         %div
                           //TODO: valuemodelにデータ飛ぶように修正が必要
-                          -# = f.fields_for @item.value do |vf|
-                          -#   = vf.number_field :price, min: 300, max: 9999999, placeholder: "例300", class: "input-default"
-                          = f.number_field :use_id, min: 300, max: 9999999, placeholder: "例) 300", class: "input-default"
+                          = vf.number_field :price, min: 300, max: 9999999, placeholder: "例300", class: "input-default"
                   %li.clearfix
                     .sell-container-inner__sell-price-fee__left
                       販売手数料(10%)
                     .sell-container-inner__sell-price-fee__right
                       //TODO: formの10%を表示するように変更
-                      fee
+                      −
                   %li.clearfix
                     .sell-container-inner__sell-price-profit__left
                       販売利益
                     .sell-container-inner__sell-price-profit__right
                       //TODO: 10%引いた数を表示
-                      profit
+                      = vf.hidden_field :profit, class: "profit_form"
+                      .sell-container-inner__sell-price-profit__right-calc
+                        −
             .sell-container-inner__modal
             .sell-container-inner__content.sell-btn-content.btn-content
               %div
                 %p 禁止されている出品、行為を必ずご確認ください。
                 %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
                 %p また、出品を持ちまして加盟店規約に同意したことになります。
-              = f.submit '出品する', disable_with: '出品中', class: "btn-red"
+              = f.submit '出品する', class: 'btn-red'
               = link_to 'もどる',root_path, class: "btn-gray"
 
 -# = render 'devise/shared/footer'
