@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_value
-    end
+  end
 
   def create
     @item = Item.new(item_params)
