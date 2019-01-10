@@ -27,7 +27,7 @@
         .header-inner__lower-right-content
           %ul.header-inner__lower-right-content-nav
             %li
-              %a.header-inner__lower-right-content-user{:href => "/users/#{current_user.id}"}
+              = link_to user_path(current_user.id), class: 'header-inner__lower-right-content-user' do
                 %figure
                   %div
                     = image_tag "light-bulb.jpg", width: "32"
@@ -44,10 +44,10 @@
         .header-inner__lower-right-content
           %ul.header-inner__lower-right-content-nav
             %li
-              %a.header-inner__lower-right-content-new{href:"/users/sign_in"}
+              = link_to new_user_session_path, class: 'header-inner__lower-right-content-new' do
                 %span.new-registration ログイン
             %li
-              %a.header-inner__lower-right-content-login{href:"/users/choice"}
+              = link_to choice_users_path, class: 'header-inner__lower-right-content-login' do
                 %span.login-box 新規会員登録
 
 
@@ -58,13 +58,13 @@
     %h1.sp-header-inner__logo
       = link_to image_tag("logo.svg", alt:"mer", width: "134", height: "36"),root_path
     - if user_signed_in?
-      %a.sp-header-inner__user-icon{:href => "/users/#{current_user.id}"}
+      = link_to user_path(current_user.id), class: 'sp-header-inner__user-icon' do
         %figure
           %div
             = image_tag "light-bulb.jpg", width: "32"
     - else
-      %a.sp-header-inner__user-login{href:"/users/choice"} 新規会員
-      %a.sp-header-inner__user-new{href:"/users/sign_in"}
+      = link_to "新規会員", choice_users_path, class: 'sp-header-inner__user-login'
+      = link_to new_user_session_path, class: 'sp-header-inner__user-new' do
         %span ログイン
   .sp-header-inner__search
     %form.sp-header-inner__search-form
