@@ -17,17 +17,16 @@
         %ul.header-inner__lower-left-content
           %li
             %h2
-              %a.header-inner__lower-left-content-category{href:"/"} カテゴリーから探す
+              = link_to 'カテゴリーから探す', root_path, class: 'header-inner__lower-left-content-category'
           %li
             %h2
-              %a.header-inner__lower-left-content-bland{href:"/"} ブランドから探す
-
+              = link_to 'ブランドから探す', root_path, class: 'header-inner__lower-left-content-bland'
 
       - if user_signed_in?
         .header-inner__lower-right-content
           %ul.header-inner__lower-right-content-nav
             %li
-              = link_to user_path(current_user.id), class: 'header-inner__lower-right-content-user' do
+              = link_to user_path(current_user), class: 'header-inner__lower-right-content-user' do
                 %figure
                   %div
                     = image_tag "light-bulb.jpg", width: "32"
@@ -58,7 +57,7 @@
     %h1.sp-header-inner__logo
       = link_to image_tag("logo.svg", alt:"mer", width: "134", height: "36"),root_path
     - if user_signed_in?
-      = link_to user_path(current_user.id), class: 'sp-header-inner__user-icon' do
+      = link_to user_path(current_user), class: 'sp-header-inner__user-icon' do
         %figure
           %div
             = image_tag "light-bulb.jpg", width: "32"
@@ -73,7 +72,7 @@
           = f.text_field :content, class: 'form-control', placeholder: 'キーワードから探す'
       %i.fas.fa-search
 
-
   %nav.sp-header-inner__lower-nav
-    %a.sp-header-inner__lower-left-content-category{href:"/"} カテゴリーから探す
-    %a.sp-header-inner__lower-left-content-bland{href:"/"} ブランドから探す
+    = link_to 'カテゴリーから探す', root_path, class: 'sp-header-inner__lower-left-content-category'
+    = link_to 'ブランドから探す', root_path, class: 'sp-header-inner__lower-left-content-bland'
+
