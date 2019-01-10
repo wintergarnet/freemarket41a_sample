@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190109051355) do
+ActiveRecord::Schema.define(version: 20190110074755) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 20190109051355) do
     t.string   "image"
     t.text     "description",  limit: 65535
     t.string   "status"
-    t.integer  "delivery_fee"
+    t.string   "ship_from"
+    t.string   "delivery_fee"
     t.string   "pre_date"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,4 +48,5 @@ ActiveRecord::Schema.define(version: 20190109051355) do
     t.index ["item_id"], name: "index_values_on_item_id", using: :btree
   end
 
+  add_foreign_key "items", "users"
 end
