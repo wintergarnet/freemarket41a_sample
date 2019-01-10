@@ -1,0 +1,13 @@
+= render 'partial/header'
+
+.mypage-body
+  .mypage-logout.clearfix
+    = render 'partial/mypage_sidebar'
+    .mypage-logout__content
+      .btn-content
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-red-half"
+
+
+= render 'partial/footer-banner'
+= render 'partial/footer'
+= render 'partial/sell_btn'

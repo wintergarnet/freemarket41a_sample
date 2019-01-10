@@ -1,4 +1,12 @@
-= link_to 'items/new',class: "footer__sell-btn" do
-  .footer__sell-btn-content
-    出品
-  = fa_icon "camera", class:'icon'
+- if user_signed_in?
+  = link_to 'items/new',class: "footer__sell-btn" do
+    .footer__sell-btn-content
+      出品
+    = fa_icon "camera", class:'icon'
+
+- else
+  = link_to 'users/sign_in',class: "footer__sell-btn" do
+    .footer__sell-btn-content
+      出品
+    = fa_icon "camera", class:'icon'
+

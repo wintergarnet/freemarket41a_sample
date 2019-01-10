@@ -7,6 +7,10 @@
     @include btn-default;
     @include btn-gray;
   }
+  .btn-red-half{
+    @include btn-default;
+    @include btn-red-half;
+  }
 }
 
 .footer__sell-btn {

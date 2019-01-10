@@ -80,6 +80,29 @@
           @include header_list;
           vertical-align: middle;
         }
+        &-new{
+          height: 32px;
+          width: 78px;
+          background-color: $MAIN_RED;
+          border-radius: 4px;
+          text-align: center;
+          .new-registration{
+            color: $WHITE;
+            line-height: 32px;
+          }
+        }
+        &-login{
+          height: 32px;
+          width: 106px;
+          background-color: $WHITE;
+          border: 1px solid $LINK_BLUE;
+          border-radius: 4px;
+          text-align: center;
+          .login-box{
+            color: $LINK_BLUE;
+            line-height: 32px;
+          }
+        }
         &-user{
           margin: 0;
           position: relative;
@@ -151,6 +174,7 @@
       float: right;
       margin: 4px 0 0;
       &-icon{
+        float: right;
         display: block;
         color: $BLACK;
         font-size: 0;
@@ -171,6 +195,30 @@
             }
           }
         }
+      }
+      &-new{
+        margin-right: 7px;
+        float: right;
+        background-color: $MAIN_RED;
+        padding: 2.5px 10px;
+        line-height: 30px;
+        border-radius: 4px;
+        text-align: center;
+        height: 100%;
+        span {
+          color: $WHITE;
+        }
+      }
+      &-login{
+
+        float: right;
+        border: 1px solid $LINK_BLUE;
+        background-color: $WHITE;
+        color: $LINK_BLUE;
+        padding: 1.5px 10px;
+        line-height: 30px;
+        border-radius: 4px;
+        text-align: center;
       }
     }
   &__search{

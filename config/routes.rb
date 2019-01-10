@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
 
   resources :users do
+    get :logout
     get :choice, on: :collection
     post :follow, on: :member
   end
+
+  resources :addresses, only:[:new, :create]
 
 end
