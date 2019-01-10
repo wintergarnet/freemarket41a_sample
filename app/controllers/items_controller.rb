@@ -1,10 +1,8 @@
 class ItemsController < ApplicationController
+
   before_action :link_user
 
   def index
-  end
-
-  def mypage
   end
 
   def new

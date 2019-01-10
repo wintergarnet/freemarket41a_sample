@@ -69,7 +69,7 @@
 				=link_to '電話番号の確認', root_path, class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
-				=link_to 'ログアウト', root_path, class: 'mypage-main__sidebar-lists-item'
+				=link_to 'ログアウト', user_logout_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 
 

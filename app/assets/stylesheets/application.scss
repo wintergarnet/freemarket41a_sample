@@ -3,21 +3,19 @@
 @import "./mixin/mixin.scss";
 @import "./style";
 @import "./devisepage";
+
 @import "./modules/header.scss";
 @import "./modules/main_content.scss";
 @import "./modules/item_box.scss";
 @import "./modules/footer_banner.scss";
 @import "./modules/footer.scss";
-
 @import "./modules/mypage_sidebar.scss";
 @import "./modules/mypage_main.scss";
 @import "./modules/tab_container.scss";
 @import "./modules/tab_container-production.scss";
 @import "./modules/tab.scss";
-
-
+@import "./modules/logout.scss";
 @import "./modules/btn-content.scss";
-
 
 @import "./items/items.scss";
 @import "./items/form-common.scss";
