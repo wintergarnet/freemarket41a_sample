@@ -49,19 +49,16 @@
                       .sell-container-inner__price-content
                         ¥
                         %div
-                          //TODO: valuemodelにデータ飛ぶように修正が必要
                           = vf.number_field :price, min: 300, max: 9999999, placeholder: "例300", class: "input-default"
                   %li.clearfix
                     .sell-container-inner__sell-price-fee__left
                       販売手数料(10%)
                     .sell-container-inner__sell-price-fee__right
-                      //TODO: formの10%を表示するように変更
                       −
                   %li.clearfix
                     .sell-container-inner__sell-price-profit__left
                       販売利益
                     .sell-container-inner__sell-price-profit__right
-                      //TODO: 10%引いた数を表示
                       = vf.hidden_field :profit, class: "profit_form"
                       .sell-container-inner__sell-price-profit__right-calc
                         −
