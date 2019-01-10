@@ -1,5 +1,5 @@
 - if user_signed_in?
-  = link_to 'items/new',class: "footer__sell-btn" do
+  = link_to new_item_path, class: "footer__sell-btn" do
     .footer__sell-btn-content
       出品
     = fa_icon "camera", class:'icon'
