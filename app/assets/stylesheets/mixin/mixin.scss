@@ -52,6 +52,35 @@
   text-align: $text-align;
 }
 
+//btn
+@mixin btn-default{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+@mixin btn-red($margin: 40px 0 0,$background: $MAIN_RED,$border: 1px solid $MAIN_RED, $color: $WHITE){
+  margin: $margin;
+  background: $background;
+  border: $border;
+  color: $color;
+}
+
+@mixin btn-gray($width: 45%,$margin: 24px auto 0,$background: $BTN_GRAY,$border: 1px solid $BTN_GRAY, $color: $WHITE){
+  width: $width;
+  margin: $margin;
+  background: $background;
+  border: $border;
+  color: $color;
+}
+
+
+
 @mixin items-box-name-after-semitransparent{
   display: block;
   content: '';
@@ -62,3 +91,31 @@
   height: 1.5em;
   background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 72%);
 }
+
+@mixin tabs{
+  width: calc(100%/2);
+  height: 74px;
+  background-color: $SP_GRAY;
+  line-height: 74px;
+  font-size: 14px;
+  text-align: center;
+  color: $BLACK;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+@mixin tabs-checked{
+  background-color: $WHITE;
+  color: $BLACK;
+  border-top: 3px solid $MAIN_RED;
+}
+
+@mixin border-style{
+  border-style: solid;
+  border-width: 0;
+  display: block;
+}
+

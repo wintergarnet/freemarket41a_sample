@@ -4,6 +4,7 @@
   text-align: left;
   line-height: 1;
   box-sizing: border-box;
+  -webkit-appearance: none;
 }
 
 body{
@@ -77,4 +78,12 @@ i{
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+
+.single-main{
+  section{
+    width: 700px;
+    margin: 0 auto;
+  }
 }

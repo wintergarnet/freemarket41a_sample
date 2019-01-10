@@ -1,3 +1,4 @@
+
 %body
   .sms-single-container
     %header.single-header
@@ -34,3 +35,18 @@
                 = link_to "電話番号の確認が必要な理由"
 
 = render "devise/shared/footer"
+
+= render 'partial/header'
+
+.mypage-body
+	.mypage-main.clearfix
+		= render 'partial/mypage_sidebar'
+		= render 'partial/mypage_main'
+		= render 'partial/tab_container'
+		= render 'partial/tab_container-production'
+
+
+= render 'partial/footer-banner'
+= render 'partial/footer'
+= render 'partial/sell_btn'
+
