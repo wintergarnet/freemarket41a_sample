@@ -1,0 +1,46 @@
+%body
+  .sertification-single-container
+    %sertification.single-header
+      .flex-parent
+        .flex-child-img
+          %h1
+            =link_to image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?4136293187", alt: "mercari"),"https://www.mercari.com/jp/"
+        .flex-child-prog
+          %ul.prog-bar
+            %li.prog-unit.active
+              .prog-landmark 会員情報
+            %li.prog-unit.active
+              .prog-landmark.active 電話番号認証
+              .prog-status
+            %li.prog-unit
+              .prog-landmark 住所入力
+            %li.prog-unit
+              .prog-landmark 支払い方法
+            %li.prog-unit
+              .prog-landmark 完了
+    .sertification-single-main
+      %section.sertification-single-single-container
+        %h2.sertification-chapter-head 電話番号認証
+        = form_for (@user) do |f|
+          .sms-single-inner-lower
+            .sms-single-content
+              .form-group-certification
+                = f.label :telephone, "認証番号"
+                = f.telephone_field :telephone, placeholder: "認証番号を入力", class: "login-input-text"
+                %p SMSで届いた認証番号を入力してください
+                = f.submit "認証して完了", class: "btn-red"
+          .sms-single-inner-lower
+            .sms-single-content
+              .sertification-chapter-sub-head 30秒経っても認証番号が届かない方へ
+              .sertification-single-text 電話で認証番号を聞くこともできます。
+              = f.submit "電話で認証番号を聞く(通話無料)", class: "btn-red"
+          .sms-single-inner-lower
+            .sms-single-content
+              .sertification-chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+              .form-group
+                = link_to "電話番号を再度入力する"
+              .sertification-single-text※SMSが届かない場合はSMS受信設定を確認して、もう一度電話番号を入力してください。
+
+
+
+= render "devise/shared/footer"
