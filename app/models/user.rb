@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_one :credit
 
   validates :nickname, presence: true
-  validates :email, presence: true
 
 end
 
