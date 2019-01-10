@@ -11,7 +11,6 @@
           = f.text_field :content, class: 'form-control', placeholder: 'キーワードから探す'
         %i.fas.fa-search
 
-
     .header-inner__lower.clearfix
       %nav.header-inner__lower-nav
         %ul.header-inner__lower-left-content
@@ -29,7 +28,7 @@
               = link_to user_path(current_user), class: 'header-inner__lower-right-content-user' do
                 %figure
                   %div
-                    = image_tag "light-bulb.jpg", width: "32"
+                    = image_tag "light-bulb.jpg"
                 %div マイページ
             %li
               %a.header-inner__lower-right-content-notification{href:"/"}
@@ -49,7 +48,6 @@
               = link_to choice_users_path, class: 'header-inner__lower-right-content-login' do
                 %span.login-box 新規会員登録
 
-
 // sp
 
 .sp-header
@@ -60,7 +58,7 @@
       = link_to user_path(current_user), class: 'sp-header-inner__user-icon' do
         %figure
           %div
-            = image_tag "light-bulb.jpg", width: "32"
+            = image_tag "light-bulb.jpg"
     - else
       = link_to "新規会員", choice_users_path, class: 'sp-header-inner__user-login'
       = link_to new_user_session_path, class: 'sp-header-inner__user-new' do
@@ -75,4 +73,3 @@
   %nav.sp-header-inner__lower-nav
     = link_to 'カテゴリーから探す', root_path, class: 'sp-header-inner__lower-left-content-category'
     = link_to 'ブランドから探す', root_path, class: 'sp-header-inner__lower-left-content-bland'
-

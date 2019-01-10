@@ -3,11 +3,6 @@ class UsersController < ApplicationController
   def choice
   end
 
-
-  # def index
-  #   @user = User.new
-  # end
-
   def edit
   end
 
@@ -17,12 +12,12 @@ class UsersController < ApplicationController
 
   def telephone
     @user = User.new
+  end
 
   def show
   end
 
   def logout
   end
-
 
 end

@@ -14,11 +14,6 @@ Rails.application.routes.draw do
     get 'users' => 'users#new'
   end
 
-
   resources :addresses, only:[:new, :create]
- 
-
-
-
 
 end
