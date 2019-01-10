@@ -31,11 +31,11 @@
                     = image_tag "light-bulb.jpg"
                 %div マイページ
             %li
-              %a.header-inner__lower-right-content-notification{href:"/"}
+              = link_to root_path, class: 'header-inner__lower-right-content-notification' do
                 %i.far.fa-bell
                 %span お知らせ
             %li
-              %a.header-inner__lower-right-content-todo{href:"/"}
+              = link_to root_path, class: 'header-inner__lower-right-content-todo' do
                 %i.fas.fa-check
                 %span やることリスト
       - else
