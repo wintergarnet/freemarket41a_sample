@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_value
-    @item.user_id = current_user.id
     end
 
   def create
