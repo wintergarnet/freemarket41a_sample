@@ -32,3 +32,4 @@
               = render partial: "partial/forms/input-form", locals:{column: :name, placeholder: "例）03-3214-1111", maxlength: 10, f: f}
               .btn-content
                 = f.submit '次へ進む', disable_with: '保存中', class: "btn-red"
+  = render "devise/shared/footer"
