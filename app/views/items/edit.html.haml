@@ -1,42 +1,47 @@
-%main.single-main
-  %section
-    .common-container
-      .common-container-inner
-        %h2.common-container-inner__head
-          支払い方法
-        = form_for (@item) do |f|
-          .common-container-inner__content.user-container-inner__content
-            .form-wrapper
-              %label
-                カード番号
-                %span.form-require
-                  必須
-            = f.number_field :name, placeholder: "半角数字のみ", class: "input-default", maxlength: 12
-            .credit-brand-container
-              %ul
-                %li= image_tag("credit/visa.png")
-                %li= image_tag("credit/mastercard.png")
-                %li= image_tag("credit/jcb.png")
-                %li= image_tag("credit/americanExpress.png")
-                %li= image_tag("credit/dinersClub.png")
-                %li= image_tag("credit/discover.png")
-            .form-wrapper
-              %label
-                有効期限
-                %span.form-require
-                  必須
-            %div
-              = f.date_select :name, discard_year: true, discard_day: true, use_month_numbers: true
-              月
-            %div
-              = f.date_select :name, discard_month: true, discard_day: true, start_year: Time.now.year,
-              end_year: Time.now.year + 10
-              年
-            .form-wrapper
-              %label
-                セキュリティコード
-                %span.form-require
-                  必須
-            = f.number_field :name, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default", maxlength: 4
-            .btn-content
-              = f.submit '次へ進む', disable_with: '保存中', class: "btn-red"
+.single-container
+  %header.single-header
+    %h1= link_to image_tag("logo.svg"),root_path
+
+  %main.single-main
+    %section
+      .common-container
+        .common-container-inner
+          %h2.common-container-inner__head
+            支払い方法
+          = form_for (@item) do |f|
+            .common-container-inner__content.user-container-inner__content
+              .form-wrapper
+                %label
+                  カード番号
+                  %span.form-require
+                    必須
+              = f.number_field :name, placeholder: "半角数字のみ", class: "input-default", maxlength: 12
+              .credit-brand-container
+                %ul
+                  %li= image_tag("credit/visa.png")
+                  %li= image_tag("credit/mastercard.png")
+                  %li= image_tag("credit/jcb.png")
+                  %li= image_tag("credit/americanExpress.png")
+                  %li= image_tag("credit/dinersClub.png")
+                  %li= image_tag("credit/discover.png")
+              .form-wrapper
+                %label
+                  有効期限
+                  %span.form-require
+                    必須
+              %div
+                = f.date_select :name, discard_year: true, discard_day: true, use_month_numbers: true
+                月
+              %div
+                = f.date_select :name, discard_month: true, discard_day: true, start_year: Time.now.year,
+                end_year: Time.now.year + 10
+                年
+              .form-wrapper
+                %label
+                  セキュリティコード
+                  %span.form-require
+                    必須
+              = f.number_field :name, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default", maxlength: 4
+              .btn-content
+                = f.submit '次へ進む', disable_with: '保存中', class: "btn-red"
+  = render "devise/shared/footer"
