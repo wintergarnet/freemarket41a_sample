@@ -30,11 +30,12 @@
                     生年月日
                     %span.form-require
                       必須
-                = f.date_select :created_at, { start_year: Time.now.year - 100,end_year: Time.now.year + 0,use_month_numbers: true, discard_month: true, discard_day: true}, {class: "date_select birth_select"}
-                年
-                = f.date_select :created_at, {discard_year: true,  use_month_numbers: true, date_separator: "月"}, {class: "date_select birth_select"}
-                日
-                %p ※出品されたことがある、本人情報未登録のお客様もご対象となります。
+                .birth_select-wrapper
+                  = f.date_select :created_at, { start_year: Time.now.year - 100,end_year: Time.now.year + 0,use_month_numbers: true, discard_month: true, discard_day: true}, {class: "date_select birth_select"}
+                  年
+                  = f.date_select :created_at, {discard_year: true,  use_month_numbers: true, date_separator: "月"}, {class: "date_select birth_select"}
+                  日
+                  %p ※出品されたことがある、本人情報未登録のお客様もご対象となります。
                 .btn-content
                   = f.submit '登録する', disable_with: '保存中', class: "btn-red"
 = render 'partial/footer-banner'
