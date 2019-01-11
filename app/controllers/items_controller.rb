@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :link_user
 
   def index
+    @items = Item.where('id >= 1').limit(4)
   end
 
   def new
