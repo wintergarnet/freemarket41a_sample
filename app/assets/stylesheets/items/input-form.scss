@@ -30,8 +30,17 @@
   @extend .input-area-default;
 }
 
-#item_name_2i,#item_name_1i{
+.date_select{
   @extend .input-default;
   width: 50%;
 }
-
+.birth_select{
+  width: 28%;
+  &-wrapper{
+    p{
+      margin: 8px 0 0;
+      line-height: 1.5;
+      color: $FONT-GRAY;
+    }  
+  }
+}
