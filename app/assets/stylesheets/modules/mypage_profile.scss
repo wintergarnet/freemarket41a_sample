@@ -1,15 +1,15 @@
 .l-content{
-      float: right;
-      top: 140px;
-      right: 145px;
+  float: right;
+  top: 140px;
+  right: 145px;
 }
 .l-chapter-head{
-            margin-top: 20px;
-            width: 700px;
-            font-size: 20px;
-            padding: 8px 24px;
-            text-align: center;
-            background-color: $WHITE;
+  margin-top: 20px;
+  width: 700px;
+  font-size: 20px;
+  padding: 8px 24px;
+  text-align: center;
+  background-color: $WHITE;
 }
 .setting-profile-icon{
   padding: 72px 16px 24px;
@@ -17,19 +17,19 @@
   background-size: cover;
   text-align: center;
   background-repeat: no-repeat;
-    figure{
-      display: inline-block;
-      overflow: hidden;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      vertical-align: middle;
-    }
-}
-.mypage-main__main-user-photo{
+  figure{
+    display: inline-block;
+    overflow: hidden;
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    vertical-align: middle;
+  }
+}
+.mypage-main__main-user-photo{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 .input-text{
   width: 200px;
