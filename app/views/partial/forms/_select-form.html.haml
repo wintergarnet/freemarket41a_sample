@@ -5,6 +5,5 @@
       必須
   %div
     .select-wrapper
-      = form_for (@item) do |f|
-        = f.select column, selects, {include_blank: '---'}, class: 'select-form'
-        = fa_icon "angle-down", class:'icon'
+      = f.select column, selects, {include_blank: '---'}, class: 'select-form'
+      = fa_icon "angle-down", class:'icon'
