@@ -8,7 +8,8 @@
   %section.pickup-items__wrapper
     %h2.pickup-items__wrapper-head
       ピックアップカテゴリー
-      =render 'partial/pickup-items'
+
+      = render partial: 'partial/pickup-items',locals: {item: @items }
   %section.pickup-items__wrapper
     %h2.pickup-items__wrapper-head
       ピックアップブランド

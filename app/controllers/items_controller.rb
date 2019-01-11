@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :link_user
 
   def index
+    @items = Item.where('id >= 1').limit(4)
   end
 
   def new
@@ -25,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.new
   end
 
   private
