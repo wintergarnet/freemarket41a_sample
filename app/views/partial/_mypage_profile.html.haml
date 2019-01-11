@@ -1,0 +1,9 @@
+.l-content
+  %h2.l-chapter-head プロフィール
+  .setting-profile-icon
+    %figure
+    = image_tag "member_photo.png", width: "60", height: "60", class: 'mypage-main__main-user-photo'
+    %input{ type: "text", value: "a", name: "nickname", placeholder: "例）メルカリ太郎", class: "input-text"}
+  .setting-profile-content
+    %textarea{ name: "introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "textarea-default"}
+    %button{ type: "submit", class: "btn-update-box btn-update-red"} 変更する
