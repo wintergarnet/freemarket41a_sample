@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def profile
+  end
+
   def show
   end
 

@@ -1,0 +1,78 @@
+.l-content{
+  float: right;
+  top: 140px;
+  right: 145px;
+}
+.l-chapter-head{
+  margin-top: 20px;
+  width: 700px;
+  font-size: 20px;
+  padding: 8px 24px;
+  text-align: center;
+  background-color: $WHITE;
+}
+.setting-profile-icon{
+  padding: 72px 16px 24px;
+  background-image: image-url("user_backimage.jpg");
+  background-size: cover;
+  text-align: center;
+  background-repeat: no-repeat;
+  figure{
+    display: inline-block;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+}
+.mypage-main__main-user-photo{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.input-text{
+  width: 200px;
+  margin: 0 0 0 8px;
+  vertical-align: middle;
+  height: 40px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: $WHITE;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.setting-profile-content{
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 16px;
+  background-color: $WHITE;
+}
+
+.textarea-default{
+  min-height: 216px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: $WHITE;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.btn-update-red{
+  margin: 16px 0 0;
+  background: $MAIN_RED;
+  color: $WHITE;
+}
+
+.btn-update-box{
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  position:left;
+}
