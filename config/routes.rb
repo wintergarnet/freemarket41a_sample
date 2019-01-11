@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post :follow, on: :member
     get :telephone
     get 'users' => 'users#new'
+    get :profile
   end
 
   resources :addresses, only:[:new, :create]
