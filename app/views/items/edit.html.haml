@@ -30,11 +30,10 @@
                   %span.form-require
                     必須
               %div
-                = f.date_select :name, discard_year: true, discard_day: true, use_month_numbers: true
+                = f.date_select :name, {discard_year: true, discard_day: true, use_month_numbers: true}, {class: "date_select"}
                 月
               %div
-                = f.date_select :name, discard_month: true, discard_day: true, start_year: Time.now.year,
-                end_year: Time.now.year + 10
+                = f.date_select :name, {discard_month: true, discard_day: true, start_year: Time.now.year,end_year: Time.now.year + 10}, {class: "date_select"}
                 年
               .form-wrapper
                 %label
