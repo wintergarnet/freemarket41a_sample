@@ -47,6 +47,8 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails', '~> 4.0'
+  gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -69,4 +71,3 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
-
