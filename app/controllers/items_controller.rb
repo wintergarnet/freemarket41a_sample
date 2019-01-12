@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 
   def item_params
     #TODO: .merge(user_id: current_user.id)として分ける
-    params.require(:item).permit(:name, :image, :description, :status, :ship_from, :delivery_fee, :pre_date, value_attributes: [:item_id, :price, :profit]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :item_condition, :image, :description, :status, :ship_from, :delivery_fee, :pre_date, value_attributes: [:item_id, :price, :profit]).merge(user_id: current_user.id)
   end
 
   def link_user
