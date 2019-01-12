@@ -3,6 +3,12 @@
     %h1= link_to image_tag("logo.svg"),root_path
   %main.single-main
     %section
+      - if @item.errors.any?
+        .chat-group-form__errors
+          %h2= "#{@item.errors.full_messages.count}件のエラーが発生しました。"
+          %ul
+            - @item.errors.full_messages.each do |message|
+              %li= message
       .common-container
         .common-container-inner
           %h2.common-container-inner__head
