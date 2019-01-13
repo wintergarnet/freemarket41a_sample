@@ -44,6 +44,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def list
+    @items = Item.where(user_id: current_user.id)
+  end
   private
 
   def item_params

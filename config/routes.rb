@@ -11,7 +11,13 @@ Rails.application.routes.draw do
     get :telephone
     get 'users' => 'users#new'
     get :profile
-    resources :items, shallow: true
+
+    resources :items, shallow: true do
+      collection do
+        get :list
+      end
+    end
+    
   end
 
   resources :addresses, only:[:new, :create]
