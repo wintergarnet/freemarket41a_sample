@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'items#index'
-  resources :items, only:[:index, :new, :create, :show, :edit, :update] do
-  end
 
   resources :users do
     get :logout
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
     get :telephone
     get 'users' => 'users#new'
     get :profile
+    resources :items, shallow: true
   end
 
   resources :addresses, only:[:new, :create]
