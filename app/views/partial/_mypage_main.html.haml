@@ -3,7 +3,8 @@
     %a.user-link{href:"/"}
       %figure
         = image_tag "member_photo.png", width: "60", height: "60", class: 'mypage-main__main-user-photo'
-      %h2.mypage-main__main-user-name SEVEN
+      %h2.mypage-main__main-user-name
+        = current_user.nickname
       .mypage-main__main-user-activity
         .mypage-main__main-user-number
           .main-user-rate

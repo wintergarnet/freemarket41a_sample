@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use mysql as the database for Active Record
@@ -46,6 +45,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -64,18 +67,7 @@ group :production do
   gem 'unicorn'
 end
 
-
-
-
-
-
-
-
-
-
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
-
-
 gem 'devise'

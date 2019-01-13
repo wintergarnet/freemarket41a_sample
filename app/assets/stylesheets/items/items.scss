@@ -2,6 +2,13 @@
   section{
     width: 700px;
     margin: 0 auto;
+    background-color: $WHITE;
+  }
+  &__edit{
+    section{
+      margin: 0;
+      float: right;
+    }
   }
 }
 .common-container-inner{

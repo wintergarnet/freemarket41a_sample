@@ -71,6 +71,11 @@
   color: $color;
 }
 
+@mixin btn-half{
+  width: 320px;
+  margin: auto;
+}
+
 @mixin btn-gray($width: 45%,$margin: 24px auto 0,$background: $BTN_GRAY,$border: 1px solid $BTN_GRAY, $color: $WHITE){
   width: $width;
   margin: $margin;
@@ -78,8 +83,6 @@
   border: $border;
   color: $color;
 }
-
-
 
 @mixin items-box-name-after-semitransparent{
   display: block;
@@ -118,4 +121,3 @@
   border-width: 0;
   display: block;
 }
-
