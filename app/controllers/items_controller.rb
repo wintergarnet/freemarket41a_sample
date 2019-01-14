@@ -40,5 +40,8 @@ class ItemsController < ApplicationController
     @user = current_user
   end
 
+  def detail
+  end
+
 
 end
