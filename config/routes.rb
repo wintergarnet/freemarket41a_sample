@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
+      collecton do
+        get :detail
+      end
     end
     
   end
