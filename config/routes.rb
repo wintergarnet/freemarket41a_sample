@@ -16,11 +16,11 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
-      collecton do
+      collection do
         get :detail
       end
     end
-    
+
   end
 
   resources :addresses, only:[:new, :create]
