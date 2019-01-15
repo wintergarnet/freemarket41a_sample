@@ -13,7 +13,7 @@
         .common-container-inner
           %h2.common-container-inner__head
             商品の情報を入力
-          = form_for @item do |f|
+          = form_for @item,url: user_items_path do |f|
             .image-upload
               %h3.image-upload-head
                 出品画像
