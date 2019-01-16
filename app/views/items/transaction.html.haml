@@ -1,0 +1,63 @@
+= render "devise/shared/header"
+
+%main.single-main
+  .transaction-product-container
+    .transaction-product-container__head 購入を確定しますか？
+
+    .transaction-content
+      .transaction-content-inner
+        .transaction-product-image
+          = image_tag("coat.jpg", alt:"コート", :size => '148x148')
+
+        .transaction-product-name
+          request コート
+
+        %form.transaction-form
+          %p.transaction-price-ja.bold
+            ¥ 2,800
+            %span.shipping-fee 送料込み
+
+          .accordion-toggle
+            =link_to root_path do
+              %button.btn.btn__mail.point_use
+                ポイントを使う
+
+          .transaction-price-table
+            .transaction-price-row.transaction-you-pay.bold
+              .transaction-price-cell 支払い金額
+              .transaction-price-cell-price ¥ 2,800
+
+          %p.transaction_info
+            配送先と支払い方法の入力を完了してください
+
+          .signup-panel__inner-buy
+            =link_to root_path do
+              %button.btn.btn__mail
+                購入する
+
+    .transaction-user-info
+      .transaction-content-inner
+        配送先
+        .transaction-user-info-text
+          〒 111-1111
+          %br
+          東京都
+          %br
+          安藤悠太
+        %a.transaction-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m99125354295/?_s=U2FsdGVkX1_C4m-yb0YIxNI4csOJMwTo--cVuHo9H8Wt1P_HJwZFwi0YKif02V1JRw_wFwWu5h-ZpUks2PY2n4tl4Aqfki7pRRAA5fU8rSbN2X_OAxODbnbYl7bVyjN-"}
+          %span 変更する
+          %i.fas.fa-arrow-right
+    .transaction-user-info
+      .transaction-content-inner
+        支払い方法
+        .transaction-user-info-text
+          クレジットカード番号 000-000
+          %br
+          有効期限 2019/1/1
+          %br
+          お名前 安藤
+        %a.transaction-user-info-fix.credit-info{:href => "https://www.mercari.com/jp/transaction/select_card/m99125354295/?_s=U2FsdGVkX1_C4m-yb0YIxNI4csOJMwTo--cVuHo9H8Wt1P_HJwZFwi0YKif02V1JRw_wFwWu5h-ZpUks2PY2n4tl4Aqfki7pRRAA5fU8rSbN2X_OAxODbnbYl7bVyjN-"}
+          %span 変更する
+          %i.fas.fa-arrow-right
+
+= render "devise/shared/footer"
