@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+  resources :items, only:[:index, :new, :create, :show, :edit] do
+    get :detail
+    get :transaction
+  end
+
+
   resources :users do
     get :logout
     get :choice, on: :collection
@@ -16,11 +22,11 @@ Rails.application.routes.draw do
       collection do
         get :list
       end
-      collecton do
+      collection do
         get :detail
       end
     end
-    
+
   end
 
   resources :addresses, only:[:new, :create]

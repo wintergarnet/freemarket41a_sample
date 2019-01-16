@@ -59,5 +59,8 @@ class ItemsController < ApplicationController
   def detail
   end
 
+  def transaction
+  end
+
 
 end
