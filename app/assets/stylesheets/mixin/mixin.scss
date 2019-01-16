@@ -121,3 +121,7 @@
   border-width: 0;
   display: block;
 }
+
+@mixin border{
+  border-bottom: 1px solid $SP_GRAY;
+}
