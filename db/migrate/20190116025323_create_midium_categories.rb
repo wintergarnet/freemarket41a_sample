@@ -3,7 +3,7 @@ class CreateMidiumCategories < ActiveRecord::Migration[5.0]
     create_table :midium_categories do |t|
       t.integer :category_id
       t.string :name
-      t.timestamps
+      t.timestamps null: true
     end
   end
 end

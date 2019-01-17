@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20190116025323) do
   create_table "midium_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "category_id"
     t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "parent_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "item_id"
-    t.integer  "large_category"
-    t.integer  "midium_category"
+    t.integer  "large_category",  null: false
+    t.integer  "midium_category", null: false
     t.integer  "small_category"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
