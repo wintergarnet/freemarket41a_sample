@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20190117123618) do
+
+ActiveRecord::Schema.define(version: 20190116025323) do
+
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -36,6 +40,30 @@ ActiveRecord::Schema.define(version: 20190117123618) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
+  end
+
+  create_table "large_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "midium_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parent_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "item_id"
+    t.integer  "large_category",  null: false
+    t.integer  "midium_category", null: false
+    t.integer  "small_category"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["item_id"], name: "index_parent_categories_on_item_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -66,4 +94,8 @@ ActiveRecord::Schema.define(version: 20190117123618) do
   end
 
   add_foreign_key "items", "users"
+
+
+  add_foreign_key "parent_categories", "items"
+  add_foreign_key "values", "items"
 end
