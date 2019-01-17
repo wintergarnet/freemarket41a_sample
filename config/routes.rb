@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :items, shallow: true do
       collection do
         get :list
+        get :set_midium_categories
       end
       collection do
         get :detail
