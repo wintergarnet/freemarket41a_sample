@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :items
   has_many :purchases
-  has_one :address, :dependent => :destroy
+  has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
   has_one :birth
   has_one :credit
