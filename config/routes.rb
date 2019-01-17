@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations"}
 
   root 'items#index'
   resources :items, only:[:index, :new, :create, :show, :edit] do
@@ -11,9 +11,14 @@ Rails.application.routes.draw do
     get :choice, on: :collection
     post :follow, on: :member
     get :telephone
-    get 'users' => 'users#new'
+    get :telephone_confirm
+    get :nickname_email_confirm
+    # get 'users' => 'users#new'
   end
 
-  resources :addresses, only:[:new, :create]
+  resources :addresses do
+    get :credit_registration
+    post :create
+  end
 
 end
