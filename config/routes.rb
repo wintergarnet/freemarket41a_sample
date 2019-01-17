@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
     get :telephone_confirm
     get :nickname_email_confirm
-    # get 'users' => 'users#new'
 
     get 'users' => 'users#new'
     get :profile
@@ -31,7 +30,6 @@ Rails.application.routes.draw do
         get :detail
       end
     end
-
 
   end
 
