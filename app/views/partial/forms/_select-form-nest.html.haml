@@ -1,0 +1,10 @@
+.form-wrapper
+  %label
+    = label_name
+    %span.form-require
+      必須
+  %div
+    .select-wrapper
+      = fin.select column, selects, {include_blank: '---'}, class: 'select-form'
+      = fa_icon "angle-down", class:'icon'
+
