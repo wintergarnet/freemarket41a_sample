@@ -1,0 +1,140 @@
+.transaction-product-container {
+  background-color: $WHITE;
+  width: 700px;
+  margin: 0 auto;
+  font: 66.66667% sans-serif;
+  &__head {
+    border-bottom:1px solid $THIN_GRAY;
+    margin: 0;
+    padding:24px 8px;
+    text-align:center;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .transaction-content {
+    padding: 24px 12.5% 0;
+      &-inner {
+        font-size: 14px;
+        line-height: 1.4;
+        max-width: 320px;
+        margin: 0 auto;
+        .transaction-product-image {
+          text-align: center;
+          width: 80%;
+          margin: 10px auto;
+        }
+        .transaction-product-name{
+          margin: 8px 0 0;
+          font-size: 16px;
+          line-height: 1.5;
+          font-weight: 600;
+          text-align: center;
+        }
+        .transaction-form{
+          .transaction-price-ja.bold {
+            height: 41px;
+            width: 320px;
+            margin-top: 14px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            .shipping-fee {
+             font-size: 14px;
+             font-weight: normal;
+            }
+          }
+          .accordion-toggle {
+            margin-top: 16px;
+            .point_use {
+              background-color: $WHITE;
+              border: 1px solid $BORDER_GRAY;
+              color: $BLACK;
+              margin: 16px 0 0;
+              width: 320px;
+              height: 53px;
+              font-size: 14px;
+              text-align: center;
+            }
+          }
+
+          .transaction-price-table {
+            display: table;
+            height: 60px;
+            width: 100%;
+            .transaction-price-row.transaction-you-pay.bold {
+              display: table-cell;
+              height:60px;
+              width: 320px;
+              font-weight: 600;
+              font-size: 25px;
+              margin-top: 8px;
+              text-align: left;
+              .transaction-price-cell {
+                width: 198px;
+                float: left;
+                text-align: left;
+                font-size: 22px;
+                margin: 16px 0 ;
+                font-weight: 600;
+              }
+              .transaction-price-cell-price {
+                width: 120px;
+                float: right;
+                font-size: 22px;
+                font-weight: 600;
+                margin: 16px 0 0 0;
+                padding: 0 0 0 55px;
+              }
+            }
+          }
+
+        .transaction_info {
+          text-align: center;
+          color: red;
+        }
+        .signup-panel__inner-buy{
+          margin-top: 16px;
+          button{
+          background-color: $MAIN_RED;
+          border: 1px solid $MAIN_RED;
+          color: $WHITE;
+          margin: 16px 0 0;
+          width: 320px;
+          height: 53px;
+          font-size: 14px;
+          text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+   .transaction-user-info {
+     margin: 40px 0 0;
+     padding: 24px 12.5% 0;
+     border-top: 1px solid $MAIN_BACKGROUND;
+     transition: all ease-out .3s;
+     &-inner{
+      font-weight: 600;
+     }
+     &-text {
+       margin: 8px 0 0 0;
+       line-height: 1.4;
+     }
+     a{
+      text-decoration: none;
+     }
+     a:hover{
+      text-decoration: underline;
+     }
+     &-fix {
+      text-align: right;
+      color: $LINK_BLUE;
+      display: block;
+     }
+    .credit-info {
+      padding-bottom: 40px;
+    }
+  }
+}
+

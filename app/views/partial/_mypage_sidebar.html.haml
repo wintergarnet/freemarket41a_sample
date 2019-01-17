@@ -17,7 +17,7 @@
 				=link_to '出品する', root_path, class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
-				=link_to '出品した商品-出品中', root_path, class: 'mypage-main__sidebar-lists-item'
+				=link_to '出品した商品-出品中', list_user_items_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
 				=link_to '出品した商品-取引中', root_path, class: 'mypage-main__sidebar-lists-item'
@@ -51,7 +51,7 @@
 		%h3.mypage-main__sidebar-heads 設定
 		%ul.mypage-main__sidebar-lists
 			%li.mypage-main__sidebar-list
-				=link_to 'プロフィール', root_path, class: 'mypage-main__sidebar-lists-item'
+				=link_to 'プロフィール', user_profile_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
 				=link_to '住所変更', root_path, class: 'mypage-main__sidebar-lists-item'
@@ -63,7 +63,7 @@
 				=link_to 'メール/パスワード', root_path, class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
-				=link_to '本人確認', root_path, class: 'mypage-main__sidebar-lists-item'
+				=link_to '本人確認', edit_user_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
 				=link_to '電話番号の確認', root_path, class: 'mypage-main__sidebar-lists-item'
@@ -71,6 +71,3 @@
 			%li.mypage-main__sidebar-list
 				=link_to 'ログアウト', user_logout_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
-
-
-

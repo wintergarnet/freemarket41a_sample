@@ -4,9 +4,5 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-Item.create(id: 1, user_id: 1, name: 'Luke', image: 'sample', description: 'sample', status: 'sample', delivery_fee: 100, pre_date: 'sample', created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
-Item.create(id: 2, user_id: 1, name: 'Luke', image: 'sample', description: 'sample', status: 'sample', delivery_fee: 100, pre_date: 'sample', created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
-Item.create(id: 3, user_id: 1, name: 'Luke', image: 'sample', description: 'sample', status: 'sample', delivery_fee: 100, pre_date: 'sample', created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
-Item.create(id: 4, user_id: 1, name: 'Luke', image: 'sample', description: 'sample', status: 'sample', delivery_fee: 100, pre_date: 'sample', created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
-Item.create(id: 5, user_id: 2, name: 'Luke', image: 'sample', description: 'sample', status: 'sample', delivery_fee: 100, pre_date: 'sample', created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
-Value.create(id: 2, item_id: 3, price: 500, created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
+Item.create(id: 8, user_id: 2, status: '出品中', name: 'Luke', image: open("#{Rails.root}/public/images/test.jpg"), description: 'sample', item_condition: 'sample', ship_from: '北海道', delivery_fee: '出品者負担', pre_date: 'sample', created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")
+Value.create(id: 13, item_id: 8, price: 500,profit: 500, created_at: "2018-11-12 09:00:05", updated_at: "2018-11-12 09:00:05")

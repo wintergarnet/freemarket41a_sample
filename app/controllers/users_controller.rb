@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def telephone_confirm
   end
 
+  def profile
+  end
+
   def show
   end
 
