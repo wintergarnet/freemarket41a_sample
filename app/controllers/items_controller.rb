@@ -17,14 +17,10 @@ class ItemsController < ApplicationController
     Item.transaction do
       @item = Item.new(item_params)
       @item.save!
-      @item.user_id = current_user.id
-      @item.save!
     end
-    if @item.save
       redirect_to root_path
-    else
+    rescue
       render :new
-    end
   end
 
   def show
@@ -48,10 +44,8 @@ class ItemsController < ApplicationController
   end
 
   def set_midium_categories
-    @item = Item.new
-    @item.build_value
-    @item.build_parent_category
-    render partial: 'partial/forms/midium_collection_select', locals: {category_id: params[:category_id]}
+    @midium_category = MidiumCategory.where(category_id: params[:category_id]).select(:id, :name)
+    render json: @midium_category
   end
   private
 
