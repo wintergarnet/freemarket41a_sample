@@ -1,9 +1,11 @@
 = render 'partial/header'
 
 .main__wrapper
-  %section.owl
-  .content{width:"1440px"}
-    %a.kusanagi{href:"/"}
+  %sectiona
+    .header-banner.owl-carousel.owl-theme
+      = link_to image_tag("header-banner/banner-bokurano-heisei-entertainment.png"),root_path
+      = link_to image_tag("header-banner/banner-bokurano-heisei.jpg"),root_path
+      = link_to image_tag("header-banner/top-banner-kusanagi.jpg"),root_path
 
   %section.pickup-items__wrapper
     %h2.pickup-items__wrapper-head
