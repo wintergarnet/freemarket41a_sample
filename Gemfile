@@ -73,3 +73,6 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
 
+group :test do
+  gem 'capybara', '>= 2.15'
+end
