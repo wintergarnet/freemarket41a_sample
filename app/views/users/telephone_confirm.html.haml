@@ -20,23 +20,28 @@
               .prog-landmark 完了
     .sertification-single-main
       %section.sertification-single-single-container
-        %h2.sertification-chapter-head 電話番号認証
-        = form_for (@user) do |f|
+        %h2.sertification-chapter-head
+          電話番号認証
           .sms-single-inner-lower
             .sms-single-content
               .form-group-certification
-                = f.label :telephone, "認証番号"
-                = f.telephone_field :telephone, placeholder: "認証番号を入力", class: "login-input-text"
-                %p SMSで届いた認証番号を入力してください
-                = f.submit "認証して完了", class: "btn-red"
+                認証番号
+                %input{type:"text", placeholder:"認証番号を入力", class: "login-input-text"}
+                %p
+                  SMSで届いた認証番号を入力してください
+                  =link_to new_address_path(current_user), class: "btn-red" do
+                    認証して完了
           .sms-single-inner-lower
             .sms-single-content
               .sertification-chapter-sub-head 30秒経っても認証番号が届かない方へ
-              .sertification-single-text 電話で認証番号を聞くこともできます。
-              = f.submit "電話で認証番号を聞く(通話無料)", class: "btn-red"
+              .sertification-single-text
+                電話で認証番号を聞くこともできます。
+                =link_to root_path, class: "btn-red" do
+                  電話で認証番号を聞く(通話無料)
           .sms-single-inner-lower
             .sms-single-content
-              .sertification-chapter-sub-head 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+              .sertification-chapter-sub-head
+                認証番号を再送することもできます。もう一度電話番号を入力して下さい。
               .form-group
                 = link_to "電話番号を再度入力する"
               .sertification-single-text※SMSが届かない場合はSMS受信設定を確認して、もう一度電話番号を入力してください。

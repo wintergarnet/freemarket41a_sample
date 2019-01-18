@@ -35,13 +35,16 @@
       min-height: 48px;
       background-color: $WHITE;
       margin:0 0 2px 0;
-
     }
     .mypage-main__sidebar-lists-item{
       color: $BLACK;
-      display: inline-block;
       padding-left: 16px;
       padding-top: 5px;
+      display: block;
+      position: absolute;
+      top: 25%;
+      left: 0;
+      right: 0;
     }
     i{
     	color: $BLACK;
