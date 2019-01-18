@@ -1,6 +1,9 @@
-.content{
-  background-image: image-url("top-banner-kusanagi.jpg");
-  height: 390px;
+.header-banner{
+  img{
+    height: auto;
+    display: block;
+    width: 100%;
+  }
 }
 .pickup-items__wrapper{
   padding: 20px 0 0 0;
