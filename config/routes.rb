@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: "users/registrations"}
 
   root 'items#index'
 
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     get :choice, on: :collection
     post :follow, on: :member
     get :telephone
+
+    get :telephone_confirm
+    get :nickname_email_confirm
+
     get 'users' => 'users#new'
     get :profile
 
@@ -22,6 +26,7 @@ Rails.application.routes.draw do
       collection do
         get :list
         get :set_midium_categories
+        get :set_small_categories
       end
       collection do
         get :detail
@@ -30,6 +35,9 @@ Rails.application.routes.draw do
 
   end
 
-  resources :addresses, only:[:new, :create]
+  resources :addresses do
+    get :credit_registration
+    post :create
+  end
 
 end

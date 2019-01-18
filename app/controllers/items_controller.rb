@@ -47,10 +47,15 @@ class ItemsController < ApplicationController
     @midium_category = MidiumCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @midium_category
   end
+
+  def set_small_categories
+    @small_category = SmallCategory.where(category_id: params[:category_id]).select(:id, :name)
+    render json: @small_category
+  end
   private
 
   def item_params
-    params.require(:item).permit(:name, :item_condition, :image, :description, :status, :ship_from, :delivery_fee, :pre_date, :user_id, value_attributes: [:id, :item_id, :price, :profit], parent_category_attributes: [:id, :large_category, :midium_category]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :item_condition, :image, :description, :status, :ship_from, :delivery_fee, :pre_date, :user_id, value_attributes: [:id, :item_id, :price, :profit], parent_category_attributes: [:id, :large_category, :midium_category, :small_category]).merge(user_id: current_user.id)
   end
 
   def link_user
