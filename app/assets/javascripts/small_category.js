@@ -7,8 +7,6 @@ $(document).ready(function(){
       var data = {
         category_id: midium_category_id
       };
-      console.log(midium_category_id);
-      console.log(data);
       $.ajax({
         type: 'GET',
         url: url,
