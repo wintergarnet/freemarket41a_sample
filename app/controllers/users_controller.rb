@@ -37,6 +37,7 @@ class UsersController < ApplicationController
       redirect_to address_credit_registration_path(current_user)
     else
       render template: "addresses/new"
+    end
   end
 
   private
