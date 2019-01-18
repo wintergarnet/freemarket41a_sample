@@ -1194,7 +1194,7 @@ SmallCategory.transaction do
   SmallCategory.create(id: 1026, category_id: 106,name: "アクセサリー")
   SmallCategory.create(id: 1027, category_id: 106,name: "記念グッズ")
   SmallCategory.create(id: 1028, category_id: 106,name: "応援グッズ")
-  SmallCategory.create(id: 1029, category_id: 1063name: "その他")
+  SmallCategory.create(id: 1029, category_id: 106,name: "その他")
   SmallCategory.create(id: 1030, category_id: 107,name: "すべて")
   SmallCategory.create(id: 1031, category_id: 107,name: "ボード")
   SmallCategory.create(id: 1032, category_id: 107,name: "バインディング")
