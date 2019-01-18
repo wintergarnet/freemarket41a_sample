@@ -7,11 +7,15 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+  end
+
+  def create
   end
 
   def telephone
-    @user = User.new
+  end
+
+  def telephone_confirm
   end
 
   def profile
@@ -23,4 +27,25 @@ class UsersController < ApplicationController
   def logout
   end
 
+  def nickname_email_confirm
+  end
+
+  def update
+    current_user.build_address
+    current_user.update_attributes(user_params)
+    if current_user.save
+      redirect_to address_credit_registration_path(current_user)
+    else
+      render template: "addresses/new"
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:last_name, :first_name, :phonetic, :phonetic_last, :tel, :email, :nickname, address_attributes: [:id, :user_id, :prefecture, :city, :house_number, :building, :post_code, :created_at, :updated_at])
+  end
+
 end
+
+

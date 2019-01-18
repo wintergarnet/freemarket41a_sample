@@ -9,10 +9,10 @@
       .login-form-content
         %button#facebook-login.btn-sns.btn-sns-facebook
           %i.fab.fa-facebook
-          = link_to "Facebookでログイン"
+          = link_to "Facebookでログイン",user_facebook_omniauth_authorize_path
         %button#google-login.btn-sns.btn-sns-google
           %i.fab.fa-google-plus-g
-          = link_to "Googleでログイン"
+          = link_to "Googleでログイン",user_google_oauth2_omniauth_authorize_path
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .login-form-inner
         .form-group-top
