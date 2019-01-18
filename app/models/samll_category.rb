@@ -1,0 +1,2 @@
+class SamllCategory < ApplicationRecord
+end
