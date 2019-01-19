@@ -47,6 +47,26 @@ class ItemsController < ApplicationController
     @midium_category = MidiumCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @midium_category
   end
+
+  def detail
+    @item = Item.find(params[:item_id])
+
+     unless @item.parent_category.nil?
+      large_category = @item.parent_category.large_category
+      @large_category = LargeCategory.find(large_category)
+
+      midium_category = @item.parent_category
+      @midium_category = MidiumCategory.find(midium_category)
+
+      # small_category = @item.parent_category
+      # @small_category = SmallCategory.find(small_category)
+    end
+
+  end
+
+  def transaction
+  end
+
   private
 
   def item_params
@@ -61,11 +81,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def detail
-  end
-
-  def transaction
-  end
 
 
 end
