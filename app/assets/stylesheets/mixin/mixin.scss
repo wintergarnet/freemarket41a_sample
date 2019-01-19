@@ -110,6 +110,21 @@
   transition: all 0.2s ease;
 }
 
+@mixin tab-lists{
+  width: calc(100%/3);
+  height: 74px;
+  background-color: $SP_GRAY;
+  line-height: 74px;
+  font-size: 14px;
+  text-align: center;
+  color: $BLACK;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
 @mixin tabs-checked{
   background-color: $WHITE;
   color: $BLACK;

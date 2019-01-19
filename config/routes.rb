@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       collection do
         get :list
         get :set_midium_categories
+        get :set_small_categories
       end
     end
 

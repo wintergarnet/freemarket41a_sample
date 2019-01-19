@@ -20,10 +20,10 @@
 				=link_to '出品した商品-出品中', list_user_items_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
-				=link_to '出品した商品-取引中', root_path, class: 'mypage-main__sidebar-lists-item'
+				=link_to '出品した商品-取引中', list_user_items_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
-				=link_to '出品した商品-売却済み', root_path, class: 'mypage-main__sidebar-lists-item'
+				=link_to '出品した商品-売却済み', list_user_items_path(current_user), class: 'mypage-main__sidebar-lists-item'
 				%i.fa.fa-angle-right
 			%li.mypage-main__sidebar-list
 				=link_to '購入した商品-取引中', root_path, class: 'mypage-main__sidebar-lists-item'
