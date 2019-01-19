@@ -7,14 +7,15 @@
   .item-main-box.clearfix
     .item-img-box
       .item-img-box-main
-        = image_tag @item.image, width: "300x300"
+        = image_tag @item.image, class: "item-img-size"
 
     %table.item-info
       %tbody
         %tr
           %th 出品者
           %td
-            =link_to @item.user.nickname
+            =link_to "#" do
+              = @item.user.nickname
             %div
               .item-user-rate
                 %i.good
