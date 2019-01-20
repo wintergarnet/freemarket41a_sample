@@ -10,10 +10,7 @@ class User < ApplicationRecord
   has_many :purchases
   has_one :address
   accepts_nested_attributes_for :address, update_only: true, allow_destroy: true
-  has_one :birth
-  accepts_nested_attributes_for :birth, update_only: true, allow_destroy: true
   has_one :credit
-
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

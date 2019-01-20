@@ -4,8 +4,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    current_user.address
-    current_user.birth = Birth.new if current_user.birth.blank?
   end
 
   def new
@@ -44,7 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :phonetic, :phonetic_last, :tel, :email, :nickname, address_attributes: [:id, :user_id, :prefecture, :city, :house_number, :building, :post_code, :created_at, :updated_at, :_destroy], birth_attributes: [:id, :user_id, :year, :month, :day, :_destroy])
+    params.require(:user).permit(:last_name, :first_name, :phonetic, :phonetic_last, :tel, :email, :nickname, :birth, address_attributes: [:id, :user_id, :prefecture, :city, :house_number, :building, :post_code, :created_at, :updated_at, :_destroy])
   end
 
 end
