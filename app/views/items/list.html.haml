@@ -1,0 +1,23 @@
+= render 'partial/header'
+
+.mypage-body
+  .mypage-main.clearfix
+    = render 'partial/mypage_sidebar'
+    .mypage-main__tab-container
+      %section.mypage-tab-container-production.mypage-tab-container
+        .mypage-tab-head
+          %h3.mypage-tab-title 出品した商品
+        .tabs
+          %input#all{checked:"checked", name:"tab_item", type:"radio"}
+          %label.tab_item{for: "all"} 出品中
+          %input#todo{name:"tab_item", type:"radio"}
+          %label.tab_item{for: "todo"} 売却済み
+          #all_content.tab_content
+            .tab_content_description
+              = render partial: 'partial/items/item_list_container'
+          #todo_content.tab_content
+            .tab_content_description
+
+= render 'partial/footer-banner'
+= render 'partial/footer'
+= render 'partial/sell_btn'

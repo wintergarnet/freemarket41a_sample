@@ -1,0 +1,15 @@
+%ul
+  - @items.each do |item|
+    %li
+      = link_to item_path(item.id), class: 'tab_content_link', id: 'tab_content_link' do
+        %figure
+          = image_tag item.image, class: "tab_content_image"
+        .tab_content_body
+          .tab_content_text
+            = item.name
+        .tab_content_time
+          %i.far.fa-heart
+          %i.far.fa-comment-alt
+          %span.tab_content_day
+            = item.status
+        %i.fa.fa-angle-right

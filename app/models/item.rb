@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   has_one :value
+  has_one :parent_category
   accepts_nested_attributes_for :value, allow_destroy: true
+  accepts_nested_attributes_for :parent_category, allow_destroy: true
 
   mount_uploader :image, ImageUploader
 

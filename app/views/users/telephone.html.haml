@@ -21,32 +21,20 @@
               .prog-landmark 完了
     .sertification-single-main
       %section.sertification-single-single-container
-        %h2.sertification-chapter-head 電話番号の確認
-        = form_for (@user) do |f|
+        %h2.sertification-chapter-head
+          電話番号の確認
           .sms-single-inner-lower
             .sms-single-content
               .form-group-sms
-                = f.label :telephone, "携帯電話の番号"
-                = f.telephone_field :telephone, placeholder: "携帯電話の番号を入力", class: "login-input-text"
-                %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-                = f.submit "smsを送信する", class: "btn-red"
+                携帯電話の番号
+                %input{type:"text", placeholder:"携帯電話の番号を入力", class: "login-input-text"}
+                %p
+                  本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+                  =link_to user_telephone_confirm_path(current_user), class: "btn-red" do
+                    smsを送信する
                 %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
               .form-group-sms-text-right
                 = link_to "電話番号の確認が必要な理由"
 
 = render "devise/shared/footer"
-
-= render 'partial/header'
-
-.mypage-body
-	.mypage-main.clearfix
-		= render 'partial/mypage_sidebar'
-		= render 'partial/mypage_main'
-		= render 'partial/tab_container'
-		= render 'partial/tab_container-production'
-
-
-= render 'partial/footer-banner'
-= render 'partial/footer'
-= render 'partial/sell_btn'
 

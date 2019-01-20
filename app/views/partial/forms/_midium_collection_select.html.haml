@@ -1,0 +1,4 @@
+= form_for @item,url: user_items_path do |f|
+  = f.fields_for :parent_category do |pf|
+    = pf.collection_select(:midium_category, MidiumCategory.where(category_id: category_id), :id, :name,{prompt: "---"}, {class: 'select-form'})
+    = fa_icon "angle-down", class:'icon'

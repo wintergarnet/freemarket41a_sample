@@ -1,0 +1,13 @@
+.tab_content{
+  &_description{
+    li:first-child{
+      @include border;
+    }
+    li{
+      @include border;
+    }
+  }
+  #tab_content_link{
+      position: relative;
+  }
+}
