@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    current_user.address = Address.new if current_user.address.blank?
+    current_user.birth = Birth.new if current_user.birth.blank?
   end
 
   def new
@@ -31,8 +33,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.build_address
-    current_user.update_attributes(user_params)
+    current_user.update(user_params)
     if current_user.save
       redirect_to address_credit_registration_path(current_user)
     else
@@ -43,7 +44,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :phonetic, :phonetic_last, :tel, :email, :nickname, address_attributes: [:id, :user_id, :prefecture, :city, :house_number, :building, :post_code, :created_at, :updated_at])
+    params.require(:user).permit(:last_name, :first_name, :phonetic, :phonetic_last, :tel, :email, :nickname, address_attributes: [:id, :user_id, :prefecture, :city, :house_number, :building, :post_code, :created_at, :updated_at, :_destroy], birth_attributes: [:id, :user_id, :year, :month, :day, :_destroy])
   end
 
 end
