@@ -2,9 +2,11 @@ class ItemsController < ApplicationController
 
   before_action :link_user
   before_action :set_item, only: [:edit, :update]
+  before_action :move_to_login, only: [:new, :destry, :transaction]
 
   def index
     @items = Item.where('id >= 1').limit(4)
+    @items = Item.order("created_at DESC")
   end
 
   def new
@@ -52,6 +54,19 @@ class ItemsController < ApplicationController
     @small_category = SmallCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @small_category
   end
+  def show_more
+    @item = Item.find(params[:item_id])
+    @item.value
+    @items = Item.order("created_at DESC").limit(3)
+    unless @item.parent_category.nil?
+     large_cate_number = @item.parent_category.large_category
+     @large_category = LargeCategory.find(large_cate_number)
+     midium_cate_number = @item.parent_category.midium_category
+     @midium_category = MidiumCategory.find(midium_cate_number)
+     small_cate_number = @item.parent_category.small_category
+     @small_category = SmallCategory.find(small_cate_number)
+    end
+  end
   private
 
   def item_params
@@ -72,5 +87,7 @@ class ItemsController < ApplicationController
   def transaction
   end
 
-
+  def move_to_login
+    redirect_to action: :index unless user_signed_in?
+  end
 end
