@@ -6,10 +6,10 @@ $(document).ready(function(){
       e.preventDefault();
 
       const card = {
-        number: document.getElementById('card_token_card_number').value,
+        number: document.getElementById('card-number').value,
         cvc: document.getElementById('cvv').value,
-        exp_month: document.getElementById('exp_month').value,
-        exp_year: document.getElementById('exp_year').value
+        exp_month: document.getElementById('exp-month').value,
+        exp_year: document.getElementById('exp-year').value
       };
 
       Payjp.createToken(card, (status, response) => {
