@@ -33,7 +33,11 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
     if current_user.save
-      redirect_to new_credit_path
+      if current_user.credit.blank?
+        redirect_to new_credit_path
+      else
+        redirect_to root_path
+      end
     else
       render template: "addresses/new"
     end
