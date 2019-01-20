@@ -1,0 +1,146 @@
+= render 'partial/header'
+
+%section.item-box-container
+  %h1.item-name
+    = @item.name
+  .item-main-box.clearfix
+    .item-img-box
+      .item-img-box-main
+        = image_tag(@item.image)
+    %table.item-info
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to "#{@item.user.nickname}",class: ""
+            %div
+              .item-user-rate
+                %i.good
+                %p.count 2
+              .item-user-rate
+                %i.normal
+                %p.count 1
+              .item-user-rate
+                %i.bad
+                %p.count 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to do
+              %p.parent
+                = @large_category.name
+            = link_to "", class: "child-box" do
+              %i.prev-icon
+                %p.child
+                = @midium_category.name
+            = link_to "", class: "child_box" do
+              %i.prev-icon
+                %p.child
+                = @small_category.name
+        %tr
+          %th 商品の状態
+          %td
+            = @item.item_condition
+        %tr
+          %th 配送料の負担
+          %td
+            = @item.delivery_fee
+        %tr
+          %th 配送の方法
+          %td
+            %p 未定
+        %tr
+          %th 配送元地域
+          %td
+            =link_to "#{@item.ship_from}", class: ""
+        %tr
+          %th 発送日の目安
+          %td
+            = @item.pre_date
+  .price-box
+    %h1
+    %span.price
+      ¥
+      = @item.value.price
+      %span.tax (税込)
+      %span.sipping-fee
+        = @item.delivery_fee
+  .buy-btn
+    = link_to "購入画面に進む",item_transaction_path
+  .item-detail
+  = @item.description
+  .item-btn
+    .item-btn-left
+      %button.like-btn
+        %i.like
+        %p.text いいね!
+        %p.like-count 1
+      = link_to "",class: 'report' do
+        %i.flag
+        %p.text 不適切な商品の報告
+    .item-btn-right
+      = link_to "" do
+        %i.lock
+        %p.text あんしん・あんぜんへの取り組み
+
+%section.item-message
+  %ul.messages
+    %li.cation
+      %p 相手のことを考えて丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    %li.comment
+      = form_for("") do |f|
+        = f.text_area :text, class:"text-input"
+        .actions
+          = f.submit "コメントする", class: 'btn-gray'
+%ul.nav-item-link.clearfix
+  %li.nav-prev
+    =link_to "",class: 'prev' do
+      %i.prev-icon
+      %p.text
+        = @item.name
+  %li.nav-next
+    =link_to "",class: 'next' do
+      %p.text
+        = @item.name
+      %i.prev-icon-right
+
+.social-media-box
+  %ul.social-media-icons
+    %li.social-media-icon
+      =link_to "" do
+        %i.facebook-icon
+    %li.social-media-icon
+      =link_to "" do
+        %i.twitter-icon
+    %li.social-media-icon
+      =link_to "" do
+        %i.line-icon
+    %li.social-media-icon
+      =link_to "" do
+        %i.pinterest-icon
+
+.items-user-profile
+  %section.items-box-container.clearfix.user-profile
+    %h2.item-box-head
+      =link_to "#{@item.user.nickname}さんのその他の出品", item_path(:item), class: ""
+.items-box-content.clearfix
+  - @items.each do |item|
+    %section.items-box
+      = link_to item_show_more_path(item.id), class: "pic" do
+        .items-box-photo
+          = image_tag item.image, class: "lazyload"
+        .items-box-body
+          %h3.item-name.font-2
+            = item.name
+          .item-box-num.clearfix
+            .item-box-price.font-5
+              ¥
+              = @item.value.price
+            .item-box-likes
+              %p.like-count 1
+              %i.like.font-2
+            %p.item-box-sipping-fee (税込)
+
+= render 'partial/footer-banner'
+= render 'partial/footer'
+= render 'partial/sell_btn'
