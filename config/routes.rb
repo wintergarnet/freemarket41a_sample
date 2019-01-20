@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+
   resources :users do
     get :logout
     get :choice, on: :collection
@@ -17,7 +18,12 @@ Rails.application.routes.draw do
     get :profile
 
     resources :items, shallow: true do
+
+      get :show_more
+      get :transaction
+
       get :detail
+
       collection do
         get :list
         get :set_midium_categories
