@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     current_user.build_address
     current_user.update_attributes(user_params)
     if current_user.save
-      redirect_to address_credit_registration_path(current_user)
+      redirect_to new_credit_path
     else
       render template: "addresses/new"
     end
@@ -47,5 +47,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-
