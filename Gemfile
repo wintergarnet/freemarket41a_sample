@@ -76,6 +76,7 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
 gem "squasher"
+gem 'payjp'
 
 group :test do
   gem 'capybara', '>= 2.15'
