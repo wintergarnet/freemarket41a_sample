@@ -14,7 +14,7 @@
                 カード番号
                 %span.form-require
                   必須
-            = number_field :card_token, :card_number, {class: "input-default form-control", maxlength: 12, placeholder: "半角数字のみ"}
+            = number_field :card_token, :card_number, {class: "input-default form-control", maxlength: 12, placeholder: "半角数字のみ", id: "card-number"}
             .credit-brand-container
               %ul
                 %li= image_tag("credit/visa.png")
@@ -29,10 +29,10 @@
                 %span.form-require
                   必須
             %div
-              = date_select :card_token, :exp_month , {discard_year: true, discard_day: true, use_month_numbers: true}, {class: "date_select valid_date form-control", id: "exp_month"}
+              = date_select :card_token, :exp_month , {discard_year: true, discard_day: true, use_month_numbers: true}, {class: "date_select valid_date form-control", id: "exp-month"}
               月
             %div
-              = date_select :card_token, :exp_year, {discard_month: true, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10}, {class: "date_select valid_date form-control", id: "exp_year"}
+              = date_select :card_token, :exp_year, {discard_month: true, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10}, {class: "date_select valid_date form-control", id: "exp-year"}
               年
             .form-wrapper
               %label{for: "inputCVV"}

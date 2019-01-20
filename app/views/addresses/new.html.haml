@@ -1,6 +1,22 @@
 .single-container
   %header.single-header
-    %h1= link_to image_tag("logo.svg"),root_path
+    .flex-parent
+      .flex-child-img
+        %h1
+          =link_to image_tag("logo.svg"),root_path
+      .flex-child-prog
+        %ul.prog-bar
+          %li.prog-unit.active
+            .prog-landmark.active 会員情報
+          %li.prog-unit.active
+            .prog-landmark.active 電話番号認証
+            .prog-status.active
+          %li.prog-unit.active
+            .prog-landmark 住所入力
+          %li.prog-unit
+            .prog-landmark 支払い方法
+          %li.prog-unit
+            .prog-landmark 完了
 
   %main.single-main
     %section
