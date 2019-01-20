@@ -381,18 +381,23 @@
     margin: 0 0 20px 0;
     float: left;
     width: 230px;
-  .items-box-photo{
-    background-color: $MAIN_BACKGROUND;
-    width: 220px;
-    weight: 220px;
-    margin:0 30px 0 30px;
-    overflow: hidden;
-  }
-  .items-box-body{
-    height: 90px;
-    padding: 10px;
-    margin: 0 0 0 30px;
-    background-color: $WHITE;
+    .items-box-photo{
+      background-color: $MAIN_BACKGROUND;
+      width: 200px;
+      height: 200px;
+      margin:0 30px 0 30px;
+      overflow: hidden;
+      .lazyload {
+        width: 200px;
+        height: 100%;
+        top: 50%;
+      }
+    }
+    .items-box-body{
+      height: 90px;
+      padding: 10px;
+      margin: 0 0 0 30px;
+      background-color: $WHITE;
       .item-name{
         color: $BLACK;
         overflow: hidden;

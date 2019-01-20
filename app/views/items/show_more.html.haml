@@ -66,7 +66,7 @@
       %span.sipping-fee
         = @item.delivery_fee
   .buy-btn
-    %a= link_to "購入画面に進む",item_transaction_path
+    = link_to "購入画面に進む",item_transaction_path
   .item-detail
   = @item.description
   .item-btn
@@ -122,13 +122,13 @@
 .items-user-profile
   %section.items-box-container.clearfix.user-profile
     %h2.item-box-head
-      =link_to "#{@item.user.nickname}さんのその他の出品", item_path(:item_id), class: ""
+      =link_to "#{@item.user.nickname}さんのその他の出品", item_path(:item), class: ""
 .items-box-content.clearfix
   - @items.each do |item|
     %section.items-box
       = link_to item_show_more_path(item.id), class: "pic" do
         .items-box-photo
-          = image_tag item.image, class: "", size: "200x200"
+          = image_tag item.image, class: "lazyload"
         .items-box-body
           %h3.item-name.font-2
             = item.name

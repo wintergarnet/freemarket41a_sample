@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.where('id >= 1').limit(4)
-    @items = Item.order("created_at DESC")
   end
 
   def new
@@ -56,7 +55,6 @@ class ItemsController < ApplicationController
   end
   def show_more
     @item = Item.find(params[:item_id])
-    @item.value
     @items = Item.order("created_at DESC").limit(3)
     unless @item.parent_category.nil?
      large_cate_number = @item.parent_category.large_category
