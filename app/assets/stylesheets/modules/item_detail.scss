@@ -3,6 +3,7 @@
   background-color: $WHITE;
   margin: 40px auto 0;
   width: 700px;
+  box-sizing: border-box;
   .item-name{
     font-size: 24px;
     text-align: center;
@@ -127,6 +128,7 @@
     }
     .sipping-fee{
       font-size: 16px;
+      font-weight: normal;
     }
   }
   .buy-btn{
@@ -138,6 +140,9 @@
     margin-top: 10px;
     line-height: 60px;
     font-weight: bold;
+      a{
+      color: $WHITE;
+      }
   }
   .item-detail{
     padding: 32px 0 0;
@@ -205,6 +210,7 @@
       }
       .text{
         display: inline-block;
+        color: $LINK_BLUE;
       }
     }
   }
@@ -364,73 +370,72 @@
       font-size: 22px;
       line-height: 1.4;
       margin-bottom: 8px;
-      .user-link{
-        color: $LINK_BLUE;
-      }
     }
-    .items-box-content{
-      margin: 24px auto 8px;
-      width: 700px;
-      .items-box{
-        background-color: $MAIN_BACKGROUND;
-        margin: 0 0 20px 0;
-        float: left;
-        width: 220px;
-        .item-box{
+  }
+}
+.items-box-content{
+  margin: 24px auto 8px;
+  width: 700px;
+  .items-box{
+    background-color: $MAIN_BACKGROUND;
+    margin: 0 0 20px 0;
+    float: left;
+    width: 230px;
+  .items-box-photo{
+    background-color: $MAIN_BACKGROUND;
+    width: 220px;
+    weight: 220px;
+    margin:0 30px 0 30px;
+    overflow: hidden;
+  }
+  .items-box-body{
+    height: 90px;
+    padding: 10px;
+    margin: 0 0 0 30px;
+    background-color: $WHITE;
+      .item-name{
+        color: $BLACK;
+        overflow: hidden;
+        position: relative;
+        font-weight: 400;
+        height: 2;
+        line-height: 1.5;
+      }
+      .item-box-num{
+        margin: 20px 0 0 0;
+        .item-box-price{
           color: $BLACK;
-          width: 220px;
-          height: 220px;
-          .items-box-photo{
-            background-color: $MAIN_BACKGROUND;
-            width: 220px;
-            height: 220px;
-            margin:0 30px 0 30px;
+          font-size: 20px;
+          float: left;
+          font-weight: 600;
+        }
+        .item-box-likes{
+          float: right;
+          i.like.font-2::before{
+            font-family: "Font Awesome 5 Free";
+            content: '\f004';
+            color: $GRAY;
+            display: inline-block;
+            padding-right: 5px;
+            float: right;
           }
-          .items-box-body{
-            height: 110px;
-            padding: 10px;
-            margin: 0 0 0 30px;
-            background-color: $WHITE;
-            .item-name{
-              overflow: hidden;
-              position: relative;
-              font-weight: 400;
-              height: 2;
-              line-height: 1.5;
-            }
-            .item-box-num{
-              margin: 8px 0 0 0;
-              .item-box-price{
-                font-size: 16px;
-                float: left;
-                font-weight: 600;
-              }
-              .item-box-likes{
-                float: right;
-                i.like.font-2::before{
-                  font-family: "Font Awesome 5 Free";
-                  content: '\f004';
-                  color: $GRAY;
-                  display: inline-block;
-                  padding-right: 5px;
-                  float: right;
-                }
-                .like-count{
-                  display: inline-block;
-                  float: right;
-                }
-              }
-              .item-box-sipping-fee{
-                font-size: 10px;
-                clear:both;
-              }
-            }
+          .like-count{
+            color: $BLACK;
+            display: inline-block;
+            float: right;
           }
+        }
+        .item-box-sipping-fee{
+          font-size: 10px;
+          clear: both;
+          color: $BLACK;
+          margin: 0 auto;
         }
       }
     }
   }
 }
+
 .in-category{
   margin: 24px 0 30px 0;
 }
