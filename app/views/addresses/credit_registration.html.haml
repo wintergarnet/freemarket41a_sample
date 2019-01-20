@@ -30,11 +30,10 @@
                   %span.form-require
                     必須
               %div
-                = f.date_select :created_at, discard_year: true, discard_day: true, use_month_numbers: true
+                = f.date_select :created_at, {discard_year: true, discard_day: true, use_month_numbers: true}, {class: "date_select valid_date"}
                 月
               %div
-                = f.date_select :created_at, discard_month: true, discard_day: true, start_year: Time.now.year,
-                end_year: Time.now.year + 10
+                = f.date_select :created_at, {discard_month: true, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10}, {class: "date_select valid_date"}
                 年
               .form-wrapper
                 %label
@@ -45,4 +44,3 @@
               .btn-content
                 = f.submit '次へ進む', disable_with: '保存中', class: "btn-red"
   = render "devise/shared/footer"
-
