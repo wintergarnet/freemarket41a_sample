@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20190120044025) do
-
-ActiveRecord::Schema.define(version: 20190118122647) do
-
+ActiveRecord::Schema.define(version: 20190120072955) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -28,23 +24,12 @@ ActiveRecord::Schema.define(version: 20190118122647) do
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
-
-  create_table "births", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.date     "year"
-    t.date     "month"
-    t.date     "day"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_births_on_user_id", using: :btree
-
   create_table "credits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "card_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credits_on_user_id", unique: true, using: :btree
-    
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,6 +94,7 @@ ActiveRecord::Schema.define(version: 20190118122647) do
     t.string   "provider"
     t.string   "uid"
     t.string   "tel",                    limit: 11
+    t.date     "birth"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
