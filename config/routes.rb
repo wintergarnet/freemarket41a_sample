@@ -18,15 +18,16 @@ Rails.application.routes.draw do
     get :profile
 
     resources :items, shallow: true do
+
       get :show_more
       get :transaction
+
+      get :detail
+
       collection do
         get :list
         get :set_midium_categories
         get :set_small_categories
-      end
-      collection do
-        get :detail
       end
     end
 
@@ -35,6 +36,15 @@ Rails.application.routes.draw do
   resources :addresses do
     get :credit_registration
     post :create
+  end
+
+  resources :credits, only: [:new, :create, :edit] do
+    member do
+      post :pay
+    end
+    collection do
+      get :acquire_token
+    end
   end
 
 end
