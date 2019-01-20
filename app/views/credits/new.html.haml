@@ -1,0 +1,50 @@
+.single-container
+  %header.single-header
+    %h1= link_to image_tag("logo.svg"),root_path
+
+  %main.single-main
+    %section
+      .common-container
+        .common-container-inner
+          %h2.common-container-inner__head
+            支払い方法
+          .common-container-inner__content.user-container-inner__content
+            .form-wrapper
+              %label{for: "inputCardNumber"}
+                カード番号
+                %span.form-require
+                  必須
+            = number_field :card_token, :card_number, {class: "input-default form-control", maxlength: 12, placeholder: "半角数字のみ"}
+            .credit-brand-container
+              %ul
+                %li= image_tag("credit/visa.png")
+                %li= image_tag("credit/mastercard.png")
+                %li= image_tag("credit/jcb.png")
+                %li= image_tag("credit/americanExpress.png")
+                %li= image_tag("credit/dinersClub.png")
+                %li= image_tag("credit/discover.png")
+            .form-wrapper
+              %label{for: "inputExp"}
+                有効期限
+                %span.form-require
+                  必須
+            %div
+              = date_select :card_token, :exp_month , {discard_year: true, discard_day: true, use_month_numbers: true}, {class: "date_select valid_date form-control", id: "exp_month"}
+              月
+            %div
+              = date_select :card_token, :exp_year, {discard_month: true, discard_day: true, start_year: Time.now.year, end_year: Time.now.year + 10}, {class: "date_select valid_date form-control", id: "exp_year"}
+              年
+            .form-wrapper
+              %label{for: "inputCVV"}
+                セキュリティコード
+                %span.form-require
+                  必須
+            = number_field :card_token, :cvv, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default", maxlength: 4, id: "cvv"
+            .btn-field__former
+              .btn-content
+                %button#token.btn-red{type: "submit"} カード情報を照会する
+            .btn-field__latter
+              = form_for @credit, url: credits_path do |f|
+                = f.hidden_field :card_token
+                = f.submit '登録する', class: 'btn-red'
+= render "devise/shared/footer"
