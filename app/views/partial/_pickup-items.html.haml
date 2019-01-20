@@ -5,7 +5,7 @@
   .pickup-items__content.clearfix
     - @items.each do |item|
       %section.pickup-items__box
-        = link_to '/',class: "pic" do
+        = link_to item_more_path(item.id),class: "pic" do
           %figure.pickup-items__box-photo
 
             = image_tag item.image, class: "lazyloaded", width: "100%"
