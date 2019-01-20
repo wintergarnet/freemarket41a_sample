@@ -48,6 +48,10 @@ class ItemsController < ApplicationController
     render json: @midium_category
   end
 
+  def set_small_categories
+    @small_category = SmallCategory.where(category_id: params[:category_id]).select(:id, :name)
+    render json: @small_category
+  end
 
   def detail
     @item = Item.find(params[:item_id])
@@ -66,11 +70,6 @@ class ItemsController < ApplicationController
   end
 
   def transaction
-  end
-
-  def set_small_categories
-    @small_category = SmallCategory.where(category_id: params[:category_id]).select(:id, :name)
-    render json: @small_category
   end
 
   private

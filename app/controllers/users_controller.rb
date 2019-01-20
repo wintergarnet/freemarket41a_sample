@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def update
     current_user.update(user_params)
     if current_user.save
-      redirect_to address_credit_registration_path(current_user)
+      redirect_to new_credit_path
     else
       render template: "addresses/new"
     end
@@ -48,5 +48,3 @@ class UsersController < ApplicationController
   end
 
 end
-
-
