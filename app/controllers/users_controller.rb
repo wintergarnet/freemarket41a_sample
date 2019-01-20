@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    current_user.address = Address.new if current_user.address.blank?
+    current_user.address
     current_user.birth = Birth.new if current_user.birth.blank?
   end
 
