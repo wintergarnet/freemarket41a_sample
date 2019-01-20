@@ -41,11 +41,9 @@ Rails.application.routes.draw do
   end
 
   resources :credits, only: [:new, :create, :edit] do
-    member do
-      post :pay
-    end
     collection do
       get :acquire_token
+      get :pay
     end
   end
 
