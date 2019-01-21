@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+
   resources :users do
     get :logout
     get :choice, on: :collection
@@ -28,11 +29,6 @@ Rails.application.routes.draw do
         get :set_midium_categories
         get :set_small_categories
       end
-
-      member do
-        post :pay, controller: :credits, action: :pay, as: 'pay'
-      end
-
     end
 
   end
@@ -43,8 +39,12 @@ Rails.application.routes.draw do
   end
 
   resources :credits, only: [:new, :create, :edit] do
+    member do
+      post :pay
+    end
     collection do
       get :acquire_token
     end
   end
+
 end
