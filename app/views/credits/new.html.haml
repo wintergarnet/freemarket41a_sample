@@ -61,6 +61,6 @@
                 %button#token.btn-red{type: "submit"} カード情報を照会する
             .btn-field__latter
               = form_for @credit, url: credits_path do |f|
-                = f.hidden_field :card_token
+                = f.hidden_field :customer_id
                 = f.submit '登録する', class: 'btn-red'
 = render "devise/shared/footer"
