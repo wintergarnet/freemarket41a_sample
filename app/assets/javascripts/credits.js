@@ -28,7 +28,6 @@ $(document).ready(function(){
             $('.btn-field__former').css('display', 'none');
             $('.btn-field__latter').css('display', 'block');
             $('#credit_customer_id').val(data.id);
-            debugger;
           })
           .fail(function(){
           alert('通信に失敗しました');
