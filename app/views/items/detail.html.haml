@@ -1,18 +1,21 @@
 = render 'partial/header'
+.sidebar
 
 %section.item-box-container
   %h1.item-name
-    FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
+    = @item.name
   .item-main-box.clearfix
     .item-img-box
       .item-img-box-main
-        = image_tag("suit.jpg",alt:"スーツ", :size => '300x300')
+        = image_tag @item.image, class: "item-img-size"
+
     %table.item-info
       %tbody
         %tr
           %th 出品者
           %td
-            =link_to("エドシーラン")
+            =link_to "#" do
+              = @item.user.nickname
             %div
               .item-user-rate
                 %i.good
@@ -27,63 +30,66 @@
           %th カテゴリー
           %td
             =link_to do
-              %p.parent メンズ
+              %p.parent
+                = @large_category.name
             =link_to "",class: 'child-box' do
               %i.right
-                %p.child ジャケット/アウター
-            =link_to "",class: 'child-box' do
-              %i.right
-                %p.second-child ナイロンジャケット
+                %p.child
+                  = @midium_category.name
+            / small_caregory導入後
+            / =link_to "",class: 'child-box' do
+            /   %i.right
+            /     %p.second-child
+            /       = @small_category.name
         %tr
           %th ブランド
-          %td
-            = link_to do
-              %p ナイキ
+          %td -
         %tr
           %th 商品のサイズ
           %td
-            %p S
+            %p 未設定
         %tr
           %th 商品の状態
           %td
-            %p 目立った傷や汚れなし
+            %p
+              = @item.item_condition
         %tr
           %th 配送料の負担
           %td
-            %p 送料込み(出品者負担)
+            %p
+              = @item.delivery_fee
         %tr
           %th 配送の方法
           %td
-            %p らくらくメルカリ便
+            %p 未設定
         %tr
           %th 配送元地域
           %td
             = link_to do
-              %p 東京都
+              %p
+              = @item.ship_from
         %tr
           %th 発送日の目安
           %td
-            %p 1~2日で発送
+            %p
+              = @item.pre_date
+
   .price-box
     %h1
-    %span.price ¥ 14,600
+    %span.price
+      ¥
+      = @item.value.price
     %span.tax (税込)
     %span.sipping-fee 送料込み
-  .buy-btn 購入画面に進む
-  .item-detail Sサイズ 当時サッカーショップで購入しました。家のタンスに眠っていたので出品します。数回着用したのみで全体的に綺麗な美品です。※ジャケットには若干毛玉があります。今では手には入らないモデルなので希少です。上下セットアップでカッコよく、移動着、練習着、部屋着などにどうぞ。
-  .item-btn
-    .item-btn-left
-      %button.like-btn
-        %i.like
-        %p.text いいね!
-        %p.like-count 1
-      = link_to "",class: 'report' do
-        %i.flag
-        %p.text 不適切な商品の報告
-    .item-btn-right
-      = link_to "" do
-        %i.lock
-        %p.text あんしん・あんぜんへの取り組み
+  .item-detail
+    = @item.description
+
+%section.item-box-container
+  = link_to '編集する',edit_item_path(params[:item_id]), class: "btn-red change-height"
+  .or-option
+    or
+    = link_to '出品を一旦停止する', "/",class: "btn-red change-color"
+    = link_to 'この商品を削除する', "/", class: "btn-red change-color"
 
 %section.item-message
   %ul.messages
@@ -94,115 +100,7 @@
         = f.text_area :text, class:"text-input"
         .actions
           = f.submit "コメントする", class: 'btn-gray'
-%ul.nav-item-link.clearfix
-  %li.nav-prev
-    =link_to "",class: 'prev' do
-      %i.prev-icon
-      %p.text FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-  %li.nav-next
-    =link_to "",class: 'next' do
-      %p.text FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-      %i.prev-icon-right
-
-.social-media-box
-  %ul.social-media-icons
-    %li.social-media-icon
-      =link_to "" do
-        %i.facebook-icon
-    %li.social-media-icon
-      =link_to "" do
-        %i.twitter-icon
-    %li.social-media-icon
-      =link_to "" do
-        %i.line-icon
-    %li.social-media-icon
-      =link_to "" do
-        %i.pinterest-icon
-
-.items-user-profile
-  %section.items-box-container.clearfix.user-profile
-    %h2.item-box-head
-      =link_to "",class: 'user-link' do
-        %p エドシーランさんのその他の出品
-    .items-box-content.clearfix
-      %section.items-box
-        =link_to "",class: 'item-box' do
-          .items-box-photo
-            = image_tag("suit.jpg", alt:"スーツ", :size => '220x220')
-          .items-box-body
-            %h3.item-name.font-2 FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-            .item-box-num.clearfix
-              .item-box-price.font-5 ¥ 14,600
-              .item-box-likes
-                %p.like-count 1
-                %i.like.font-2
-              %p.item-box-sipping-fee (税込)
-      %section.items-box
-        =link_to "",class: 'item-box' do
-          .items-box-photo
-            = image_tag("suit.jpg", alt:"スーツ", :size => '220x220')
-          .items-box-body
-            %h3.item-name.font-2 FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-            .item-box-num.clearfix
-              .item-box-price.font-5 ¥ 14,600
-              .item-box-likes
-                %p.like-count 1
-                %i.like.font-2
-              %p.item-box-sipping-fee (税込)
-      %section.items-box
-        =link_to "",class: 'item-box' do
-          .items-box-photo
-            = image_tag("suit.jpg", alt:"スーツ", :size => '190x220')
-          .items-box-body
-            %h3.item-name.font-2 FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-            .item-box-num.clearfix
-              .item-box-price.font-5 ¥ 14,600
-              .item-box-likes
-                %p.like-count 1
-                %i.like.font-2
-              %p.item-box-sipping-fee (税込)
-
-  %section.items-box-container.clearfix.in-category
-    %h2.item-box-head
-      =link_to "",class: 'user-link' do
-        %p ナイキのナイロンジャケット その他の出品
-    .items-box-content.clearfix
-      %section.items-box
-        =link_to "",class: 'item-box' do
-          .items-box-photo
-            = image_tag("suit.jpg", alt:"スーツ", :size => '220x220')
-          .items-box-body
-            %h3.item-name.font-2 FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-            .item-box-num.clearfix
-              .item-box-price.font-5 ¥ 14,600
-              .item-box-likes
-                %p.like-count 1
-                %i.like.font-2
-              %p.item-box-sipping-fee (税込)
-      %section.items-box
-        =link_to "",class: 'item-box' do
-          .items-box-photo
-            = image_tag("suit.jpg", alt:"スーツ", :size => '220x220')
-          .items-box-body
-            %h3.item-name.font-2 FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-            .item-box-num.clearfix
-              .item-box-price.font-5 ¥ 14,600
-              .item-box-likes
-                %p.like-count 1
-                %i.like.font-2
-              %p.item-box-sipping-fee (税込)
-      %section.items-box
-        =link_to "",class: 'item-box' do
-          .items-box-photo
-            = image_tag("suit.jpg", alt:"スーツ", :size => '190x220')
-          .items-box-body
-            %h3.item-name.font-2 FCバルセロナ ウーブンウォームアップスーツ(ネイビー)
-            .item-box-num.clearfix
-              .item-box-price.font-5 ¥ 14,600
-              .item-box-likes
-                %p.like-count 1
-                %i.like.font-2
-              %p.item-box-sipping-fee (税込)
+%section.item-bottom
 
 
 = render 'partial/footer-banner'

@@ -4,13 +4,6 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-
-  resources :items, only:[:index, :new, :create, :show, :edit] do
-    get :detail
-    get :transaction
-  end
-
-
   resources :users do
     get :logout
     get :choice, on: :collection
@@ -24,17 +17,22 @@ Rails.application.routes.draw do
     get :profile
 
     resources :items, shallow: true do
+
+      get :show_more
+      get :transaction
+
+      get :detail
+
       collection do
         get :list
         get :set_midium_categories
         get :set_small_categories
       end
-      collection do
-        get :detail
-      end
+
       member do
         post :pay, controller: :credits, action: :pay, as: 'pay'
       end
+
     end
 
   end

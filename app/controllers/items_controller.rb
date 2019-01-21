@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :link_user
   before_action :set_item, only: [:edit, :update]
+  before_action :move_to_login, only: [:new, :destry, :transaction]
 
   def index
     @items = Item.where('id >= 1').limit(4)
@@ -52,6 +53,41 @@ class ItemsController < ApplicationController
     @small_category = SmallCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @small_category
   end
+
+  def show_more
+    @item = Item.find(params[:item_id])
+    @items = Item.order("created_at DESC").limit(3)
+    unless @item.parent_category.nil?
+     large_cate_number = @item.parent_category.large_category
+     @large_category = LargeCategory.find(large_cate_number)
+     midium_cate_number = @item.parent_category.midium_category
+     @midium_category = MidiumCategory.find(midium_cate_number)
+     small_cate_number = @item.parent_category.small_category
+     @small_category = SmallCategory.find(small_cate_number)
+    end
+  end
+
+
+  def detail
+    @item = Item.find(params[:item_id])
+
+     unless @item.parent_category.nil?
+      large_cate_number = @item.parent_category.large_category
+      @large_category = LargeCategory.find(large_cate_number)
+
+      midium_cate_number = @item.parent_category.midium_category
+      @midium_category = MidiumCategory.find(midium_cate_number)
+
+      #small_category導入後
+      # small_cate_number = @item.parent_category.small_category
+      # @small_category = SmallCategory.find(small_cate_number)
+    end
+  end
+
+  def transaction
+  end
+
+
   private
 
   def item_params
@@ -66,11 +102,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def detail
+
+  def move_to_login
+    redirect_to action: :index unless user_signed_in?
   end
-
-  def transaction
-  end
-
-
 end
