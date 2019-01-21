@@ -20,6 +20,7 @@ class CreditsController < ApplicationController
       )
       if charge.paid == true
         @item.update!(status: 'sold')
+        @purchase.save
       else
         render 'items/transaction'
       end
@@ -58,6 +59,7 @@ class CreditsController < ApplicationController
   def set_purchase
     @purchase = Purchase.new
     @purchase.item_id = params[:id]
+    @purchase.user_id = current_user.id
   end
 
   def set_user
