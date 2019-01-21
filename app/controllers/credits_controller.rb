@@ -1,18 +1,31 @@
 class CreditsController < ApplicationController
 
   before_action :set_api_key, only: [:pay, :create, :acquire_token]
-  # before_action :set_card_token, only: [:pay]
+  before_action :set_card_token, only: [:pay]
+  before_action :set_purchase, only: [:pay]
+  before_action :set_user, only: [:pay]
 
   def new
     @credit = Credit.new
   end
 
   def pay
-    customer = Payjp::Customer::create(
-      metadata: {user_id: current_user.id}
-    )
-
-    debugger;
+    @item = Item.find(params[:id])
+    if @item.status == '出品中'
+      @value = @item.value.price
+      charge = Payjp::Charge.create(
+        :amount => @value,
+        :customer => @customer_token,
+        :currency => 'jpy',
+      )
+      if charge.paid == true
+        @item.update!(status: 'sold')
+      else
+        render 'items/transaction'
+      end
+    else
+      render 'items/transaction'
+    end
   end
 
   def create
@@ -39,9 +52,17 @@ class CreditsController < ApplicationController
   end
 
   def set_card_token
-
+    @customer_token = current_user.credit.customer_id
   end
 
+  def set_purchase
+    @purchase = Purchase.new
+    @purchase.item_id = params[:id]
+  end
+
+  def set_user
+    @user = User.find(current_user.id)
+  end
   def credit_params
     params.require(:credit).permit(:customer_id).merge(user_id: current_user.id)
   end

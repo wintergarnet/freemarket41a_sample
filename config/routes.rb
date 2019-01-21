@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+
   resources :items, only:[:index, :new, :create, :show, :edit] do
     get :detail
     get :transaction
@@ -31,6 +32,9 @@ Rails.application.routes.draw do
       collection do
         get :detail
       end
+      member do
+        post :pay, controller: :credits, action: :pay, as: 'pay'
+      end
     end
 
   end
@@ -43,8 +47,6 @@ Rails.application.routes.draw do
   resources :credits, only: [:new, :create, :edit] do
     collection do
       get :acquire_token
-      get :pay
     end
   end
-
 end
