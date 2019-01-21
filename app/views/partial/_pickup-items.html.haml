@@ -1,28 +1,23 @@
+.pickup-items__content.clearfix
+  - @items.each do |item|
+    %section.pickup-items__box
+      = link_to item_show_more_path(item),class: "pic" do
+        %figure.pickup-items__box-photo
 
-%section.pickup-items__container.clearfix
-  %h3.pickup-items__container-head
-    = link_to 'レディース 新着アイテム', root_path
-  .pickup-items__content.clearfix
-    - @items.each do |item|
-      %section.pickup-items__box
-        = link_to '/',class: "pic" do
-          %figure.pickup-items__box-photo
+          = image_tag item.image, class: "lazyloaded", width: "100%"
 
-            = image_tag item.image, class: "lazyloaded", width: "100%"
-            -# = image_tag "items/m68176429047_1.jpg", class: "lazyloaded", alt:"mer", width: "100%"
-
-          .pickup-items__box-body
-            %h3.pickup-items__box-name
-              = item.name
-            .pickup-items__box-value.clearfix
-              .pickup-items__box-price
-                ¥ 3,000
-              .pickup-items__box-likes
-                %i.far.fa-heart
-                %span
-                  1
-              %p.pickup-items__box-tax
-                (税込)
+        .pickup-items__box-body
+          %h3.pickup-items__box-name
+            = item.name
+          .pickup-items__box-value.clearfix
+            .pickup-items__box-price
+              ¥ 3,000
+            .pickup-items__box-likes
+              %i.far.fa-heart
+              %span
+                1
+            %p.pickup-items__box-tax
+              (税込)
 
   .pickup-items__view-all
     %a= link_to 'すべての商品を見る', root_path

@@ -15,4 +15,19 @@ RSpec.describe ItemsController, type: :controller do
     end
 
   end
+
+  describe 'GET #show_more' do
+    it "assigns the requested contact to @item" do
+      item = create(:item)
+      get :show_more, params: { item_id: item }
+      expect(assigns(:item)).to eq item
+    end
+
+    it "renders the :show_more template" do
+      item = create(:item)
+      get :show_more, params: { item_id: item }
+      expect(response).to render_template :show_more
+    end
+  end
+
 end
