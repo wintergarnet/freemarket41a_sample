@@ -6,11 +6,10 @@
       %h1.header-inner__upper-logo
         = link_to image_tag("logo.svg", alt:"mer", width: "134", height: "36"),root_path
       .header-inner__upper-search-form
-        %input{type:"search", placeholder:"キーワードから探す"}
-        -# = form_for  do |f|
-          = f.text_field :content, class: 'form-control', placeholder: 'キーワードから探す'
-        %i.fas.fa-search
-
+        = form_tag("/items/search", method: :get) do
+          %input.form-control{type:"text", value:"", placeholder:"キーワードから探す", name:"keyword"}
+            %button.search_button{type:"submit"}
+              = fa_icon "search"
     .header-inner__lower.clearfix
       %nav.header-inner__lower-nav
         %ul.header-inner__lower-left-content
@@ -64,11 +63,11 @@
       = link_to new_user_session_path, class: 'sp-header-inner__user-new' do
         %span ログイン
   .sp-header-inner__search
-    %form.sp-header-inner__search-form
-      %input{type:"search", placeholder:"何をお探しですか"}
-        -# = form_for  do |f|
-          = f.text_field :content, class: 'form-control', placeholder: 'キーワードから探す'
-      %i.fas.fa-search
+    .sp-header-inner__search-form
+      = form_tag("/items/search", method: :get) do
+        %input.form-control{type:"text", value:"", placeholder:"キーワードから探す", name:"keyword"}
+          %button.search_button_sp{type:"submit"}
+            = fa_icon "search"
 
   %nav.sp-header-inner__lower-nav
     = link_to 'カテゴリーから探す', root_path, class: 'sp-header-inner__lower-left-content-category'
