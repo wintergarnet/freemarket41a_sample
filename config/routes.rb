@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
     get :telephone_confirm
     get :nickname_email_confirm
-    # patch 'items/:id' => 'items#update'
     get 'users' => 'users#new'
     get :profile
 
