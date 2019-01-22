@@ -2,10 +2,14 @@ class ItemsController < ApplicationController
 
   before_action :link_user
   before_action :set_item, only: [:edit, :update]
+  # before_action :set_value, only: [:index]
   before_action :move_to_login, only: [:new, :destry, :transaction]
 
   def index
-    @items = Item.where('id >= 1').limit(4)
+    @ladies_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 1').limit(4)
+    @mans_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 2').limit(4)
+    @baby_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 3').limit(4)
+    @cosme = Item.joins(:parent_category).where('status = "出品中" AND large_category = 7').limit(4)
   end
 
   def new
@@ -101,6 +105,11 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_value
+
+  end
+
 
 
   def move_to_login
