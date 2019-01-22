@@ -61,7 +61,7 @@
     %h1
     %span.price
       ¥
-      = @item.value.price
+      = @item.value.price.to_s(:delimited)
       %span.tax (税込)
       %span.sipping-fee
         = @item.delivery_fee
@@ -135,7 +135,7 @@
           .item-box-num.clearfix
             .item-box-price.font-5
               ¥
-              = @item.value.price
+              = @item.value.price.to_s(:delimited)
             .item-box-likes
               %p.like-count 1
               %i.like.font-2
