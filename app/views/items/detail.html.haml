@@ -78,18 +78,19 @@
     %h1
     %span.price
       ¥
-      = @item.value.price
+      = @item.value.price.to_s(:delimited)
     %span.tax (税込)
     %span.sipping-fee 送料込み
   .item-detail
     = @item.description
 
 %section.item-box-container
-  = link_to '編集する',edit_item_path(params[:item_id]), class: "btn-red change-height"
+  = link_to '商品の編集',edit_item_path(params[:item_id]), class: "btn-red change-height"
   .or-option
     or
     = link_to '出品を一旦停止する', "/",class: "btn-red change-color"
-    = link_to 'この商品を削除する', "/", class: "btn-red change-color"
+    = link_to 'この商品を削除する', "", id: 'modal-open', class: "btn-red change-color"
+
 
 %section.item-message
   %ul.messages
@@ -101,6 +102,18 @@
         .actions
           = f.submit "コメントする", class: 'btn-gray'
 %section.item-bottom
+
+%aside.modal.is-show.is-animate
+  .modal-inner.modal-banner
+    .modal-body
+      .modal-head.bold 確認
+      削除すると二度と復活できません。
+      %br 削除する代わりに停止することもできます。
+      %br 本当に削除しますか?
+    .modal-box
+      .modal-btn.modal-btn-cancel キャンセル
+      =link_to '削除する', delete_item_path(@item), id: "modal-open" ,class: "modal-btn modal-btn-submit", method: :patch
+
 
 
 = render 'partial/footer-banner'
