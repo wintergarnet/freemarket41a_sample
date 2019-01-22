@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
 
   before_action :link_user
   before_action :set_item, only: [:edit, :update]
-  # before_action :set_value, only: [:index]
   before_action :move_to_login, only: [:new, :destry, :transaction]
 
   def index
@@ -105,12 +104,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-  def set_value
-
-  end
-
-
 
   def move_to_login
     redirect_to action: :index unless user_signed_in?
