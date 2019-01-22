@@ -81,15 +81,17 @@ class ItemsController < ApplicationController
       midium_cate_number = @item.parent_category.midium_category
       @midium_category = MidiumCategory.find(midium_cate_number)
 
-      #small_category導入後
-      # small_cate_number = @item.parent_category.small_category
-      # @small_category = SmallCategory.find(small_cate_number)
+      small_cate_number = @item.parent_category.small_category
+      @small_category = SmallCategory.find(small_cate_number)
     end
   end
 
   def transaction
   end
 
+  def search
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
 
   private
 

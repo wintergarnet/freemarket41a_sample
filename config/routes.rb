@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+  get 'items/search' => 'items#search'
+
   resources :users do
     get :logout
     get :choice, on: :collection
@@ -17,10 +19,8 @@ Rails.application.routes.draw do
     get :profile
 
     resources :items, shallow: true do
-
       get :show_more
       get :transaction
-
       get :detail
 
       collection do
@@ -34,7 +34,6 @@ Rails.application.routes.draw do
       end
 
     end
-
   end
 
   resources :addresses do
