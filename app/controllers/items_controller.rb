@@ -87,6 +87,7 @@ class ItemsController < ApplicationController
   end
 
   def transaction
+    @item = Item.find(params[:item_id])
   end
 
   def search
