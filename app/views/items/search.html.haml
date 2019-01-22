@@ -125,25 +125,7 @@
   .search-items__right
     .search-items__right-results
       検索結果
-    .search-items__right-results-each
-    - @items.each do |item|
-      %section.pickup-items__box-search
-        = link_to item_show_more_path(item),class: "pic" do
-          %figure.pickup-items__box-photo
-            = image_tag item.image, class: "lazyloaded", width: "100%"
-          .pickup-items__box-body
-            %h3.pickup-items__box-name
-              = item.name
-            .pickup-items__box-value.clearfix
-              .pickup-items__box-price
-                ¥
-                = item.value.price.to_s(:delimited)
-              .pickup-items__box-likes
-                %i.far.fa-heart
-                %span
-                  1
-              %p.pickup-items__box-tax
-                (税込)
+    = render 'partial/items/search-items'
 
 = render 'partial/footer-banner'
 = render 'partial/footer'
