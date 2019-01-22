@@ -24,7 +24,7 @@
 
 /*選択されているタブのコンテンツのみを表示*/
   #out:checked ~ #out_content,
-  #trade:checked ~ #trade_content
+  #trade:checked ~ #trade_content,
   #sold:checked ~ #sold_content{
     display: block;
   }
