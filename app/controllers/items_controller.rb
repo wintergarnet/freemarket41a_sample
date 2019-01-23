@@ -111,6 +111,8 @@ class ItemsController < ApplicationController
       redirect_to root_path
       end
     end
+  end
+
   def search
     @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
 
