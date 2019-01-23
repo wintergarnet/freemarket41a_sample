@@ -11,11 +11,36 @@
     %h2.pickup-items__wrapper-head
       ピックアップカテゴリー
 
-      = render partial: 'partial/pickup-items',locals: {item: @items }
+      %section.pickup-items__container.clearfix
+        %h3.pickup-items__container-head
+          = link_to 'レディース 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        %h3.pickup-items__container-head
+          = link_to 'メンズ 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @mans_items }
+        %h3.pickup-items__container-head
+          = link_to 'ベビー・キッズ 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @baby_items }
+        %h3.pickup-items__container-head
+          = link_to 'コスメ・香水・美容 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @cosme }
+
   %section.pickup-items__wrapper
     %h2.pickup-items__wrapper-head
       ピックアップブランド
-      =render 'partial/pickup-items'
+      %section.pickup-items__container.clearfix
+        %h3.pickup-items__container-head
+          = link_to 'シャネル 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        %h3.pickup-items__container-head
+          = link_to 'ルイ ヴィトン 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        %h3.pickup-items__container-head
+          = link_to 'シュプリーム 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        %h3.pickup-items__container-head
+          = link_to 'ナイキ 新着アイテム', root_path
+        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
 
 = render 'partial/footer-banner'
 = render 'partial/footer'

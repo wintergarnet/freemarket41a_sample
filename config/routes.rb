@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+  get 'items/search' => 'items#search'
 
   resources :users do
     get :logout
@@ -13,24 +14,35 @@ Rails.application.routes.draw do
 
     get :telephone_confirm
     get :nickname_email_confirm
-
     get 'users' => 'users#new'
     get :profile
 
     resources :items, shallow: true do
-
       get :show_more
       get :transaction
-
       get :detail
+
 
       collection do
         get :list
+        get :trade
+        get :sold
         get :set_midium_categories
         get :set_small_categories
       end
+
+
+      member do
+        patch :destroy
+      end
     end
 
+
+      member do
+        post :pay, controller: :credits, action: :pay, as: 'pay'
+      end
+
+    end
   end
 
   resources :addresses do
@@ -39,12 +51,8 @@ Rails.application.routes.draw do
   end
 
   resources :credits, only: [:new, :create, :edit] do
-    member do
-      post :pay
-    end
     collection do
       get :acquire_token
     end
   end
-
 end

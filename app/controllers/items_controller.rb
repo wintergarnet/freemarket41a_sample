@@ -1,11 +1,14 @@
 class ItemsController < ApplicationController
 
   before_action :link_user
-  before_action :set_item, only: [:edit, :update]
-  before_action :move_to_login, only: [:new, :destry, :transaction]
+  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :move_to_login, only: [:new, :destroy, :transaction]
 
   def index
-    @items = Item.where('id >= 1').limit(4)
+    @ladies_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 1').limit(4)
+    @mans_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 2').limit(4)
+    @baby_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 3').limit(4)
+    @cosme = Item.joins(:parent_category).where('status = "出品中" AND large_category = 7').limit(4)
   end
 
   def new
@@ -42,6 +45,18 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
+    @item_sold = @items.where(status: :exhibition_stop)
+    @item_exhibition = @items.where(status: :exhibition)
+    @item_trade = @items.where(status: :trade)
+
+  end
+
+  def trade
+    @items = Item.where(user_id: current_user.id)
+  end
+
+  def sold
+    @items = Item.where(user_id: current_user.id)
   end
 
   def set_midium_categories
@@ -58,19 +73,19 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
     @items = Item.order("created_at DESC").limit(3)
     unless @item.parent_category.nil?
-     large_cate_number = @item.parent_category.large_category
-     @large_category = LargeCategory.find(large_cate_number)
-     midium_cate_number = @item.parent_category.midium_category
-     @midium_category = MidiumCategory.find(midium_cate_number)
-     small_cate_number = @item.parent_category.small_category
-     @small_category = SmallCategory.find(small_cate_number)
+      large_cate_number = @item.parent_category.large_category
+      @large_category = LargeCategory.find(large_cate_number)
+      midium_cate_number = @item.parent_category.midium_category
+      @midium_category = MidiumCategory.find(midium_cate_number)
+      small_cate_number = @item.parent_category.small_category
+      @small_category = SmallCategory.find(small_cate_number)
     end
   end
 
-
   def detail
     @item = Item.find(params[:item_id])
-
+    user = @item.user
+    @items = user.items.includes(:user).order("created_at DESC").limit(3)
      unless @item.parent_category.nil?
       large_cate_number = @item.parent_category.large_category
       @large_category = LargeCategory.find(large_cate_number)
@@ -78,15 +93,28 @@ class ItemsController < ApplicationController
       midium_cate_number = @item.parent_category.midium_category
       @midium_category = MidiumCategory.find(midium_cate_number)
 
-      #small_category導入後
-      # small_cate_number = @item.parent_category.small_category
-      # @small_category = SmallCategory.find(small_cate_number)
+      small_cate_number = @item.parent_category.small_category
+      @small_category = SmallCategory.find(small_cate_number)
     end
   end
 
   def transaction
+    @item = Item.find(params[:item_id])
   end
 
+
+  def destroy
+    if @item.status == "exhibition"
+      if @item.update(status: :exhibition_stop)
+      redirect_to root_path
+      else
+      redirect_to root_path
+      end
+    end
+  def search
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+
+  end
 
   private
 
@@ -101,7 +129,6 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 
   def move_to_login
     redirect_to action: :index unless user_signed_in?
