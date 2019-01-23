@@ -16,11 +16,13 @@
           %label.tab_list{for: "sold"} 売却済み
           #out_content.tab_content
             .tab_content_description
-              = render partial: 'partial/items/item_list_container'
+              = render partial: 'partial/items/item_list_container', locals: {items: @item_exhibition}
           #trade_content.tab_content
             .tab_content_description
+              = render partial: 'partial/items/item_list_container', locals: {items: @item_trade}
           #sold_content.tab_content
             .tab_content_description
+              = render partial: 'partial/items/item_list_container', locals: {items: @item_sold}
 
 = render 'partial/footer-banner'
 = render 'partial/footer'

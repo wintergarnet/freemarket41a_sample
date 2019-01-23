@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :link_user
-  before_action :set_item, only: [:edit, :update]
-  before_action :move_to_login, only: [:new, :destry, :transaction]
+  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :move_to_login, only: [:new, :destroy, :transaction]
 
   def index
     @items = Item.where('id >= 1').limit(4)
@@ -42,6 +42,10 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
+    @item_sold = @items.where(status: :exhibition_stop)
+    @item_exhibition = @items.where(status: :exhibition)
+    @item_trade = @items.where(status: :trade)
+
   end
 
   def set_midium_categories
@@ -87,6 +91,15 @@ class ItemsController < ApplicationController
   def transaction
   end
 
+  def destroy
+    if @item.status == "exhibition"
+      if @item.update(status: :exhibition_stop)
+      redirect_to root_path
+      else
+      redirect_to root_path
+      end
+    end
+  end
 
   private
 

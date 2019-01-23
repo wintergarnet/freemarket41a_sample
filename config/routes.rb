@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
     get :telephone_confirm
     get :nickname_email_confirm
-
     get 'users' => 'users#new'
     get :profile
 
@@ -21,13 +20,17 @@ Rails.application.routes.draw do
 
       get :show_more
       get :transaction
-
       get :detail
+
 
       collection do
         get :list
         get :set_midium_categories
         get :set_small_categories
+      end
+
+      member do
+        patch :destroy
       end
     end
 

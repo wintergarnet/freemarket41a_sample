@@ -4,6 +4,8 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :value, allow_destroy: true
   accepts_nested_attributes_for :parent_category, allow_destroy: true
 
+  enum status: {exhibition: 0, exhibition_stop: 1, trade: 2, sold: 3}
+
   mount_uploader :image, ImageUploader
 
   belongs_to :user
