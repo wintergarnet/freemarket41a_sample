@@ -140,3 +140,9 @@
 @mixin border{
   border-bottom: 1px solid $SP_GRAY;
 }
+
+@mixin angle{
+  position: absolute;
+  left: 220px;
+  top: 23px;
+}

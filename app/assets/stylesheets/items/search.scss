@@ -1,0 +1,186 @@
+.search-wrapper{
+  margin: 40px auto 0;
+  width: 1020px;
+  .search-items__left{
+    float: left;
+    width: 280px;
+    margin: 0 30px 0 0;
+    &-sort{
+      width:100%;
+      position: relative;
+      &-order{
+        width: 280px;
+        height: 48px;
+        background-color: $WHITE;
+        padding-left: 10px;
+      }
+      .angle-down-top{
+        position: absolute;
+        left: 250px;
+        top: 18px;
+      }
+    }
+    &-sort-details{
+      padding: 16px;
+      margin: 40px 0 30px 0;
+      min-height:1200px;
+      background-color: $WHITE;
+    }
+    h3{
+      font-size: 16px;
+    }
+    &-form{
+      margin: 40px 0 0;
+      width: 248px;
+      .add-keyword{
+        font-weight: 600;
+      }
+      .form-shape{
+        margin-top: 5px;
+        width: 248px;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid $GRAY;
+        background: $WHITE;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+      &-content{
+        width: 100%;
+        position:relative;
+        .angle-down-category{
+          @include angle;
+        }
+        .angle-down-size{
+          @include angle;
+        }
+        .angle-down-price{
+          @include angle;
+        }
+      }
+    }
+    &-form-checks{
+      margin-top: 5px;
+      .checks-details-contents{
+        display: inline-block;
+        vertical-align: middle;
+        width:47%;
+        margin-top: 10px;
+      }
+      .form-small{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        background: $WHITE;
+        border: 1px solid $GRAY;
+        font-size: 14px;
+        text-align: center;
+        color: $BLACK;
+      }
+      .checks-details-contents-content{
+        padding: 0 0 0 30px;
+        font-size: 14px;
+        font-weight: 400;
+        vertical-align: middle;
+      }
+    }
+    &-buttons{
+      padding: 40px 0 0;
+      &-left{
+        float: left;
+        height: 45px;
+        width: 110px;
+        background: $GRAY;
+        border: 1px solid $GRAY;
+        color: $WHITE;
+        text-align: center;
+        line-height: 45px;
+      }
+      &-right{
+        text-align: center;
+        line-height: 45px;
+        float: right;
+        height: 45px;
+        width: 110px;
+        background: $MAIN_RED;
+        border: 1px solid $MAIN_RED;
+        color: $WHITE;
+      }
+    }
+  }
+  .search-items__right{
+    float: right;
+    width: 700px;
+    height: 100%;
+    margin-bottom: 30px;
+    &-results{
+      font-size: 22px;
+      margin: 0 0 10px 0;
+    }
+    .pickup-items__box-search{
+      margin: 0 0 20px 20px;
+      width: calc(50% - 30px);
+      position: relative;
+      float: left;
+      width: 48%;
+      margin: 0 0 4% 4%;
+      background: #fff;
+      &:nth-child(odd){
+        margin: 0 0 4%;
+      }
+      a{
+        display: block;
+        color: $FONT-COLOR-BLACK;
+      }
+      figure{
+        width: 100%;
+      }
+      &-photo{
+        @include items-figure;
+        img{
+          @include items-img;
+        }
+      }
+      &-body{
+        padding: 16px;
+        height: 110px;
+      }
+      &-name{
+        @include items-box-name;
+        @include font();
+        &:after{
+          @include items-box-name-after-semitransparent;
+        }
+      }
+      &-value{
+        margin: 8px 0 0;
+        @include clearfix;
+      }
+      &-price{
+        float: left;
+        @include font(20px,600)
+      }
+      &-likes{
+        float: right;
+        @include font();
+        i{
+          margin: 0 4px 0 0;
+          vertical-align: middle;
+        }
+        .fa-heart{
+          color: #ccc;
+        }
+        span{
+          @include margin(inline-block, 1px 0 0);
+          vertical-align: middle;
+        }
+      }
+      &-tax{
+        @include font(10px);
+        clear: both;
+      }
+    }
+  }
+}
