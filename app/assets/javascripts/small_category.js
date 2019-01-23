@@ -1,8 +1,7 @@
 $(document).ready(function(){
   $(function(){
     $('.midium_category').on('change', function(){
-      var params = $(location).attr("href").match(/\/users\/\d+\/items/);
-      var url = `${params}/set_small_categories`;
+      var url = '/items/set_small_category';
       var midium_category_id = $('#item_parent_category_attributes_midium_category').val();
       var data = {
         category_id: midium_category_id

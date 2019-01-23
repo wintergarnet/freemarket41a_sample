@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'items/search' => 'items#search'
   get 'items/advanced_search' => 'items#advanced_search'
+  get 'items/set_midium_category' => 'items#set_midium_category'
+  get 'items/set_small_category' => 'items#set_small_category'
 
   resources :users do
     get :logout
@@ -27,8 +29,6 @@ Rails.application.routes.draw do
         get :list
         get :trade
         get :sold
-        get :set_midium_categories
-        get :set_small_categories
       end
 
       member do

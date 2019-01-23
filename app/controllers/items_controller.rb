@@ -59,12 +59,12 @@ class ItemsController < ApplicationController
     @items = Item.where(user_id: current_user.id)
   end
 
-  def set_midium_categories
+  def set_midium_category
     @midium_category = MidiumCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @midium_category
   end
 
-  def set_small_categories
+  def set_small_category
     @small_category = SmallCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @small_category
   end
@@ -114,8 +114,16 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
 
+    @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+    @value = Value.all
+  end
+
+  def advanced_search
+    @q = Item.search(params[:q])
+    @items = @q.result.includes(:value, :parent_category)
   end
 
   private
