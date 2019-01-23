@@ -111,7 +111,7 @@
       %br 本当に削除しますか?
     .modal-box
       .modal-btn.modal-btn-cancel キャンセル
-      =link_to '削除する', delete_item_path(@item), id: "modal-open" ,class: "modal-btn modal-btn-submit", method: :patch
+      =link_to '削除する', item_path(@item), id: "modal-open" ,class: "modal-btn modal-btn-submit", method: :patch
 
 
 

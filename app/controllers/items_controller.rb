@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :link_user
-  before_action :set_item, only: [:edit, :update, :item_delete]
+  before_action :set_item, only: [:edit, :update, :destroy]
   before_action :move_to_login, only: [:new, :destroy, :transaction]
 
   def index
@@ -91,7 +91,7 @@ class ItemsController < ApplicationController
   def transaction
   end
 
-  def item_delete
+  def destroy
     if @item.status == "exhibition"
       if @item.update(status: :exhibition_stop)
       redirect_to root_path
