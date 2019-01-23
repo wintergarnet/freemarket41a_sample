@@ -4,7 +4,6 @@
   text-align: left;
   line-height: 1;
   box-sizing: border-box;
-  -webkit-appearance: none;
 }
 
 body{
@@ -54,6 +53,10 @@ input{
   border: 1px solid #ccc;
   line-height: 1.5;
   font-size: 16px;
+}
+
+select{
+  -webkit-appearance: none;
 }
 
 

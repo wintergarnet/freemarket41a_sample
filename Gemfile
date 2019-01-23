@@ -80,6 +80,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem "squasher"
 gem 'payjp'
+gem 'ransack'
 
 group :test do
   gem 'capybara', '>= 2.15'

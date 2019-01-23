@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   get 'items/search' => 'items#search'
+  get 'items/advanced_search' => 'items#advanced_search'
 
   resources :users do
     get :logout

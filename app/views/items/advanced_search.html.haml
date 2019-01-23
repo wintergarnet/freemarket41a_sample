@@ -20,10 +20,7 @@
       .search-items__left-form
         %i.fa.fa-list
         %span.add-keyword
-          = f.fields_for :parent_category do |pf|
-            .select-wrapper
-              = pf.collection_select(:large_category, LargeCategory.all, :id, :name, {prompt: "---"}, {class: 'select-form'})
-              = fa_icon "angle-down", class:'icon'
+
           カテゴリーを選択する
         .search-items__left-form-content
           %select.form-shape
@@ -49,7 +46,10 @@
           %i.fas.fa-yen-sign
           %span.add-keyword 価格
         .search-items__left-form-content
-
+          = f.fields_for :price do |vf|
+            = vf.text_field :price_gteq
+            = vf.label :price_lt, " 〜 "
+            = vf.text_field :price_lteq
       %select.form-shape
         選択してください
         %option 選択してください
