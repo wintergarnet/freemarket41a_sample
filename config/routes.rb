@@ -22,7 +22,6 @@ Rails.application.routes.draw do
       get :transaction
       get :detail
 
-
       collection do
         get :list
         get :trade
@@ -31,12 +30,9 @@ Rails.application.routes.draw do
         get :set_small_categories
       end
 
-
       member do
         patch :destroy
       end
-    end
-
 
       member do
         post :pay, controller: :credits, action: :pay, as: 'pay'
