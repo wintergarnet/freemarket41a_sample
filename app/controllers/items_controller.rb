@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :link_user
   before_action :set_item, only: [:edit, :update, :destroy]
-  before_action :move_to_login, only: [:new, :destry, :transaction]
+  before_action :move_to_login, only: [:new, :destroy, :transaction]
 
   def index
     @items = Item.where('id >= 1').limit(4)
@@ -42,9 +42,10 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
-    @item_sold = Item.sold
-    @item_exhibition = Item.exhibition
-    @item_trade = Item.trade
+    @item_sold = @items.where(status: :exhibition_stop).all
+    @item_exhibition = @items.where(status: :exhibition).all
+    @item_trade = @items.where(status: :trade).all
+
   end
 
   def set_midium_categories
@@ -91,17 +92,16 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.status == '出品中'
-      if @item.update(status: '出品停止')
-      redirect_to root_path
+    if @item.status == "exhibition"
+      if @item.update(status: :exhibition_stop)
+        redirect_to root_path
       else
-      render 'items/list'
+        redirect_to root_path
       end
+    else
+      redirect_to root_path
     end
   end
-
-
-
 
   private
 

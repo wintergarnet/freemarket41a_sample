@@ -4,11 +4,9 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :value, allow_destroy: true
   accepts_nested_attributes_for :parent_category, allow_destroy: true
 
-  mount_uploader :image, ImageUploader
+  enum status: {exhibition: 0, exhibition_stop: 1, trade: 2, sold: 3}
 
-  scope :sold, -> { where('status = "売却済み"') }
-  scope :exhibition, -> { where('status = ? or status = ?', "出品中","出品停止") }
-  scope :trade, -> { where('status = "取引中"') }
+  mount_uploader :image, ImageUploader
 
   belongs_to :user
 
