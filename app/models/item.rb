@@ -6,6 +6,10 @@ class Item < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  scope :sold, -> { where('status = "売却済み"') }
+  scope :exhibition, -> { where('status = ? or status = ?', "出品中","出品停止") }
+  scope :trade, -> { where('status = "取引中"') }
+
   belongs_to :user
 
   validates :status, presence: true

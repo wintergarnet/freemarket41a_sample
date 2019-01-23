@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       end
 
       member do
-        patch :item_delete, as: 'delete'
+        patch :destroy
       end
     end
 

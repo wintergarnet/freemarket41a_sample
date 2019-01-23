@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   before_action :link_user
-  before_action :set_item, only: [:edit, :update, :item_delete]
+  before_action :set_item, only: [:edit, :update, :destroy]
   before_action :move_to_login, only: [:new, :destry, :transaction]
 
   def index
@@ -42,9 +42,9 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
-    @item_sold = @items.where('status = "売却済み"').all
-    @item_exhibition = @items.where('status = ? or status = ?', "出品中","出品停止").all
-    @item_trade = @items.where('status = "取引中"').all
+    @item_sold = Item.sold
+    @item_exhibition = Item.exhibition
+    @item_trade = Item.trade
   end
 
   def set_midium_categories
@@ -90,7 +90,7 @@ class ItemsController < ApplicationController
   def transaction
   end
 
-  def item_delete
+  def destroy
     if @item.status == '出品中'
       if @item.update(status: '出品停止')
       redirect_to root_path
@@ -99,6 +99,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+
 
 
 
