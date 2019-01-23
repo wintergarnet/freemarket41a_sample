@@ -69,19 +69,19 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
     @items = Item.order("created_at DESC").limit(3)
     unless @item.parent_category.nil?
-     large_cate_number = @item.parent_category.large_category
-     @large_category = LargeCategory.find(large_cate_number)
-     midium_cate_number = @item.parent_category.midium_category
-     @midium_category = MidiumCategory.find(midium_cate_number)
-     small_cate_number = @item.parent_category.small_category
-     @small_category = SmallCategory.find(small_cate_number)
+      large_cate_number = @item.parent_category.large_category
+      @large_category = LargeCategory.find(large_cate_number)
+      midium_cate_number = @item.parent_category.midium_category
+      @midium_category = MidiumCategory.find(midium_cate_number)
+      small_cate_number = @item.parent_category.small_category
+      @small_category = SmallCategory.find(small_cate_number)
     end
   end
 
-
   def detail
     @item = Item.find(params[:item_id])
-
+    user = @item.user
+    @items = user.items.includes(:user).order("created_at DESC").limit(3)
      unless @item.parent_category.nil?
       large_cate_number = @item.parent_category.large_category
       @large_category = LargeCategory.find(large_cate_number)

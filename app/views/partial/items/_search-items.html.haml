@@ -1,7 +1,7 @@
 .search-items__right-results-each
 - @items.each do |item|
   %section.pickup-items__box-search
-    = link_to item_show_more_path(item),class: "pic" do
+    = link_to item_detail_path(item),class: "pic" do
       %figure.pickup-items__box-photo
         = image_tag item.image, class: "lazyloaded", width: "100%"
       .pickup-items__box-body
