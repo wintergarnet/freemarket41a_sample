@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
       collection do
         get :list
+        get :trade
+        get :sold
         get :set_midium_categories
         get :set_small_categories
       end

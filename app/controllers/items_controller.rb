@@ -47,6 +47,14 @@ class ItemsController < ApplicationController
     @items = Item.where(user_id: current_user.id)
   end
 
+  def trade
+    @items = Item.where(user_id: current_user.id)
+  end
+
+  def sold
+    @items = Item.where(user_id: current_user.id)
+  end
+
   def set_midium_categories
     @midium_category = MidiumCategory.where(category_id: params[:category_id]).select(:id, :name)
     render json: @midium_category
