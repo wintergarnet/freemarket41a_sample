@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :link_user
-  before_action :set_item, only: [:edit, :update]
-  before_action :move_to_login, only: [:new, :destry, :transaction]
+  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :move_to_login, only: [:new, :destroy, :transaction]
 
   def index
     @ladies_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 1').limit(4)
@@ -45,6 +45,10 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
+    @item_sold = @items.where(status: :exhibition_stop)
+    @item_exhibition = @items.where(status: :exhibition)
+    @item_trade = @items.where(status: :trade)
+
   end
 
   def trade
@@ -98,8 +102,18 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+
+  def destroy
+    if @item.status == "exhibition"
+      if @item.update(status: :exhibition_stop)
+      redirect_to root_path
+      else
+      redirect_to root_path
+      end
+    end
   def search
     @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+
   end
 
   private
