@@ -76,7 +76,7 @@ class ItemsController < ApplicationController
       small_cate_number = @item.parent_category.small_category
       @small_category = SmallCategory.find(small_cate_number)
     end
-end
+  end
 
   def detail
     @item = Item.find(params[:item_id])
