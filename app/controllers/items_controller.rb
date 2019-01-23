@@ -3,12 +3,13 @@ class ItemsController < ApplicationController
   before_action :link_user
   before_action :set_item, only: [:edit, :update, :destroy]
   before_action :move_to_login, only: [:new, :destroy, :transaction]
+  before_action :set_params, only: [:advanced_search]
 
   def index
-    @ladies_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 1').limit(4)
-    @mans_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 2').limit(4)
-    @baby_items = Item.joins(:parent_category).where('status = "出品中" AND large_category = 3').limit(4)
-    @cosme = Item.joins(:parent_category).where('status = "出品中" AND large_category = 7').limit(4)
+    @ladies_items = Item.with_category.where('status = "出品中" AND large_category = 1').limit(4)
+    @mans_items = Item.with_category.where('status = "出品中" AND large_category = 2').limit(4)
+    @baby_items = Item.with_category.where('status = "出品中" AND large_category = 3').limit(4)
+    @cosme = Item.with_category.where('status = "出品中" AND large_category = 7').limit(4)
   end
 
   def new
@@ -122,7 +123,10 @@ class ItemsController < ApplicationController
   end
 
   def advanced_search
-    @q = Item.search(params[:q])
+    @q = Item.joins(:value, :parent_category).search(search_params)
+    debugger
+    @parent_category = ParentCategory.all
+    @value = Value.all
     @items = @q.result.includes(:value, :parent_category)
   end
 
@@ -130,6 +134,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :item_condition, :image, :description, :status, :ship_from, :delivery_fee, :pre_date, :user_id, value_attributes: [:id, :item_id, :price, :profit], parent_category_attributes: [:id, :large_category, :midium_category, :small_category]).merge(user_id: current_user.id)
+  end
+  def search_params
+    params.require(:q).permit(:value_price_gteq, :value_price_lteq, :parent_category_large_category_eq, :parent_category_midium_category_eq, :parent_category_small_category_eq, :item_condition_eq)
   end
 
   def link_user
@@ -139,6 +146,12 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def set_params
+    @parent_category = ParentCategory.all
+    @value = Value.all
+  end
+
 
   def move_to_login
     redirect_to action: :index unless user_signed_in?

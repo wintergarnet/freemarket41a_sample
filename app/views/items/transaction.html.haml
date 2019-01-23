@@ -34,7 +34,7 @@
             配送先と支払い方法の入力を完了してください
 
           .signup-panel__inner-buy
-            =link_to pay_item_path(params[:item_id]), method: :post do
+            = link_to pay_item_path(:id), method: :post do
               %button.btn.btn__mail
                 購入する
 

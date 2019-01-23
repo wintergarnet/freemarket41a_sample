@@ -6,7 +6,9 @@ class Item < ApplicationRecord
 
   enum status: {exhibition: 0, exhibition_stop: 1, trade: 2, sold: 3}
 
-  mount_uploader :image, ImageUploader
+  scope :with_category, -> { joins(:parent_category) }
+  scope :search_status_and_category, -> (category_id) { where('item.status = "exhibition" AND large_category: category_id') }
+
 
   belongs_to :user
 
@@ -19,4 +21,5 @@ class Item < ApplicationRecord
   validates :delivery_fee, presence: true
   validates :pre_date, presence: true
 
+  mount_uploader :image, ImageUploader
 end
