@@ -42,9 +42,9 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
-    @item_sold = @items.where(status: :exhibition_stop).all
-    @item_exhibition = @items.where(status: :exhibition).all
-    @item_trade = @items.where(status: :trade).all
+    @item_sold = @items.where(status: :exhibition_stop)
+    @item_exhibition = @items.where(status: :exhibition)
+    @item_trade = @items.where(status: :trade)
 
   end
 
