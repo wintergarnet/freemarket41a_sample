@@ -66,18 +66,22 @@ class ItemsController < ApplicationController
   end
 
   def show_more
-    @item = Item.find(params[:item_id])
-    @items = Item.order("created_at DESC").limit(3)
-    unless @item.parent_category.nil?
-     large_cate_number = @item.parent_category.large_category
-     @large_category = LargeCategory.find(large_cate_number)
-     midium_cate_number = @item.parent_category.midium_category
-     @midium_category = MidiumCategory.find(midium_cate_number)
-     small_cate_number = @item.parent_category.small_category
-     @small_category = SmallCategory.find(small_cate_number)
-    end
-  end
+      @item = Item.find(params[:item_id])
+      if current_user.id == @item.user_id?
+        redirect_to item_detail_path(current_user)
 
+      else
+        @items = Item.order("created_at DESC").limit(3)
+        unless @item.parent_category.nil?
+          large_cate_number = @item.parent_category.large_category
+          @large_category = LargeCategory.find(large_cate_number)
+          midium_cate_number = @item.parent_category.midium_category
+          @midium_category = MidiumCategory.find(midium_cate_number)
+          small_cate_number = @item.parent_category.small_category
+          @small_category = SmallCategory.find(small_cate_number)
+        end
+      end
+  end
 
   def detail
     @item = Item.find(params[:item_id])
