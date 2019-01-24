@@ -31,13 +31,9 @@ Rails.application.routes.draw do
         get :set_small_categories
       end
 
-
-      member do
-        patch :destroy
-      end
-
       member do
         post :pay, controller: :credits, action: :pay, as: 'pay'
+        patch :destroy
       end
 
     end
