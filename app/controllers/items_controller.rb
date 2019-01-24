@@ -88,7 +88,7 @@ class ItemsController < ApplicationController
   end
 
   def detail
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
     user = @item.user
     @items = user.items.includes(:user).order("created_at DESC").limit(3)
      unless @item.parent_category.nil?
@@ -104,7 +104,7 @@ class ItemsController < ApplicationController
   end
 
   def transaction
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
   end
 
 
