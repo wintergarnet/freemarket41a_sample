@@ -6,8 +6,11 @@ class Item < ApplicationRecord
 
   enum status: {exhibition: 0, exhibition_stop: 1, trade: 2, sold: 3}
 
+  enum item_condition: {newer: 0, like_new: 1, good: 2, normal: 3, fair: 4, poor: 5 }
+
   scope :with_category, -> { joins(:parent_category) }
-  scope :search_status_and_category, -> (category_id) { where('item.status = "exhibition" AND large_category: category_id') }
+  scope :search_status, -> (status) { where(status: status ) }
+  scope :search_category, -> (category_id) { where(large_category: 'category_id' )}
   scope :search_brand, -> (brand_name) { where("name like '%" + brand_name + "%'")}
 
 
