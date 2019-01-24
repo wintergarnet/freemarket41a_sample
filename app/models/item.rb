@@ -8,6 +8,7 @@ class Item < ApplicationRecord
 
   scope :with_category, -> { joins(:parent_category) }
   scope :search_status_and_category, -> (category_id) { where('item.status = "exhibition" AND large_category: category_id') }
+  scope :search_brand, -> (brand_name) { where("name like '%" + brand_name + "%'")}
 
 
   belongs_to :user

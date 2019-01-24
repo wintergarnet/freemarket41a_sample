@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
     @mans_items = Item.with_category.where('status = "出品中" AND large_category = 2').limit(4)
     @baby_items = Item.with_category.where('status = "出品中" AND large_category = 3').limit(4)
     @cosme = Item.with_category.where('status = "出品中" AND large_category = 7').limit(4)
+    @brand_chanel = Item.search_brand("シャネル").limit(4)
+    @brand_louisvuitton = Item.search_brand("ルイヴィトン").limit(4)
+    @brand_supreme= Item.search_brand("シュプリーム").limit(4)
+    @brand_nike = Item.search_brand("ナイキ").limit(4)
   end
 
   def new
