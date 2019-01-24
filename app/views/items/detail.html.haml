@@ -37,11 +37,10 @@
                 %i.right
                   %p.child
                     = @midium_category.name
-              / small_caregory導入後
-              / =link_to "",class: 'child-box' do
-              /   %i.right
-              /     %p.second-child
-              /       = @small_category.name
+              =link_to "",class: 'child-box' do
+                %i.right
+                  %p.second-child
+                    = @small_category.name
           %tr
             %th ブランド
             %td -
@@ -53,7 +52,7 @@
             %th 商品の状態
             %td
               %p
-                = @item.item_condition
+                = @item.item_condition_i18n
           %tr
             %th 配送料の負担
             %td
@@ -79,18 +78,18 @@
       %h1
       %span.price
         ¥
-        = @item.value.price
+        = @item.value.price.to_s(:delimited)
       %span.tax (税込)
       %span.sipping-fee 送料込み
     .item-detail
       = @item.description
 
   %section.item-box-container
-    = link_to '編集する',edit_item_path(params[:item_id]), class: "btn-red change-height"
+    = link_to '商品の編集',edit_item_path(params[:id]), class: "btn-red change-height"
     .or-option
       or
       = link_to '出品を一旦停止する', "/",class: "btn-red change-color"
-      = link_to 'この商品を削除する', "/", class: "btn-red change-color"
+      = link_to 'この商品を削除する', "", id: 'modal-open', class: "btn-red change-color"
 
   %section.item-message
     %ul.messages
@@ -161,28 +160,17 @@
             %th 発送日の目安
             %td
               = @item.pre_date
-
-  .price-box
-    %h1
-    %span.price
-      ¥
-      = @item.value.price.to_s(:delimited)
-    %span.tax (税込)
-    %span.sipping-fee 送料込み
-  .item-detail
-
     .price-box
       %h1
       %span.price
         ¥
-        = @item.value.price
+        = @item.value.price.to_s(:delimited)
         %span.tax (税込)
         %span.sipping-fee
           = @item.delivery_fee
     .buy-btn
-      = link_to "購入画面に進む",item_transaction_path
+      = link_to "購入画面に進む",transaction_item_path(params[:id])
     .item-detail
-
     = @item.description
     .item-btn
       .item-btn-left
@@ -197,15 +185,6 @@
         = link_to "" do
           %i.lock
           %p.text あんしん・あんぜんへの取り組み
-
-
-%section.item-box-container
-  = link_to '商品の編集',edit_item_path(params[:item_id]), class: "btn-red change-height"
-  .or-option
-    or
-    = link_to '出品を一旦停止する', "/",class: "btn-red change-color"
-    = link_to 'この商品を削除する', "", id: 'modal-open', class: "btn-red change-color"
-
   %section.item-message
     %ul.messages
       %li.cation
@@ -227,7 +206,6 @@
           = @item.name
         %i.prev-icon-right
 
-
   .social-media-box
     %ul.social-media-icons
       %li.social-media-icon
@@ -242,20 +220,6 @@
       %li.social-media-icon
         =link_to "" do
           %i.pinterest-icon
-
-
-%aside.modal.is-show.is-animate
-  .modal-inner.modal-banner
-    .modal-body
-      .modal-head.bold 確認
-      削除すると二度と復活できません。
-      %br 削除する代わりに停止することもできます。
-      %br 本当に削除しますか?
-    .modal-box
-      .modal-btn.modal-btn-cancel キャンセル
-      =link_to '削除する', item_path(@item), id: "modal-open" ,class: "modal-btn modal-btn-submit", method: :patch
-
-
   .items-user-profile
     %section.items-box-container.clearfix.user-profile
       %h2.item-box-head
@@ -277,6 +241,21 @@
                 %p.like-count 1
                 %i.like.font-2
               %p.item-box-sipping-fee (税込)
+
+
+%aside.modal.is-show.is-animate
+  .modal-inner.modal-banner
+    .modal-body
+      .modal-head.bold 確認
+      削除すると二度と復活できません。
+      %br 削除する代わりに停止することもできます。
+      %br 本当に削除しますか?
+    .modal-box
+      .modal-btn.modal-btn-cancel キャンセル
+      =link_to '削除する', item_path(@item), id: "modal-open" ,class: "modal-btn modal-btn-submit", method: :patch
+
+
+
 
 
 = render 'partial/footer-banner'

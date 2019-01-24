@@ -34,7 +34,7 @@
             配送先と支払い方法の入力を完了してください
 
           .signup-panel__inner-buy
-            =link_to pay_item_path(params[:item_id]), method: :post do
+            = link_to pay_item_path(params[:id]), method: :post do
               %button.btn.btn__mail
                 購入する
 
@@ -49,7 +49,7 @@
           = current_user.address.city
           = current_user.address.house_number
           %br
-          = @item.user.nickname
+          = current_user.nickname
         %a.transaction-user-info-fix{:href => "/"}
           %span 変更する
           %i.fas.fa-arrow-right

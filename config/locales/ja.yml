@@ -1,6 +1,22 @@
 ---
 ja:
   activerecord:
+    models:
+      item: item
+    attributes:
+      item:
+        item_condition: item_condition
+  enums:
+    item:
+      item_condition:
+        newer: 新品、未使用
+        like_new: 未使用に近い
+        good: 目立った傷や汚れなし
+        normal: やや傷や汚れあり
+        fair: 傷や汚れあり
+        poor: 全体的に状態が悪い
+
+  activerecord:
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -205,6 +221,7 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
   enums:
    item:
      status:
@@ -212,3 +229,4 @@ ja:
        exhibition_stop: 出品停止
        sold: 売却済み
        trade: 取引中
+

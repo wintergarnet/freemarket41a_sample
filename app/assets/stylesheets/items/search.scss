@@ -78,12 +78,14 @@
         font-size: 14px;
         text-align: center;
         color: $BLACK;
+        -webkit-appearance: initial;
       }
       .checks-details-contents-content{
         padding: 0 0 0 30px;
         font-size: 14px;
         font-weight: 400;
         vertical-align: middle;
+        -webkit-appearance: initial;
       }
     }
     &-buttons{
@@ -109,6 +111,25 @@
         color: $WHITE;
       }
     }
+  }
+  .form-small{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: $WHITE;
+    border: 1px solid $GRAY;
+    font-size: 14px;
+    text-align: center;
+    color: $BLACK;
+    -webkit-appearance: initial;
+  }
+  .checks-details-contents-content{
+    padding: 0 0 0 30px;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: middle;
+    -webkit-appearance: initial;
   }
   .search-items__right{
     float: right;
