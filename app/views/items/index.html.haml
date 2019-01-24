@@ -31,16 +31,16 @@
       %section.pickup-items__container.clearfix
         %h3.pickup-items__container-head
           = link_to 'シャネル 新着アイテム', root_path
-        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        = render partial: 'partial/pickup-items', locals: {items: @brand_chanel }
         %h3.pickup-items__container-head
           = link_to 'ルイ ヴィトン 新着アイテム', root_path
-        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        = render partial: 'partial/pickup-items', locals: {items: @brand_louisvuitton }
         %h3.pickup-items__container-head
           = link_to 'シュプリーム 新着アイテム', root_path
-        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        = render partial: 'partial/pickup-items', locals: {items: @brand_supreme }
         %h3.pickup-items__container-head
           = link_to 'ナイキ 新着アイテム', root_path
-        = render partial: 'partial/pickup-items', locals: {items: @ladies_items }
+        = render partial: 'partial/pickup-items', locals: {items: @brand_nike }
 
 = render 'partial/footer-banner'
 = render 'partial/footer'

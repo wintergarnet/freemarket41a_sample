@@ -1,4 +1,4 @@
-5.times do |i|
+3.times do |i|
   User.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password(8),
@@ -9,13 +9,17 @@
   )
   Item.create(
     user_id: i,
-    status: "出品中",
+    status: "exhibition",
     name: "sample_name #{i}",
     image: open("#{Rails.root}/public/images/test.jpg"),
     description: "sample_discription #{i}",
-    item_condition: Faker::Pokemon.name,
+    item_condition: "新品、未使用",
     ship_from: "北海道",
     delivery_fee: "出品者負担",
-    pre_date: "#{i}日",
+    pre_date: "2~3日",
   )
+  # Value.create(
+  #   item_id: "#{i}",
+  #   price:
+  # )
 end
