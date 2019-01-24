@@ -128,7 +128,6 @@ class ItemsController < ApplicationController
 
   def advanced_search
     @q = Item.joins(:value, :parent_category).search(search_params)
-    debugger
     @parent_category = ParentCategory.all
     @value = Value.all
     @items = @q.result.includes(:value, :parent_category)
