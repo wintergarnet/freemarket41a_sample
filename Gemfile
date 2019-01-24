@@ -41,6 +41,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'enum_help'
 gem 'enum_select_rails'
+gem 'gretel'
 
 
 group :development, :test do

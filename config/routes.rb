@@ -35,8 +35,6 @@ Rails.application.routes.draw do
       member do
         patch :destroy
       end
-    end
-
 
       member do
         post :pay, controller: :credits, action: :pay, as: 'pay'
