@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :value, allow_destroy: true
   accepts_nested_attributes_for :parent_category, allow_destroy: true
 
-  enum status: {exhibition: 0, exhibition_stop: 1, trade: 2, sold: 3}
+  enum status: {"出品中": 0, "出品停止": 1, "取引中": 2, "売却済み": 3}
 
   mount_uploader :image, ImageUploader
 
