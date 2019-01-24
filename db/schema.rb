@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20190120072955) do
     t.string   "name",                                     null: false
     t.string   "image",                                    null: false
     t.text     "description",    limit: 65535,             null: false
-    t.string   "item_condition",                           null: false
+    t.integer  "item_condition", limit: 1,                 null: false
     t.string   "ship_from",                                null: false
     t.string   "delivery_fee",                             null: false
     t.string   "pre_date",                                 null: false

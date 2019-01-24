@@ -59,8 +59,10 @@
           %i.fas.fa-star
           %span.add-keyword 商品の状態
         .search-items__left-form-checks
-          = render partial: "partial/items/items-search-bar", locals: {f:f}
-
+          - Item.item_conditions_i18n.each do |i|
+            .checks-details-contents
+              = f.check_box :item_condition_in, {multiple: true}, i[1], nil
+              = f.label "Item.item_condition_i18n_i", "#{i[1]}"
       .search-items__left-form
 
       .search-items__left-form
@@ -89,7 +91,7 @@
       .search-items__left-buttons
         .search-items__left-buttons-left
           クリア
-        = f.submit '検索する', class: 'btn-red search-items__left-buttons-right'
+          = f.submit '検索する', class: 'btn-red search-items__left-buttons-right'
 
   .search-items__right
     .search-items__right-results

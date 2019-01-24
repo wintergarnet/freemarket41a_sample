@@ -45,7 +45,7 @@
                       = fa_icon "angle-down", class:'icon'
                     .select-wrapper.midium_category
                     .select-wrapper.small_category
-                  = render partial: "partial/forms/select-form", locals:{ label_name:"商品の状態", column: :item_condition, selects: ["新品、未使用","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"],f: f}
+                  = render partial: "partial/forms/select-form", locals:{ label_name:"商品の状態", column: :item_condition, selects: Item.item_conditions.keys.map {|k| [Item.item_conditions_i18n[k], k]}, f: f}
             .common-container-inner__content
               %h3.common-container-inner__content-head 配送について
               .common-container-inner__content-box
