@@ -45,8 +45,8 @@ class ItemsController < ApplicationController
 
   def list
     @items = Item.where(user_id: current_user.id)
-    @item_sold = @items.where(status: :exhibition_stop)
-    @item_exhibition = @items.where(status: :exhibition)
+    @item_sold = @items.where(status: :sold)
+    @item_exhibition = @items.where(status: :exhibition_stop).or(@items.where(status: :exhibition))
     @item_trade = @items.where(status: :trade)
 
   end
@@ -111,6 +111,8 @@ class ItemsController < ApplicationController
       redirect_to root_path
       end
     end
+  end
+
   def search
     @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
 
