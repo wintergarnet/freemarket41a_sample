@@ -1,5 +1,8 @@
 = render 'partial/header'
-
+.bread-crumbs
+  .bread-crumbs_box
+    - breadcrumb :logout
+    = breadcrumbs separator: " &rsaquo; "
 .mypage-body
   .mypage-logout.clearfix
     = render 'partial/mypage_sidebar'
