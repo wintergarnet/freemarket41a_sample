@@ -1,7 +1,7 @@
 %ul
   - items.each do |item|
     %li
-      = link_to item_detail_path(item.id), class: 'tab_content_link', id: 'tab_content_link' do
+      = link_to detail_item_path(item.id), class: 'tab_content_link', id: 'tab_content_link' do
         %figure
           = image_tag item.image, class: "tab_content_image"
         .tab_content_body

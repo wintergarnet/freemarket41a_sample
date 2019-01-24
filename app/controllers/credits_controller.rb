@@ -11,7 +11,7 @@ class CreditsController < ApplicationController
 
   def pay
     @item = Item.find(params[:id])
-    if @item.status == '出品中'
+    if @item.status == 'exhibition'
       @value = @item.value.price
       charge = Payjp::Charge.create(
         :amount => @value,
@@ -19,7 +19,7 @@ class CreditsController < ApplicationController
         :currency => 'jpy',
       )
       if charge.paid == true
-        @item.update!(status: 'sold')
+        @item.update!(status: :sold)
         @purchase.save
       else
         render 'items/transaction'

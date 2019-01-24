@@ -22,8 +22,6 @@ Rails.application.routes.draw do
 
     resources :items, shallow: true do
       get :show_more
-      get :transaction
-      get :detail
 
       collection do
         get :list
@@ -36,6 +34,8 @@ Rails.application.routes.draw do
       end
 
       member do
+        get :detail
+        get :transaction
         post :pay, controller: :credits, action: :pay, as: 'pay'
       end
 
