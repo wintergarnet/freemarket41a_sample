@@ -4,16 +4,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
 
   validates :nickname, presence: true
-  # validates :telephone, acceptance: true
 
   has_many :comments
   has_many :items
   has_many :purchases
-  has_one :address, dependent: :destroy
-  accepts_nested_attributes_for :address
-  has_one :birth
+  has_one :address
+  accepts_nested_attributes_for :address, update_only: true, allow_destroy: true
   has_one :credit
-
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

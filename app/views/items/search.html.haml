@@ -1,0 +1,132 @@
+= render 'partial/header'
+
+.search-wrapper
+  %form.search-items__left
+    .search-items__left-sort
+      %select.search-items__left-sort-order
+        並び替え
+        %option 並び替え
+        %option 価格の安い順
+        %option 価格の高い順
+      %i.fas.fa-angle-down{class: "angle-down-top"}
+    .search-items__left-sort-details
+      %h3.large-font
+        詳細検索
+      .search-items__left-form
+        %i.fas.fa-plus
+        %span.add-keyword
+          キーワードを追加する
+        %input.form-shape
+      .search-items__left-form
+        %i.fa.fa-list
+        %span.add-keyword
+          カテゴリーを選択する
+        .search-items__left-form-content
+          %select.form-shape
+            すべて
+            %option すべて
+          %i.fas.fa-angle-down{class: "angle-down-category"}
+      .search-items__left-form
+        %i.fas.fa-tag
+        %span.add-keyword
+          ブランド名から探す
+        %input.form-shape{placeholder: "例）シャネル"}
+      .search-items__left-form
+        %i.far.fa-circle
+        %span.add-keyword
+          サイズを指定する
+        .search-items__left-form-content
+          %select.form-shape
+            すべて
+            %option すべて
+          %i.fas.fa-angle-down{class: "angle-down-size"}
+      .search-items__left-form
+        %i.fas.fa-yen-sign
+        %span.add-keyword
+          価格
+        .search-items__left-form-content
+          %select.form-shape
+            選択してください
+            %option 選択してください
+          %i.fas.fa-angle-down{class: "angle-down-price"}
+      .search-items__left-form
+        %i.fas.fa-star
+        %span.add-keyword
+          商品の状態
+        .search-items__left-form-checks
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              すべて
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              未使用に近い
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              やや傷や汚れあり
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              全体的に状態が悪い
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              新品、未使用
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              目立った傷や汚れなし
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              傷や汚れあり
+      .search-items__left-form
+        %i.fas.fa-truck
+        %span.add-keyword
+          配送料の負担
+        .search-items__left-form-checks
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              すべて
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              着払い
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              送料込み
+      .search-items__left-form
+        %i.fas.fa-shopping-cart
+        %span.add-keyword
+          販売状況
+        .search-items__left-form-checks
+          .checks-details-contents
+            %input.form-small
+            .checks-details-contents-content
+              すべて
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              販売中
+          .checks-details-contents
+            %input.form-small{type: "checkbox"}
+            .checks-details-contents-content
+              売り切れ
+      .search-items__left-buttons
+        .search-items__left-buttons-left
+          クリア
+        .search-items__left-buttons-right
+          完了
+
+  .search-items__right
+    .search-items__right-results
+      検索結果
+    = render 'partial/items/search-items'
+
+= render 'partial/footer-banner'
+= render 'partial/footer'
+= render 'partial/sell_btn'

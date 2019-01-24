@@ -31,18 +31,19 @@
           background: $INPUT_BACKGROUND;
           transition: All;
         }
-        .fa-search{
+        .search_button{
           position: absolute;
-          top: 0;
-          right: 0;
+          top: 1px;
+          right: 2px;
           width: 36px;
-          line-height: 36px;
+          line-height: 33px;
+          height: 33px;
           cursor: pointer;
-          text-align: center;
+          background: $INPUT_BACKGROUND;
+          border: 0;
         }
       }
     }
-
     &__lower{
       @include clearfix;
       margin: 8px 0 0;
@@ -236,13 +237,16 @@
       padding: 0 10px;
       margin-top: 2px;
     }
-    .fa-search{
+    .search_button_sp{
       position: absolute;
-      top: 2px;
-      right: 10px;
+      top: 4px;
+      right: 15px;
       width: 36px;
-      line-height: 38px;
-      text-align: center;
+      line-height: 33px;
+      height: 33px;
+      cursor: pointer;
+      background: $SP_GRAY;
+      border: 0;
     }
   }
 

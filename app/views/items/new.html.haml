@@ -24,6 +24,7 @@
                 .image-upload-dropbox__uploaded-items-container
                   = f.label :image, class: "image-upload-dropbox__form" do
                     = f.file_field :image, style: "display: none", class: "file-upload"
+                    #photo_view
                     %pre.image-upload-dropbox__form-note
                       ドラッグ&ドロップ
                       またはクリックしてファイルをアップロード
