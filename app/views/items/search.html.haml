@@ -13,28 +13,29 @@
       %h3.large-font
         詳細検索
       .search-items__left-form
-        %i.fas.fa-plus
-        %span.add-keyword
-          キーワードを追加する
-        %input.form-shape
-      .search-items__left-form
-        %i.fa.fa-list
-        %span.add-keyword
-          = f.fields_for :parent_category do |pf|
-            .select-wrapper
-              = pf.collection_select(:large_category, LargeCategory.all, :id, :name, {prompt: "---"}, {class: 'select-form'})
-              = fa_icon "angle-down", class:'icon'
-          カテゴリーを選択する
+        %label
+          %i.fas.fa-plus
+          %span.add-keyword キーワードを追加する
         .search-items__left-form-content
-          %select.form-shape
-            すべて
-            %option すべて
-          %i.fas.fa-angle-down{class: "angle-down-category"}
+          = f.search_field :name_cont, class: "form-shape"
+
       .search-items__left-form
-        %i.fas.fa-tag
-        %span.add-keyword
-          ブランド名から探す
-        %input.form-shape{placeholder: "例）シャネル"}
+        %label
+          %i.fa.fa-list
+          %span.add-keyword カテゴリーを選択する
+        .search-items__left-form-content
+          .select-wrapper
+            = f.collection_select(:parent_category_large_category_eq, LargeCategory.all, :id, :name, {prompt: "---"}, {class: 'select-form '})
+            = fa_icon "angle-down", class:'icon'
+          .select-wrapper.search-midium_category
+          .select-wrapper.small_category
+
+      .search-items__left-form
+        %label
+          %i.fas.fa-plus
+          %span.add-keyword ブランド名から探す
+        .search-items__left-form-content
+          = f.search_field :name_cont, class: "form-shape", placeholder: "例）シャネル"
       .search-items__left-form
         %i.far.fa-circle
         %span.add-keyword
@@ -49,11 +50,10 @@
           %i.fas.fa-yen-sign
           %span.add-keyword 価格
         .search-items__left-form-content
+          = f.text_field :value_price_gteq
+          = f.label :value_price_lteq, " 〜 "
+          = f.text_field :value_price_lteq
 
-      %select.form-shape
-        選択してください
-        %option 選択してください
-      %i.fas.fa-angle-down{class: "angle-down-price"}
       .search-items__left-form
         %label
           %i.fas.fa-star
@@ -94,7 +94,7 @@
   .search-items__right
     .search-items__right-results
       検索結果
-    = render 'partial/items/search-items'
+    = render partial: 'partial/items/advanced-search-items', locals: {items: @items}
 
 = render 'partial/footer-banner'
 = render 'partial/footer'

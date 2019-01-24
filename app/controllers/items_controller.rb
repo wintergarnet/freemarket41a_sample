@@ -118,13 +118,11 @@ class ItemsController < ApplicationController
 
     @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
     @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true)
     @value = Value.all
   end
 
   def advanced_search
     @q = Item.joins(:value, :parent_category).search(search_params)
-    debugger
     @parent_category = ParentCategory.all
     @value = Value.all
     @items = @q.result.includes(:value, :parent_category)

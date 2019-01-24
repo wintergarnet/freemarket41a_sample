@@ -1,3 +1,21 @@
 .checks-details-contents
   = f.collection_check_boxes :item_condition_eq, @items, :id, :name
   = f.label :item_condition_eq, 'すべて'
+.checks-details-contents
+  = f.collection_check_boxes :item_condition_eq, @items, :id, :name
+  = f.label :item_condition_eq, "新品、未使用"
+.checks-details-contents
+  = f.collection_check_boxes :item_condition_eq, @items, :id, :name
+  = f.label :item_condition_eq, "未使用に近い"
+.checks-details-contents
+  = f.collection_check_boxes :item_condition_eq,  @items, :id, :name
+  = f.label :item_condition_eq, "目立った傷や汚れなし"
+.checks-details-contents
+  = f.collection_check_boxes :item_condition_eq,  @items, :id, :name
+  = f.label :item_condition_eq, "やや傷や汚れあり"
+.checks-details-contents
+  = f.collection_check_boxes :item_condition_eq,  @items, :id, :name
+  = f.label :item_condition_eq, "傷や汚れあり"
+.checks-details-contents
+  = f.collection_check_boxes :item_condition_eq,  @items, :id, :name
+  = f.label :item_condition_eq, "全体的に状態が悪い"
