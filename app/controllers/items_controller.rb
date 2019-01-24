@@ -91,7 +91,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:item_id])
     user = @item.user
     @items = user.items.includes(:user).order("created_at DESC").limit(3)
-    debugger
      unless @item.parent_category.nil?
       large_cate_number = @item.parent_category.large_category
       @large_category = LargeCategory.find(large_cate_number)
